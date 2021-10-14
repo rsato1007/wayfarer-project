@@ -1,8 +1,8 @@
 # wayfarer-project
 
 # Names on Readme
-natalie-lopez
--Robert "No" Sato
+Ms. Natalie Lopez
+Robert "No" Sato
 Danielle Brinkley
 Emily Johnson
 Vince Laquindanum aka The Wizard

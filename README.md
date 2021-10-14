@@ -3,9 +3,9 @@
 # Names on Readme
 natalie-lopez
 -Robert "No" Sato
-Danielle
+Danielle Brinkley
 Emily Johnson
-Vince Laquindanum
+Vince Laquindanum aka The Wizard
 
 # Question for client
 1. How do you want this application to look?

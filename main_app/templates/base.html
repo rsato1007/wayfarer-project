@@ -18,6 +18,8 @@
             </a>
           </div>
           <div class="navbar-menu navbar-end">
+                {% comment %} <a class="navbar-item" href="{% url 'login' %}">Log In</a> {% endcomment %}
+                <a class="navbar-item" href="{% url 'signup' %}">Sign Up</a>
           </div>
         </nav>
         <div class="container">
@@ -25,7 +27,5 @@
           {% block content %}{% endblock %}
      
         </div>
-      </div>
-    </div>
   </body>
 </html>

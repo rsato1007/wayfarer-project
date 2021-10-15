@@ -1,4 +1,10 @@
 {% extends 'base.html' %} 
 {% block content %}
+
 <h1>Profile Page</h1>
+<p>{{ user.profile.name }}</p>
+<p>{{ user.profile.current_city }}</p>
+<p>{{ user.profile.joined }}</p>
+
 {% endblock %}
+

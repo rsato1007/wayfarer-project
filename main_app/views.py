@@ -3,6 +3,9 @@ from django.views.generic.base import TemplateView
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login
+from .models import Profile
+
+from main_app.models import Profile
 
 # Create your views here.
 
@@ -33,5 +36,11 @@ class Signup(View):
             context = {"form": form}
             return render(request, "registration/signup.html", context)
 
-class Profile(TemplateView):
+class ProfilePage(TemplateView):
+    model = Profile
     template_name = "profile.html"
+
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["profile"] = Profile.objects.all()
+        return context

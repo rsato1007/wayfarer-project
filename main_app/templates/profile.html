@@ -6,6 +6,11 @@
 <p>{{ user.first_name }}</p>
 <p>{{ user.last_name }}</p>
 
+<p>{{ profile.user.username }}</p>
+<p>{{ profile.user.date_joined }}</p>
+<p>{{ profile.user.first_name }}</p>
+<p>{{ profile.user.last_name }}</p>
+
 <div class="profile-container">
 
     <div class="">
@@ -20,10 +25,10 @@
                             <a href="#" style="width: 200px;" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
                         </div>
                         <div class="media-body mx-4 mb-5 pb-4 text-white">
-                            <h3 class="mt-0 mb-0">Mark Williams{{profile.user.first_name}} {{user.last_name}}</h3>
-                            <h4 class="mb-3 mt-0 "> <i class="fas fa-map-marker-alt mr-2"></i>username {{user.username}}</h4>
+                            <h3 class="mt-0 mb-0">Mark Williams{{profile.user.first_name}} {{profile.user.last_name}}</h3>
+                            <h4 class="mb-3 mt-0 "> <i class="fas fa-map-marker-alt mr-2"></i>username {{profile.user.username}}</h4>
                             <p class="small mb-0"> <i class="fas fa-map-marker-alt mr-2"></i>New York{{profile.current_city}}</p>
-                            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Member Since: {{user.date_joined}}</p>
+                            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Member Since: {{profile.user.date_joined}}</p>
                         </div>
                     </div>
                 </div>

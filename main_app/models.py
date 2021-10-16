@@ -24,7 +24,7 @@ class City(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    # profile: models.ForeignKey(Profile, on_delete=models.CASCADE, relate_name="post")
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post")
     # city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="post")
 
     def __str__(self):

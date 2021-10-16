@@ -1,20 +1,65 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
-/* Padding below the footer and lighter body text */
+
+/* GLOBAL FONTS */
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
+
+/* GLOBAL COLORS */
+:root {
+    --pink: #E8D5D9;
+    --teal: #8FA88F;
+    --gray: #EBEBE9;
+    --white: #FFFFFF;
+    --black: #000000;
+    --navy: #222222;
+}
 
 body {
-    padding-top: 3rem;
     padding-bottom: 3rem;
     color: #5a5a5a;
 }
-  
+
+/* CUSTOMIZE THE NAV
+-------------------------------------------------- */
+
+.nav-message {
+    background-color: #E8D5D9;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 10px;
+    color: var(--black);
+    height: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.navbar-main {
+    height: 160px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 14px;
+    letter-spacing: 8px;
+    color: var(--black);
+    border-style: none none solid none;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 black;
+}
+
+.navbar-item a {
+    color: var(--black);
+}
+
+.navbar-item a:hover {
+    color: var(--teal);
+}
   
 /* CUSTOMIZE THE CAROUSEL
 -------------------------------------------------- */
   
 /* Carousel base class */
 .carousel {
-    margin-bottom: 4rem;
+    margin-bottom: 8rem;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -24,14 +69,16 @@ body {
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 32rem;
+    height: 46rem;
 }
+
 .carousel-item > img {
     position: absolute;
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 32rem;
+    height: 46rem;
+    object-fit: cover;
 }
 
 

@@ -3,7 +3,7 @@ from django.views.generic.base import TemplateView
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
-from .models import Profile
+from .models import Profile, Cities
 
 from main_app.models import Profile
 
@@ -63,3 +63,7 @@ class ProfilePage(TemplateView):
         context = super().get_context_data(**kwargs)
         context["profile"] = Profile.objects.get(pk=pk)
         return context
+
+class Cities(TemplateView):
+    model: Cities
+    template_name = "cities.html"

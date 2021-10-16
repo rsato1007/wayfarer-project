@@ -10,3 +10,10 @@ class Profile(models.Model):
     
     def __str__(self):
         return str (self.user)
+
+class Cities(models.Model):
+    city = models.CharField(max_length=50)
+    country = models.CharField(max_length=50)
+
+    def __str__(self):
+        return str (self.city)

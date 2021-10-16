@@ -8,4 +8,7 @@ urlpatterns = [
     path('registration/signup/', views.Signup.as_view(), name="signup"),
     # Profile routes
     path('profile/<int:pk>/', views.ProfilePage.as_view(), name="profile"),
+
+    #City routes
+    path('cities/', views.Cities.as_view(), name="cities"),
 ]

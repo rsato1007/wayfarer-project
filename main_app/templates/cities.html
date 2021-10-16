@@ -2,5 +2,25 @@
 {% block content %}
 
 <h1>Cities</h1>
+ {% for post in post %}
+    <div class="song">
+      
+      <span><b>{{post.title}}</b></span>
+      <span>{{post.description}}</span>
+  <a class="" href="{% url 'post_update' post.pk %}">Edit Post</a>
+ <a class="" href="{% url 'post_delete' post.pk %}">Delete Post</a> 
+    </div>
+		{% empty %}
+    <article class="message">
+      <div class="message-header">
+        <p>No Posts</p>
+      </div>
+
+    {% endfor %}
+ <a class="" href="{% url 'post_create' %}">Add Post</a>
+  </div>
+</div>
 
 {% endblock %}
+
+

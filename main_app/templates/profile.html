@@ -1,5 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
+<!-- Sanity Check Code -->
 
 <p>{{ user.username }}</p>
 <p>{{ user.date_joined }}</p>
@@ -11,64 +12,36 @@
 <p>{{ profile.user.first_name }}</p>
 <p>{{ profile.user.last_name }}</p>
 
+<!-- Sanity Check Code End -->
+
 <div class="profile-container">
-
-    <div class="">
-        <div class="">
-            <!-- Profile widget -->
-            <div class="bg-white shadow rounded overflow-hidden">
-                <div class="px-5 pt-5 pb-4 cover">
-                    <div class="media align-items-end profile-head">
-                        <div class="profile mr-3">
-                            <img src="https://images.unsplash.com/photo-1522075469751-3a6694fb2f61?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=500&q=80" alt="..." width="200" class="rounded mb-2 img-thumbnail">
-                            <br />
-                            <a href="#" style="width: 200px;" class="btn btn-outline-dark btn-sm btn-block">Edit profile</a>
-                        </div>
-                        <div class="media-body mx-4 mb-5 pb-4 text-white">
-                            <h3 class="mt-0 mb-0">Mark Williams{{profile.user.first_name}} {{profile.user.last_name}}</h3>
-                            <h4 class="mb-3 mt-0 "> <i class="fas fa-map-marker-alt mr-2"></i>username {{profile.user.username}}</h4>
-                            <p class="small mb-0"> <i class="fas fa-map-marker-alt mr-2"></i>New York{{profile.current_city}}</p>
-                            <p class="small mb-4"> <i class="fas fa-map-marker-alt mr-2"></i>Member Since: {{profile.user.date_joined}}</p>
-                        </div>
-                    </div>
-                </div>
-                <div class="bg-light p-4 d-flex justify-content-end text-center">
-                    <ul class="list-inline mb-0">
-                        <li class="list-inline-item mx-5">
-                            <h3 class="font-weight-bold mb-0 d-block">215</h3><small class="text-muted"> <i class="fas fa-image mr-1"></i>Cities</small>
-                        </li>
-                        <li class="list-inline-item mx-5">
-                            <h3 class="font-weight-bold mb-0 d-block">745</h3><small class="text-muted"> <i class="fas fa-user mr-1"></i>Posts</small>
-                        </li>
-                        <li class="list-inline-item mx-5">
-                            <h3 class="font-weight-bold mb-0 d-block">340</h3><small class="text-muted"> <i class="fas fa-user mr-1"></i>Comments</small>
-                        </li>
-                    </ul>
-                </div>
-                <div class="py-4 px-4">
-                    <div class="d-flex align-items-center justify-content-between mb-3">
-                        <h5 class="mb-0">Posts</h5>
-                    </div>
-
-                    <div class="row">
-                        <div class="mb-2 p-3 d-flex">
-                            <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="w-50 img-fluid rounded shadow-sm">
-                            <div class="ps-lg-5 pe-lg-3 py-lg-5" >
-                                <h3>Lorem ipsum dolor sit amet</h3>
-                                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-                                <hr />
-                                <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>
-                            </div>
-                        </div>
-                    </div>
-
+    <div class="has-bg-img profile-header-section">
+        <div class="profile-card-container">
+            <div class="profile-user-image-container">
+                <!-- replace image with ability to add user images -->
+                <img class="profile-user-image" src="https://i.natgeofe.com/n/fa1f75cd-1cbd-419e-a5b3-52eb5c5acb22/burmese-python_16x9.jpg" alt="python bois">
+            </div>
+            <div class="user-profile-details">
+                <p class="username">{{ profile.user.username }}</p>
+                <div class="user-info-text">
+                    <p class="user-text">Member Since: {{ profile.user.date_joined }}</p>
+                    <p class="user-text">First Name: {{ profile.user.first_name }}</p>
+                    <p class="user-text">Last Name: {{ profile.user.last_name }}</p>
+                    <div class="profile-edit-button">
+                        Edit Profile
                     </div>
                 </div>
             </div>
         </div>
+        <!-- This line of code will be replaced by actual img later -->
+        <img src="https://wallpaper.dog/large/20442004.jpg" alt="colorado mountain" class="bg-img">
     </div>
-
-    
+    <div class="user-profile-posts">
+        
+    </div>
+    <div>
+        
+    </div>
 </div>
 
 {% endblock %}

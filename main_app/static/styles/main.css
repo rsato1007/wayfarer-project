@@ -1,6 +1,6 @@
 /* GLOBAL STYLES
 -------------------------------------------------- */
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200&family=PT+Serif:wght@400;700&family=Poppins:wght@100;200;400&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;400&family=PT+Serif:wght@400;700&family=Poppins:wght@100;200;400&display=swap');
 
 /* SAVING HERE FOR FUTURE REFERENCE
 font-family: 'Montserrat', sans-serif;
@@ -251,4 +251,40 @@ body {
 
 .profile-edit-button:hover {
     background-color: #ddcace;
+}
+
+.post-top-section {
+    margin: 3em 7em;
+}
+
+.post-history-text {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 4px;
+    display: inline-block;
+}
+
+.add-post-icon {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: black;
+    display: inline-block;
+    float: right;
+}
+
+.add-post-icon::before {
+    content: "+";
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: courier;
+    color: white;
 }

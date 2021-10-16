@@ -63,6 +63,7 @@ class ProfilePage(TemplateView):
     def get_context_data(self, pk, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profile"] = Profile.objects.get(pk=pk)
+        context["post"] = Post.objects.all()
         return context
 
 class City(TemplateView):

@@ -1,13 +1,15 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic.base import TemplateView
-from django.views.generic.edit import UpdateView
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from django.views import View
+from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile, City, Post
-from django.views.generic.edit import CreateView, UpdateView, DeleteView
-from django.views.generic import DetailView
-from main_app.models import Profile
+from .forms import SignupForm, ProfileForm
+
+
 
 # Create your views here.
 
@@ -17,7 +19,7 @@ class Home(TemplateView):
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["signupform"] = UserCreationForm()
+        context["signupform"] = SignupForm()
         context["loginform"] = AuthenticationForm()
         return context
 
@@ -43,12 +45,12 @@ class Login(View):
 class Signup(View):
     
     def get(self, request):
-        form = UserCreationForm()
+        form = SignupForm()
         context = {"form": form}
         return render(request, "registration/signup.html", context)
     
     def post(self, request):
-        form = UserCreationForm(request.POST)
+        form = SignupForm(request.POST)
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -68,8 +70,8 @@ class ProfilePage(TemplateView):
         return context
 
 class ProfileUpdate(UpdateView):
-    model = Profile
-    fields = ['user', 'current_city']
+    model = User
+    form_class = ProfileForm
     template_name = "profile_update.html"
     
     def get_success_url(self):

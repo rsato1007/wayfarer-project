@@ -27,9 +27,11 @@
                     <p class="user-text">Member Since: {{ profile.user.date_joined }}</p>
                     <p class="user-text">First Name: {{ profile.user.first_name }}</p>
                     <p class="user-text">Last Name: {{ profile.user.last_name }}</p>
-                    <div class="profile-edit-button">
-                        Edit Profile
-                    </div>
+                    <a href="{% url 'profile_update' user.pk %}">
+                        <div class="profile-edit-button">
+                            Edit Profile
+                        </div>
+                    </a>
                 </div>
             </div>
         </div>

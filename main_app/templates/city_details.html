@@ -1,31 +1,36 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<h1>Cities</h1>
-<!-- Search Cities -->
-<form class="" method="get">
-    <div class="">
-        <div class="">
-            <input class="input" type="text" name="name" placeholder="City" />
-        </div>
-        <div class="control">
-            <input style="background-color: darkred;" class="button is-success" type="submit" value="Search" />
-        </div>
-    </div>
-    <a class="button is-dark" style="background-color: black;" href="{% url 'city_list' %}">Clear Search</a>
-</form>
-<!-- List of Cities -->
-{% for city in cities %}
-<a href="{% url 'city_detail' city.pk %}">
-<div>
-    <span>{{city.name}}</span>
-</div>
-</a>
-{% empty %}
+<!-- SIDEBAR -->
 
-<div class="message-header">
-    <p>No Cities Yet</p>
-</div>
+<nav>
+    <h1>Cities</h1>
+    <!-- Search Cities -->
+    <form class="" method="get">
+        <div class="">
+            <div class="">
+                <input class="input" type="text" name="name" placeholder="City" />
+            </div>
+            <div class="control">
+                <input style="background-color: darkred;" class="button is-success" type="submit" value="Search" />
+            </div>
+        </div>
+        <a class="button is-dark" style="background-color: black;" href="{% url 'city_list' %}">Clear Search</a>
+    </form>
+    <!-- List of Cities -->
+    {% for city in cities %}
+    <a href="{% url 'city_detail' city.pk %}">
+    <div>
+        <span>{{city.name}}</span>
+    </div>
+    </a>
+    {% empty %}
+    
+    <div class="message-header">
+        <p>No Cities Yet</p>
+    </div>
+</nav>
+
 
 {% endfor %}
 
@@ -33,18 +38,18 @@
 
     <!-- City Content -->
     <h1>Insert City Content Here</h1>
-<h1>CITY DETAILS PAGE</h1>
+    <h1>CITY DETAILS PAGE</h1>
 
-<h2>{{city_details.name}}</h2>
-<h3>{{city_details.country}}</h3>
-<!-- 
-{% for post in city.post %}
+    <h2>{{city_details.name}}</h2>
+    <h3>{{city_details.country}}</h3>
 
-<h3>{{post.title}}</h3>
-<h6>{{post.profile.user.username}}</h6>
-<p>{{post.description}}</p> 
+    {% for post in city_details.post.all %}
 
-{% endfor %} -->
+    <h3>{{post.title}}</h3>
+    <h6>{{post.profile.user.username}}</h6>
+    <p>{{post.description}}</p> 
+
+    {% endfor %}
     
 </main>
 

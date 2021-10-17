@@ -2,7 +2,7 @@
 {% block content %}
 
 <h1>Cities</h1>
-
+<!-- Search Cities -->
 <form class="" method="get">
     <div class="">
         <div class="">
@@ -14,20 +14,30 @@
     </div>
     <a class="button is-dark" style="background-color: black;" href="{% url 'city_list' %}">Clear Search</a>
 </form>
-
-    {% for city in cities %}
-
+<!-- List of Cities -->
+{% for city in cities %}
+<a href="{% url 'city_detail' city.pk %}">
     <div>
         <span>{{city.name}}</span>
     </div>
+</a>
+{% empty %}
 
-        {% empty %}
+<div class="message-header">
+    <p>No Cities Yet</p>
+</div>
 
-    <div class="message-header">
-        <p>No Cities Yet</p>
-    </div>
+{% endfor %}
 
-    {% endfor %}
+<main>
+
+    <!-- City Content -->
+    <h1>Insert City Content Here</h1>
+
+
+</main>
 
 
 {% endblock %}
+
+

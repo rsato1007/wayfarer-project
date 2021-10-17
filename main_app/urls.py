@@ -12,7 +12,8 @@ urlpatterns = [
     # Post routes
     path('post/<int:pk>', views.PostDetail.as_view(), name="post_detail"),
     # City routes
-    path('cities/', views.CityList.as_view(), name="city_list"),
+    path('city/', views.CityList.as_view(), name="city_list"),
+    path('city/<int:pk>', views.CityDetail.as_view(), name="city_detail"),
     # path('cities/', views.City.as_view(), name="city"),
     # path('cities/post/new', views.Post_Create.as_view(), name="post_create"),
     # path('cities/post/<int:pk>/update', views.Post_Update.as_view(), name="post_update"),

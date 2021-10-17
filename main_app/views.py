@@ -82,7 +82,7 @@ class PostDetail(DetailView):
     template_name = "post_details.html"
 
 class CityList(TemplateView):
-    template_name = "cities_list.html"
+    template_name = "city_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
@@ -93,7 +93,22 @@ class CityList(TemplateView):
         else:
             context["cities"] = City.objects.all()
         return context
-    
+
+class CityDetail(TemplateView):
+    template_name = "city_details.html"
+
+    def get_context_data(self, pk, **kwargs):
+        context = super().get_context_data(**kwargs)
+        name = self.request.GET.get("name")
+
+        if name != None:
+            context["cities"] = City.objects.filter(name__icontains=name)
+            context["city_details"] = City.objects.get(pk=pk)
+        else:
+            context["cities"] = City.objects.all()
+            context["city_details"] = City.objects.get(pk=pk)
+        return context
+
 # class City(TemplateView):
 #     model = Post
 #     template_name = "cities.html"

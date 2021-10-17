@@ -6,6 +6,13 @@
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 
+/* SAVING HERE FOR FUTURE REFERENCE
+font-family: 'Montserrat', sans-serif;
+font-family: 'Poppins', sans-serif;
+font-family: 'PT Serif', serif; 
+*/
+
+
 /* GLOBAL COLORS */
 :root {
     --pink: #E8D5D9;
@@ -240,6 +247,8 @@ body {
 /* PROFILE PAGE CSS
 -------------------------------------------------- */
 
+/* I will leave this until I know it's safe to remove lol */
+
 .profile-head {
     transform: translateY(6rem);
     display: flex;
@@ -258,6 +267,196 @@ body {
 
 .profile-button {
     width: 130px;
+}
+
+
+/* Robert's Code for Profile page*/
+.profile-header-section {
+    position: relative;
+}
+
+.profile-card-container {
+    position: absolute;
+    top: 25%;
+    bottom: 25%;
+    left: 25%;
+    right: 25%;
+    width: 50%;
+    height: 50%;
+    background-color: white;
+    z-index: 1;
+    text-align: center;
+    border-radius: 10px;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    filter: drop-shadow(1px 4px 3px black);
+}
+
+.profile-user-image-container {
+    width: 100%;
+    height: 100%;
+}
+
+.profile-user-image {
+    height: 100%;
+    width: 100%;
+    border-radius: 10px 0 0 10px;
+}
+
+.username {
+    font-family: 'PT Serif', serif;
+    font-weight: 700;
+    font-size: 3em;
+    color: black;
+    margin-top: 1em;
+}
+
+.user-info-text {
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    color: black;
+    text-align: left;
+    margin-top: 15em;
+    padding: 0em 2em 0 2em;
+}
+
+.user-text {
+    font-size: 1.2em;
+    font-weight: bold;
+}
+
+.profile-edit-button {
+    float: left;
+    width: 200px;
+    height: 30px;
+    background-color: #E8D5D9;
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font: 18px;
+    line-height: 30px;
+    font-size: 1em;
+    border-radius: 6px;
+    font-weight: bold;
+    text-align: center;
+}
+
+.profile-edit-button:hover {
+    background-color: #ddcace;
+}
+
+.post-top-section {
+    margin: 3em 7em;
+}
+
+.post-history-text {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 4px;
+    display: inline-block;
+}
+
+.add-post-icon {
+    border-radius: 50%;
+    width: 45px;
+    height: 45px;
+    background-color: black;
+    display: inline-block;
+    float: right;
+}
+
+.add-post-icon::before {
+    content: "+";
+    height: 45px;
+    width: 45px;
+    font-size: 45px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: center;
+    font-weight: bold;
+    font-family: courier;
+    color: white;
+}
+
+.user-profile-posts-list {
+    text-align: center;
+}
+
+.individual-user-post {
+    background-color: #ddcace;
+    height: 24vw;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    padding: 1vw;
+}
+
+.individual-user-post-image {
+    height: 22vw;
+    width: 100%;
+    display: inline-block;
+    padding-right: 1vw;
+}
+
+.individual-user-post-description {
+    padding-left: 2vw;
+}
+
+.three-dot-editing {
+    height: 3vw;
+    width: 4vw;
+    float: right;
+    margin-right: 16px;
+    border-radius: 50%;
+}
+
+.three-dot-editing:hover {
+    background-color: #d1bbc0;
+}
+
+.individual-user-post-title {
+    text-align: left;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: black;
+    font-size: 2.2em;
+    padding-top: 2vw;
+}
+
+.individual-user-post-text {
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.7em;
+    width: 80%;
+    font-weight: 200;
+}
+
+.individual-user-post-gray-text {
+    margin-top: 3vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-right: 5vw;
+    color: rgb(87, 87, 87);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+.individual-user-post-time {
+    text-align: left;
+}
+
+.individual-user-post-comments {
+    text-align: right;
+}
+
+.individual-user-post-comments:hover {
+    text-decoration: underline;
 }
 
 /* FOOTER CSS

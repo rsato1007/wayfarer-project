@@ -4,8 +4,9 @@ from django.views.generic.edit import UpdateView
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
-from .models import Profile
-
+from .models import Profile, City, Post
+from django.views.generic.edit import CreateView, UpdateView, DeleteView
+from django.views.generic import DetailView
 from main_app.models import Profile
 
 # Create your views here.
@@ -64,7 +65,7 @@ class ProfilePage(TemplateView):
         context = super().get_context_data(**kwargs)
         context["profile"] = Profile.objects.get(pk=pk)
         return context
-    
+
 class ProfileUpdate(UpdateView):
     model = Profile
     fields = ['user', 'current_city']
@@ -73,5 +74,34 @@ class ProfileUpdate(UpdateView):
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
 
+class City(TemplateView):
+    model = Post
+    template_name = "cities.html"
 
+    def get_context_data(self, **kwargs):
+        context = super().get_context_data(**kwargs)
+        context["post"] = Post.objects.all()
+        return context
+
+class Post_Create(CreateView):
+    model = Post
+    fields = ['title', 'description']
+    template_name = "post_create.html"
+    success_url ="/cities/"
+
+class Post_Update(UpdateView):
+    model = Post
+    fields = ['title', 'description']
+    template_name = "post_update.html"
+    success_url ="/cities/"
+
+class Post_Detail(DetailView):
+    model = Post
+    template_name = "post_details.html"
+    success_url = "/cities/"
     
+class Post_Delete(DeleteView):
+    model = Post
+    fields = ['title', 'description']
+    template_name = "post_delete_confirmation.html"
+    success_url ="/cities/"

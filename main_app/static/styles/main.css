@@ -376,7 +376,7 @@ body {
     height: 45px;
     background-color: black;
     display: inline-block;
-    /* float: right; */
+    float: right;
 }
 
 .add-post-icon::before {

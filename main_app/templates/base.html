@@ -32,25 +32,27 @@
         
         {% if user.is_authenticated %}
 
-        <span class="navbar-item">Welcome: {{user.username}}</span>
         <div class="d-flex">
           <ul class="navbar-nav me-auto mb-2 mb-md-0">
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'profile' user.pk %}">Profile</a>
+            <li class="navbar-item nav-item mx-md-4">
+              <a class="nav-link" href="#">ABOUT</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="">Cities</a>
+            <li class="navbar-item nav-item nav-item mx-md-4">
+              <a class="nav-link" href="{% url 'profile' user.pk %}">PROFILE</a>
             </li>
-            <li class="nav-item">
-              <a class="nav-link" href="{% url 'logout' %}">Logout</a>
+            <li class="navbar-item nav-item nav-item mx-md-4">
+              <a class="nav-link" href="#">CITIES</a>
+            </li>
+            <li class="navbar-item nav-item nav-item mx-md-4">
+              <a class="nav-link" href="{% url 'logout' %}">LOGOUT</a>
             </li>
           </ul>
         </div>
         
-        <form class="d-flex">
+        <!-- <form class="d-flex">
           <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
           <button class="btn btn-outline-success" type="submit">Search</button>
-        </form>
+        </form> -->
 
         {% else %}
 
@@ -81,6 +83,16 @@
       {% block content %}{% endblock %}
   
     </main>
+
+    <!-- FOOTER -->
+    <div class="container footer-main">
+      <footer class="py-3 my-4">
+        <div class="nav w-100 justify-content-center border-bottom pb-3 mb-3">
+          <img src="{% static 'images/wayfarer-logo.png' %}" width="60" /> 
+        </div>  
+        <p class="text-center text-muted">&copy; 2021 Pythonic Lava, Inc</p>
+      </footer>
+    </div>
 
     <!--MODALS-->
 

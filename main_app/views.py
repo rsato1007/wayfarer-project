@@ -77,14 +77,31 @@ class ProfileUpdate(UpdateView):
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})
 
-class City(TemplateView):
+class PostDetail(DetailView):
     model = Post
-    template_name = "cities.html"
+    template_name = "post_details.html"
+
+class CityList(TemplateView):
+    template_name = "cities_list.html"
 
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
-        context["post"] = Post.objects.all()
+        name = self.request.GET.get("name")
+
+        if name != None:
+            context["cities"] = City.objects.filter(name__icontains=name)
+        else:
+            context["cities"] = City.objects.all()
         return context
+    
+# class City(TemplateView):
+#     model = Post
+#     template_name = "cities.html"
+
+#     def get_context_data(self, **kwargs):
+#         context = super().get_context_data(**kwargs)
+#         context["post"] = Post.objects.all()
+#         return context
 
 class Post_Create(CreateView):
     model = Post

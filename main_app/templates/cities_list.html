@@ -1,0 +1,33 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+<h1>Cities</h1>
+
+<form class="" method="get">
+    <div class="">
+        <div class="">
+            <input class="input" type="text" name="name" placeholder="City" />
+        </div>
+        <div class="control">
+            <input style="background-color: darkred;" class="button is-success" type="submit" value="Search" />
+        </div>
+    </div>
+    <a class="button is-dark" style="background-color: black;" href="{% url 'city_list' %}">Clear Search</a>
+</form>
+
+    {% for city in cities %}
+
+    <div>
+        <span>{{city.name}}</span>
+    </div>
+
+        {% empty %}
+
+    <div class="message-header">
+        <p>No Cities Yet</p>
+    </div>
+
+    {% endfor %}
+
+
+{% endblock %}

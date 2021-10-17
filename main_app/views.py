@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect, reverse
 from django.views.generic.base import TemplateView
+from django.views.generic.edit import UpdateView
 from django.views import View
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
@@ -66,6 +67,14 @@ class ProfilePage(TemplateView):
         context["post"] = Post.objects.all()
         return context
 
+class ProfileUpdate(UpdateView):
+    model = Profile
+    fields = ['user', 'current_city']
+    template_name = "profile_update.html"
+    
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})
+
 class City(TemplateView):
     model = Post
     template_name = "cities.html"
@@ -74,7 +83,6 @@ class City(TemplateView):
         context = super().get_context_data(**kwargs)
         context["post"] = Post.objects.all()
         return context
-
 
 class Post_Create(CreateView):
     model = Post

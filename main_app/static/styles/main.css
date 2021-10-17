@@ -288,3 +288,82 @@ body {
     font-family: courier;
     color: white;
 }
+
+.user-profile-posts-list {
+    text-align: center;
+}
+
+.individual-user-post {
+    background-color: #ddcace;
+    height: 24vw;
+    width: 85%;
+    margin-left: auto;
+    margin-right: auto;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    grid-template-rows: 1fr;
+    padding: 1vw;
+}
+
+.individual-user-post-image {
+    height: 22vw;
+    width: 100%;
+    display: inline-block;
+    padding-right: 1vw;
+}
+
+.individual-user-post-description {
+    padding-left: 2vw;
+}
+
+.three-dot-editing {
+    height: 3vw;
+    width: 4vw;
+    float: right;
+    margin-right: 16px;
+    border-radius: 50%;
+}
+
+.three-dot-editing:hover {
+    background-color: #d1bbc0;
+}
+
+.individual-user-post-title {
+    text-align: left;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: black;
+    font-size: 2.2em;
+    padding-top: 2vw;
+}
+
+.individual-user-post-text {
+    text-align: left;
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.7em;
+    width: 80%;
+    font-weight: 200;
+}
+
+.individual-user-post-gray-text {
+    margin-top: 3vw;
+    display: grid;
+    grid-template-columns: 50% 50%;
+    padding-right: 5vw;
+    color: rgb(87, 87, 87);
+    font-family: 'Montserrat', sans-serif;
+    font-size: 1.2em;
+}
+
+.individual-user-post-time {
+    text-align: left;
+}
+
+.individual-user-post-comments {
+    text-align: right;
+}
+
+.individual-user-post-comments:hover {
+    text-decoration: underline;
+}

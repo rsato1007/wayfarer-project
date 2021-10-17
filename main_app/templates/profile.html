@@ -14,7 +14,6 @@
 
 <!-- Sanity Check Code End -->
 
-
 <div class="profile-container">
     <div class="has-bg-img profile-header-section">
         <div class="profile-card-container">
@@ -44,6 +43,28 @@
         </div>
         <div class="user-profile-posts-list">
             <!-- Eventaully this will be users.posts -->
+            <!-- Danielle's code for posts below -->
+          
+            {% for post in post %}
+                    <div class="row">
+                        <div class="mb-2 p-3 d-flex">
+                            <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="w-50 img-fluid rounded shadow-sm">
+                            <div class="ps-lg-5 pe-lg-3 py-lg-5" >
+                                <h3>{{post.title}}</h3>
+                                <p>{{post.description}}</p>
+                                <hr />
+                                <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>
+                            </div>
+                        </div>
+                    </div>
+            {% empty %}
+                    <div class="message-header">
+                      <p>No Posts</p>
+                    </div>
+                    
+            {% endfor %}
+          <!-- End of Danielle's code for posts -->
+          
             <div class="individual-user-post">
                 <img class="individual-user-post-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Downtown_Fort_Collins_Colorado.jpg/1280px-Downtown_Fort_Collins_Colorado.jpg" alt="">
                 <div class="individual-user-post-description">

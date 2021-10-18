@@ -12,6 +12,8 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 from .secrets import *
+import os
+
 
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
@@ -132,9 +134,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
+EMAIL_PORT = 587
 EMAIL_USE_TLS = True
 EMAIL_HOST_USER='gaproject.wayfarer@gmail.com'
 EMAIL_HOST_PASSWORD='ocxdbffhqixwxrut'
-RECIPIENT_ADDRESS='natalielopez4@gmail.com'
+DEFAULT_FROM_EMAIL = 'gaproject.wayfarer@gmail.com'
+
 
 

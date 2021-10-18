@@ -13,6 +13,7 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 from pathlib import Path
 from .secrets import *
 
+
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
 
@@ -119,6 +120,8 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
+
+
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -126,3 +129,12 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
 
 LOGOUT_REDIRECT_URL = '/'
+
+EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
+EMAIL_HOST='smtp.gmail.com'
+EMAIL_USE_TLS = True
+EMAIL_HOST_USER='gaproject.wayfarer@gmail.com'
+EMAIL_HOST_PASSWORD='ocxdbffhqixwxrut'
+RECIPIENT_ADDRESS='natalielopez4@gmail.com'
+
+

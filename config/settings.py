@@ -129,9 +129,10 @@ STATIC_URL = '/static/'
 
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 
-
+# Logout redirect
 LOGOUT_REDIRECT_URL = '/'
 
+# Auto E-mail on sign up
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST='smtp.gmail.com'
 EMAIL_PORT = 587
@@ -140,5 +141,8 @@ EMAIL_HOST_USER='gaproject.wayfarer@gmail.com'
 EMAIL_HOST_PASSWORD='ocxdbffhqixwxrut'
 DEFAULT_FROM_EMAIL = 'gaproject.wayfarer@gmail.com'
 
-
-
+# Image file storage
+DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
+AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY
+AWS_STORAGE_BUCKET_NAME = 'wayfarer-pythonic-lava'
+AWS_QUERYSTRING_AUTH = True

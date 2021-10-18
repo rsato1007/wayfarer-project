@@ -9,23 +9,21 @@ from django.conf import settings
 @receiver(post_save, sender=User)
 def create_profile(sender, instance, created, **kwargs):
     if created:
-            user = instance
-            global profile 
-            profile = Profile.objects.create(
-            user = user,
-            email = user.email,
-        
-            )
-    subject = 'Welcome to Historic Stops!'
-    message = 'We are glad you registered. Login to Historic Stops to get started.'
-
-    send_mail(
-        subject,
-        message,
-        settings.EMAIL_HOST_USER,
-        [profile.email],
-        fail_silently=False,
+        user = instance
+        global profile 
+        profile = Profile.objects.create(
+        user = user,
+        email = user.email,
         )
+        subject = 'Welcome to Historic Stops!'
+        message = 'We are glad you registered. Login to Historic Stops to get started.'
+        send_mail(
+            subject,
+            message,
+            settings.EMAIL_HOST_USER,
+            [profile.email],
+            fail_silently=False,
+            )
     
 
 

@@ -28,6 +28,26 @@ body {
     color: #5a5a5a;
 }
 
+*:focus {
+    outline: none;
+}
+
+/* -----
+SVG Icons
+----- */
+
+.svg-icon {
+    width: 1em;
+    height: 1em;
+}
+  
+.svg-icon path,
+.svg-icon polygon,
+.svg-icon rect {
+    fill: var(--black);
+}
+  
+
 /* CUSTOMIZE THE NAV
 -------------------------------------------------- */
 
@@ -493,13 +513,64 @@ body {
     margin-top: 300px;
 }
 
-/* FOOTER CSS
+/* SIDEBAR CSS
 -------------------------------------------------- */
 
 .sidebar-city {
-    background-color: transparent;
+    background-color: white;
     border-style: none solid none none;
     border-width: 2px;
     border-color: var(--black);
     box-shadow: 0 0 1px 0 black;
+}
+.sidebar-title {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .5rem;
+    letter-spacing: 2px;
+    color: var(--black);
+}
+.sidebar-nav-item {
+    border: 1px solid var(--black);
+    height: 60px;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    margin: 6px 0px 6px 0px;
+    transition: .25s ease-in-out;
+
+}
+.sidebar-nav-item:hover {
+    background-color: var(--pink);
+    border: 1px solid var(--gray);
+}
+.sidebar-city-name {
+    /* border: 1px solid black; */
+    width: 75%;
+    display: flex;
+    justify-content: space-around;
+    font-family: 'PT Serif', serif;
+    font-size: 1.25rem;
+    color: var(--black);
+}
+.sidebar-nav-link{
+    text-decoration: none;
+}
+.image-placeholder {
+    width: 44px;
+    height: 44px;
+    border: 1px solid black;
+    margin: 8px 0 8px 8px;
+    background-color: var(--white);
+}
+.sidebar-search-input {
+    font-family: 'Poppins', sans-serif;;
+    border-style: none none solid none;
+    width: 70%;
+}
+textarea:focus, input:focus{
+    outline: none;
+}
+.sidebar-search-button {
+    border-style: none;
+    background-color: transparent;
 }

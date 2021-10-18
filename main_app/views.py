@@ -11,6 +11,12 @@ from .forms import SignupForm, ProfileForm
 
 
 
+
+from django.core.mail import EmailMessage
+from .forms import CustomUserCreationForm
+from django.contrib import messages
+
+
 # Create your views here.
 
 
@@ -18,8 +24,8 @@ class Home(TemplateView):
     template_name = "home.html"
 
     def get_context_data(self, **kwargs):
-        context = super().get_context_data(**kwargs)
-        context["signupform"] = SignupForm()
+        context = super().get_context_data(**kwargs
+        context["signupform"] = CustomUserCreationForm()
         context["loginform"] = AuthenticationForm()
         return context
 
@@ -41,16 +47,21 @@ class Login(View):
             form = AuthenticationForm()
             context = {"form": form}
             return render(request, "registration/login.html", context)
+        
+            
+        
 
 class Signup(View):
     
     def get(self, request):
-        form = SignupForm()
+
+        form = CustomUserCreationForm()
         context = {"form": form}
         return render(request, "registration/signup.html", context)
     
     def post(self, request):
-        form = SignupForm(request.POST)
+        form = CustomUserCreationForm(request.POST)
+
         if form.is_valid():
             user = form.save()
             login(request, user)
@@ -58,6 +69,8 @@ class Signup(View):
         else:
             context = {"form": form}
             return render(request, "registration/signup.html", context)
+
+        
 
 class ProfilePage(TemplateView):
     model = Profile

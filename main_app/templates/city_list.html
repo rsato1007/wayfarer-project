@@ -62,17 +62,29 @@
 
     <!-- City Content -->
     <div class="container">
-    <div class="p-4 p-md-5 mb-4 text-white rounded bg-dark">
-        <div class="col-md-6 px-0">
-          <h1 class="display-4 fst-italic">Title of a longer featured blog post</h1>
-          <p class="lead my-3">Multiple lines of text that form the lede, informing new readers quickly and efficiently about what’s most interesting in this post’s contents.</p>
-          <p class="lead mb-0"><a href="#" class="text-white fw-bold">Continue reading...</a></p>
+      <div class="p-4 mt-5 d-flex">
+        <div class="col-md-4">
+          <p class="city-content-info ms-md-4 pe-md-5">
+            Tendrils of gossamer clouds extraplanetary permanence of the stars worldlets something incredible is waiting to be known Euclid. Take root and flourish courage of our questions emerged into.
+          </p>
+        </div>
+        <div class="city-image-title-container">
+          <img class="mb-4" src="{% static 'images/london-eye.jpeg'%}" style="width: 100%; height: 420px; object-fit: cover;" />
+          <div class="city-content-header d-flex justify-content-between align-items-center">
+            <div class="city-content-header-title">
+              <h1 class="city-content-city">London</h1>
+              <h5 class="city-content-country">United Kingdom</h5>
+            </div>
+            <div class="city-content-post-count">
+              <span>2,345 POSTS</span>
+            </div>
+          </div>
         </div>
       </div>
     
       <div class="row mb-2">
         <div class="col-md-6">
-          <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
+          <div class="row g-0 border overflow-hidden flex-md-row mb-2 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
               <strong class="d-inline-block mb-2 text-primary">World</strong>
               <h3 class="mb-0">Featured post</h3>
@@ -86,6 +98,7 @@
             </div>
           </div>
         </div>
+        <! -- break -- >
         <div class="col-md-6">
           <div class="row g-0 border rounded overflow-hidden flex-md-row mb-4 shadow-sm h-md-250 position-relative">
             <div class="col p-4 d-flex flex-column position-static">
@@ -102,7 +115,7 @@
           </div>
         </div>
       </div>
-      </div>
+    </div>
 
 </div>
 

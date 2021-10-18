@@ -578,7 +578,40 @@ textarea:focus, input:focus{
 
 /* CITIES CONTENT CSS
 -------------------------------------------------- */
-
+.city-image-title-container {
+    /* border: 1px solid black; */
+    width: 100%;
+    position: relative;
+    top: -85px;
+    z-index: -1;
+}
+.city-content-info {
+    width: 90%;
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+    font-size: 16px;
+    letter-spacing: 1px;
+    line-height: 36px;
+}
+.city-content-post-count {
+    color: var(--teal);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 200;
+    font-size: 2rem;
+    letter-spacing: 2px;
+    margin-right: 2.5rem;
+}
+.city-content-city {
+    color: var(--black);
+    font-family: 'PT Serif', serif; 
+    font-weight: 700;
+    font-size: 64px;
+}
+.city-content-country {
+    color: var(--black);
+    font-family: 'Poppins', sans-serif;
+    font-weight: 400;
+}
 .blog-header {
     line-height: 1;
     border-bottom: 1px solid #e5e5e5;

@@ -1,0 +1,77 @@
+{% extends 'base.html' %} 
+{% block content %}
+{% load static %}
+
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-city d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+
+        <!-- Search Cities -->
+        <div class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="sidebar-title fs-4 pt-5">CITIES</span>
+        </div>
+        <form class="" method="get">
+            <span class="align-self-center">
+                <input class="sidebar-search-input input" type="text" name="name" placeholder="Search" />
+                <input class="sidebar-search-button sidebar-search-submit" type="submit" value="" />
+            </span>
+        
+            <span>
+                <a href="{% url 'city_list' %}">
+                    <button class="sidebar-search-button sidebar-search-clear">
+                        <svg class="svg-icon" viewBox="0 0 20 20">
+							<path fill="none" d="M11.469,10l7.08-7.08c0.406-0.406,0.406-1.064,0-1.469c-0.406-0.406-1.063-0.406-1.469,0L10,8.53l-7.081-7.08
+							c-0.406-0.406-1.064-0.406-1.469,0c-0.406,0.406-0.406,1.063,0,1.469L8.531,10L1.45,17.081c-0.406,0.406-0.406,1.064,0,1.469
+							c0.203,0.203,0.469,0.304,0.735,0.304c0.266,0,0.531-0.101,0.735-0.304L10,11.469l7.08,7.081c0.203,0.203,0.469,0.304,0.735,0.304
+							c0.267,0,0.532-0.101,0.735-0.304c0.406-0.406,0.406-1.064,0-1.469L11.469,10z"></path>
+						</svg>
+                    </button>
+                </a>
+            </span>
+        </form>
+
+        <div class="nav nav-pills flex-column mb-auto mt-5">
+
+        {% for city in cities %}
+
+            <a class="sidebar-nav-link" href="{% url 'city_detail' city.pk %}" aria-current="page">
+                <div class="sidebar-nav-item">
+                
+                    <div class="image-placeholder"></div>
+                    <div class="sidebar-city-name">{{city.name}}</div>
+                
+                </div>
+            </a>
+        {% empty %}
+
+            <div class="sidebar-nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#"/></svg>
+                    No Cities Yet
+                </a>
+            </div>
+
+        {% endfor %}
+        
+        </div>
+        
+        <hr>
+    
+    </div>
+
+    <!-- City Content -->
+    <div>
+
+        
+
+        <h1>CITY SPLASH PAGE</h1>
+
+        
+    </div>
+
+</div>
+
+{% endblock %}
+
+

@@ -1,58 +1,81 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<!-- SIDEBAR -->
 
-<nav>
-    <h1>Cities</h1>
-    <!-- Search Cities -->
-    <form class="" method="get">
-        <div class="">
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-city d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="fs-4 pt-2">Cities</span>
+        </a>
+        <!-- Search Cities -->
+        <form class="" method="get">
             <div class="">
-                <input class="input" type="text" name="name" placeholder="City" />
+                <div class="">
+                    <input class="input" type="text" name="name" placeholder="Search" />
+                    <input class="button is-success" type="submit" value=">" />
+                </div>
+                <div class="control">
+                    
+                </div>
             </div>
-            <div class="control">
-                <input style="background-color: darkred;" class="button is-success" type="submit" value="Search" />
-            </div>
-        </div>
-        <a class="button is-dark" style="background-color: black;" href="{% url 'city_list' %}">Clear Search</a>
-    </form>
-    <!-- List of Cities -->
-    {% for city in cities %}
-    <a href="{% url 'city_detail' city.pk %}">
+            <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+        </form>
+
+        <hr>
+
+        <ul class="nav nav-pills flex-column mb-auto">
+
+        {% for city in cities %}
+
+            <li class="nav-item">
+                <a href="{% url 'city_detail' city.pk %}" class="nav-link" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""/></svg>
+                    {{city.name}}
+                </a>
+            </li>
+
+        {% empty %}
+
+            <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#"/></svg>
+                    No Cities Yet
+                </a>
+            </li>
+
+        {% endfor %}
+        
+        </ul>
+        
+        <hr>
+    
+    </div>
+
+
     <div>
-        <span>{{city.name}}</span>
+
+        <!-- City Content -->
+
+        <h1>CITY DETAILS PAGE</h1>
+
+        <h2>City: {{city_details.name}}</h2>
+        <h3>Country: {{city_details.country}}</h3>
+
+        {% for post in city_details.post.all %}
+        <hr>
+
+        <h3>Post title: {{post.title}}</h3>
+        <h6>Posted by: {{post.profile.user.username}}</h6>
+        <p>Post content: {{post.description}}</p> 
+        
+        <hr>
+        {% endfor %}
+        
     </div>
-    </a>
-    {% empty %}
-    
-    <div class="message-header">
-        <p>No Cities Yet</p>
-    </div>
-</nav>
 
-
-{% endfor %}
-
-<main>
-
-    <!-- City Content -->
-    <h1>Insert City Content Here</h1>
-    <h1>CITY DETAILS PAGE</h1>
-
-    <h2>{{city_details.name}}</h2>
-    <h3>{{city_details.country}}</h3>
-
-    {% for post in city_details.post.all %}
-
-    <h3>{{post.title}}</h3>
-    <h6>{{post.profile.user.username}}</h6>
-    <p>{{post.description}}</p> 
-
-    {% endfor %}
-    
-</main>
-
+</div>
 
 {% endblock %}
 

@@ -19,7 +19,11 @@
         <div class="profile-card-container">
             <div class="profile-user-image-container">
                 <!-- replace image with ability to add user images -->
-                <img class="profile-user-image" src="https://i.natgeofe.com/n/fa1f75cd-1cbd-419e-a5b3-52eb5c5acb22/burmese-python_16x9.jpg" alt="python bois">
+                {% if profile.image %}
+                <img class="profile-user-image" src="{{ profile.image.url }}" alt="python bois">
+                {% else %}
+                <img class="profile-user-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" alt="python bois">
+                {% endif %}
             </div>
             <div class="user-profile-details">
                 <p class="username">{{ profile.user.username }}</p>
@@ -52,11 +56,12 @@
                 <a href="{% url 'post_detail' post.pk %}">
                     <div class="row">
                         <div class="mb-2 p-3 d-flex">
-                            <img src="https://images.unsplash.com/photo-1469594292607-7bd90f8d3ba4?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=750&q=80" alt="" class="w-50 img-fluid rounded shadow-sm">
+                            <img src="{{ post.image.url }}" alt="" class="w-50 img-fluid rounded shadow-sm">
                             <div class="ps-lg-5 pe-lg-3 py-lg-5" >
                                 <h3>Title: {{post.title}}</h3>
                                 <h4>City: {{post.city}}</h4>
                                 <h5>Posted by: {{post.profile.user.username}}</h5>
+                                <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
                                 <p>Post Content: {{post.description}}</p>
                                 <hr />
                                 <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>

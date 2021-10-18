@@ -16,7 +16,7 @@ class Profile(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    image = models.FileField(upload_to='profile/')
+    image = models.FileField(blank=True, null=True, upload_to='profile/')
 
     def __str__(self):
         return str (self.name)
@@ -30,7 +30,7 @@ class Post(models.Model):
     description = models.CharField(max_length=500)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post")
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="post")
-    image = models.FileField(upload_to='post/')
+    image = models.FileField(blank=True, null=True, upload_to='post/')
 
     def __str__(self):
         return self.title

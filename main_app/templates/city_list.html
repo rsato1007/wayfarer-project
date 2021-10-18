@@ -1,0 +1,70 @@
+{% extends 'base.html' %} 
+{% block content %}
+
+
+<div class="d-flex">
+
+    <!-- SIDEBAR -->
+    <div class="sidebar-city d-flex flex-column flex-shrink-0 p-3" style="width: 280px;">
+        <a href="/" class="d-flex align-items-center mb-3 mb-md-0 me-md-auto link-dark text-decoration-none">
+            <span class="fs-4 pt-2">Cities</span>
+        </a>
+        <!-- Search Cities -->
+        <form class="" method="get">
+            <div class="">
+                <div class="">
+                    <input class="input" type="text" name="name" placeholder="Search" />
+                    <input class="button is-success" type="submit" value=">" />
+                </div>
+                <div class="control">
+                    
+                </div>
+            </div>
+            <a class="button is-dark" href="{% url 'city_list' %}">Clear Search</a>
+        </form>
+
+        <hr>
+
+        <ul class="nav nav-pills flex-column mb-auto">
+
+        {% for city in cities %}
+
+            <li class="nav-item">
+                <a href="{% url 'city_detail' city.pk %}" class="nav-link" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href=""/></svg>
+                    {{city.name}}
+                </a>
+            </li>
+
+        {% empty %}
+
+            <li class="nav-item">
+                <a href="#" class="nav-link active" aria-current="page">
+                    <svg class="bi me-2" width="16" height="16"><use xlink:href="#"/></svg>
+                    No Cities Yet
+                </a>
+            </li>
+
+        {% endfor %}
+        
+        </ul>
+        
+        <hr>
+    
+    </div>
+
+
+    <div>
+
+        <!-- City Content -->
+
+        <h1>CITY SPLASH PAGE</h1>
+
+        
+    </div>
+
+</div>
+
+{% endblock %}
+
+

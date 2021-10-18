@@ -492,3 +492,14 @@ body {
 .footer-main {
     margin-top: 300px;
 }
+
+/* FOOTER CSS
+-------------------------------------------------- */
+
+.sidebar-city {
+    background-color: transparent;
+    border-style: none solid none none;
+    border-width: 2px;
+    border-color: var(--black);
+    box-shadow: 0 0 1px 0 black;
+}

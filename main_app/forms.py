@@ -7,7 +7,12 @@ from django.core.exceptions import ValidationError
 from .models import Profile
 
 class CustomUserCreationForm(UserCreationForm):
-   class Meta:
+    username = forms.CharField(label="", help_text="", widget=forms.TextInput(attrs={'placeholder': 'Username', 'class': 'modal-form-input',}))
+    email = forms.CharField(label="", help_text="", widget=forms.TextInput(attrs={'placeholder': 'Email', 'class': 'modal-form-input',}))
+    password1 = forms.CharField(label="", help_text="", widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'modal-form-input',}))
+    password2 = forms.CharField(label="", help_text="", widget=forms.PasswordInput(attrs={'placeholder': 'Confirm password', 'class': 'modal-form-input',}))
+
+    class Meta:
        model = User
        fields = ['username', 'email', 'password1', 'password2']
       
@@ -17,6 +22,14 @@ class SignupForm(UserCreationForm):
     class Meta:
         model = User
         fields = ('username', 'email', 'current_city', 'password1', 'password2',)
+    
+class LoginForm(ModelForm):
+    username = forms.CharField(label="", widget=forms.TextInput(attrs={'placeholder': 'Username', 'class': 'modal-form-input',}))
+    password1 = forms.CharField(label="", widget=forms.PasswordInput(attrs={'placeholder': 'Password', 'class': 'modal-form-input',}))
+
+    class Meta:
+        model = User
+        fields = ('username', 'password1')
 
 class ProfileForm(ModelForm):
     current_city = forms.CharField(max_length=50)

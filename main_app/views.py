@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile, City, Post
-from .forms import SignupForm, ProfileForm, ProfilePictureForm
+from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm
 
 
 
@@ -26,25 +26,25 @@ class Home(TemplateView):
     def get_context_data(self, **kwargs):
         context = super().get_context_data(**kwargs)
         context["signupform"] = CustomUserCreationForm()
-        context["loginform"] = AuthenticationForm()
+        context["loginform"] = LoginForm()
         return context
 
 class Login(View):
     
     def get(self, request):
-        form = AuthenticationForm()
+        form = LoginForm()
         context = {"form": form}
         return render(request, "registration/login.html", context)
     
     def post(self, request):
         username = request.POST['username']
-        password = request.POST['password']
+        password = request.POST['password1']
         user = authenticate(request, username=username, password=password)
         if user is not None:
             login(request, user)
             return redirect('profile', pk=user.id)
         else:
-            form = AuthenticationForm()
+            form = LoginForm()
             context = {"form": form}
             return render(request, "registration/login.html", context)
         

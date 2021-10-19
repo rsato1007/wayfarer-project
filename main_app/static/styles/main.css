@@ -253,7 +253,10 @@ SVG Icons
 .modal-sheet .modal-footer {
     padding-bottom: 2rem;
 }
-  
+.modal-footer {
+    display: flex;
+    justify-content: center;
+} 
 .modal-alert .modal-dialog {
     width: 380px;
 }
@@ -276,7 +279,32 @@ SVG Icons
     font-size: 2rem; 
     
 }
-
+.modal-form {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.modal-form > p {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    width: 100%;
+    /* border: 1px solid black; */
+}
+.modal-form-input {
+    width: 50%;
+}
+.form-button {
+    border: 1px solid var(--black);
+    background-color: var(--pink);
+    width: 25%;
+}
+.link-modal {
+    color: var(--teal);
+}
 /* PROFILE PAGE CSS
 -------------------------------------------------- */
 

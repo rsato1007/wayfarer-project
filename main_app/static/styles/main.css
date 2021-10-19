@@ -761,10 +761,41 @@ border-radius: 2rem;
     align-self: center;
 }
 
-.individual-post-content-info-comments-single-content {
+.individual-post-content-info-comments-single-container {
     height: 5vw;
     width: 100%;
     background: white;
     border: 0.1px solid gray;
     border-radius: 10px;
+}
+
+.individual-post-content-info-comments-single-container-user {
+    margin-left: 0.5em;
+    font-size: 1.2vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments-single-container-postTime {
+    margin-left: 0.9em;
+    font-size: 1.2vw;
+    font-family: 'Poppins', sans-serif;
+    color: #9D9D9D;
+}
+
+.individual-post-content-info-comments-single-container-content {
+    color: black;
+    font-size: 0.9vw;
+    font-weight: normal;
+    margin-left: 0.9em;
+    width: 95%;
+}
+
+.more-posts-from-user-container-header {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin: 2em 0 2em 2em;
 }

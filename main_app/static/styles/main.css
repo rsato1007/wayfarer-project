@@ -256,6 +256,7 @@ SVG Icons
 .modal-footer {
     display: flex;
     justify-content: center;
+    font-family: 'Poppins', sans-serif;
 } 
 .modal-alert .modal-dialog {
     width: 380px;
@@ -273,18 +274,14 @@ SVG Icons
     font-size: 2rem; 
     
 }
-.modal-title {
-    color: var(--black);
-    font-family: 'PT Serif', serif;
-    font-size: 2rem; 
-    
-}
+
 .modal-form {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     width: 100%;
+    font-family: 'Poppins', sans-serif;
     /* border: 1px solid black; */
 }
 .modal-form > p {
@@ -295,12 +292,16 @@ SVG Icons
     /* border: 1px solid black; */
 }
 .modal-form-input {
-    width: 50%;
+    border-radius: none;
+    padding: 8px;
+    font-family: 'Poppins', sans-serif;
+    width: 60%;
 }
 .form-button {
     border: 1px solid var(--black);
     background-color: var(--pink);
-    width: 25%;
+    width: 32%;
+    padding: 4px;
 }
 .link-modal {
     color: var(--teal);
@@ -823,3 +824,46 @@ textarea:focus, input:focus{
     display: inline-block;
     margin: 2em 0 2em 2em;
 }
+
+.form-body {
+    display: flex;
+    align-items: center;
+    padding-top: 40px;
+    padding-bottom: 40px;
+    background-color: #f5f5f5;
+}
+.form-signin {
+    width: 100%;
+    max-width: 330px;
+    padding: 15px;
+    margin: auto;
+  }
+  
+  .form-signin .form-floating:focus-within {
+    z-index: 2;
+  }
+  
+  .form-signin input[type="email"] {
+    margin-bottom: -1px;
+    border-bottom-right-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+  
+  .form-signin input[type="password"] {
+    margin-bottom: 10px;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+  }
+  
+  .form-image-update {
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    margin: auto;
+  }
+  .form-image-update > p {
+    width: 100%;
+    max-width: 700px;
+    padding: 15px;
+    margin: auto;
+  }

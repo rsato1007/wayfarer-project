@@ -108,7 +108,7 @@
           <div class="modal-body">
             <form class="modal-form" method="post" action="{% url 'login-user' %}">
               {% csrf_token %} {{ loginform.as_p }}
-              <input type="submit" class="form-button" value="Login" />
+              <input type="submit" class="form-button" value="LOGIN" />
               <input type="hidden" name="next" value="{{ next }}" />
             </form>
           </div>
@@ -128,7 +128,7 @@
           <div class="modal-body">
             <form class="modal-form" method="post" action="{% url 'signup' %}">
               {% csrf_token %} {{ signupform.as_p }}
-              <input type="submit" class="form-button" value="Sign up" />
+              <input type="submit" class="form-button" value="SIGN UP" />
               <input type="hidden" name="next" value="{{ next }}" />
             </form>
           </div>

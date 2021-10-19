@@ -1,10 +1,16 @@
 {% extends 'base.html' %} {% block content %}
+<div class="form-body">
+  <main class="form-signin">
+    <form class="modal-form" method="post" action="{% url 'login' %}">
+      <p style="color: red">{{error}}</p>
+      <h1 class="modal-title h3 mb-3 fw-normal">Log In</h1>
+      
+      {% csrf_token %} {{ loginform.as_p }}
 
-<h1 class="title">Log In</h1>
-<form method="post" action="{% url 'login' %}">
-  {% csrf_token %} {{ form.as_p }}
-  <input type="submit" class="btn" value="login" />
-  <input type="hidden" name="next" value="{{ next }}" />
-</form>
+      <input type="submit" class="form-button" value="LOGIN" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </main>
+</div>
 
 {% endblock %}

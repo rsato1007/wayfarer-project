@@ -33,7 +33,8 @@ class Login(View):
     
     def get(self, request):
         form = LoginForm()
-        context = {"form": form}
+        signupform = SignupForm()
+        context = {"loginform": form, "signupform": signupform}
         return render(request, "registration/login.html", context)
     
     def post(self, request):
@@ -45,7 +46,9 @@ class Login(View):
             return redirect('profile', pk=user.id)
         else:
             form = LoginForm()
-            context = {"form": form}
+            signupform = SignupForm()
+            error = "Invalid Credentials" 
+            context = {"loginform": form, "signupform": signupform, "error": error}
             return render(request, "registration/login.html", context)
         
             
@@ -54,9 +57,9 @@ class Login(View):
 class Signup(View):
     
     def get(self, request):
-
+        loginform = LoginForm()
         form = CustomUserCreationForm()
-        context = {"form": form}
+        context = {"signupform": form, "loginform": loginform}
         return render(request, "registration/signup.html", context)
     
     def post(self, request):
@@ -67,7 +70,8 @@ class Signup(View):
             login(request, user)
             return redirect('profile', pk=self.request.user.pk)
         else:
-            context = {"form": form}
+            loginform = LoginForm()
+            context = {"signupform": form, "loginform": loginform}
             return render(request, "registration/signup.html", context)
 
         

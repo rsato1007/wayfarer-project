@@ -535,7 +535,7 @@ SVG Icons
     display: flex;
     justify-content: left;
     align-items: center;
-    margin: 6px 0px 6px 0px;
+    margin: 12px 0px 0px 0px;
     transition: .25s ease-in-out;
 
 }
@@ -565,7 +565,9 @@ SVG Icons
 .sidebar-search-input {
     font-family: 'Poppins', sans-serif;;
     border-style: none none solid none;
-    width: 80%;
+    border-color: var(--black);
+    width: 90%;
+
 }
 textarea:focus, input:focus{
     outline: none;
@@ -573,17 +575,27 @@ textarea:focus, input:focus{
 .sidebar-search-button {
     border-style: none;
     background-color: transparent;
+    margin: 0 0 0 4px;
+    padding: 0;
 }
 
 
 /* CITIES CONTENT CSS
 -------------------------------------------------- */
+.city-header-container {
+    display: flex;
+    padding: 48px 48px 0 48px;
+    margin-top: 28px;
+}
 .city-image-title-container {
     /* border: 1px solid black; */
     width: 100%;
     position: relative;
     top: -85px;
     z-index: -1;
+}
+.city-content-header-title {
+    margin-right: 40px;
 }
 .city-content-info {
     width: 90%;
@@ -598,8 +610,7 @@ textarea:focus, input:focus{
     font-family: 'Poppins', sans-serif;
     font-weight: 200;
     font-size: 2rem;
-    letter-spacing: 2px;
-    margin-right: 2.5rem;
+    letter-spacing: 4px;
 }
 .city-content-city {
     color: var(--black);
@@ -612,53 +623,12 @@ textarea:focus, input:focus{
     font-family: 'Poppins', sans-serif;
     font-weight: 400;
 }
-.blog-header {
-    line-height: 1;
-    border-bottom: 1px solid #e5e5e5;
+.city-post-subtitle {
+    font-family: 'Montserrat', sans-serif;
+    font-size: .5rem;
+    letter-spacing: 2px;
+    color: var(--black);
 }
-
-.blog-header-logo {
-    font-family: "Playfair Display", Georgia, "Times New Roman", serif/*rtl:Amiri, Georgia, "Times New Roman", serif*/;
-    font-size: 2.25rem;
-  }
-  
-.blog-header-logo:hover {
-    text-decoration: none;
-}
-
-.display-4 {
-    font-size: 2.5rem;
-  }
-  @media (min-width: 768px) {
-    .display-4 {
-      font-size: 3rem;
-    }
-}
-  
-.nav-scroller {
-    position: relative;
-    z-index: 2;
-    height: 2.75rem;
-    overflow-y: hidden;
-}
-
-.nav-scroller .nav {
-    display: flex;
-    flex-wrap: nowrap;
-    padding-bottom: 1rem;
-    margin-top: -1px;
-    overflow-x: auto;
-    text-align: center;
-    white-space: nowrap;
-    -webkit-overflow-scrolling: touch;
-}
-
-.nav-scroller .nav-link {
-    padding-top: .75rem;
-    padding-bottom: .75rem;
-    font-size: .875rem;
-}
-
 .card-img-right {
     height: 100%;
     border-radius: 0 3px 3px 0;
@@ -668,14 +638,24 @@ textarea:focus, input:focus{
     flex: 0 0 auto;
 }
 
-.h-250 { height: 350px; }
-@media (min-width: 768px) {
-.h-md-250 { height: 350px; }
+
+.h-md-250 { 
+    height: 350px;
+    min-width: 800; 
 }
-
-
-
-
+.city-post-add {
+    width: 42px;
+    height: 42px;
+    border-style: none;
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+}
+.city-post-add:hover {
+    background-color: var(--teal);
+}
 .city-post-title {
     font-family: 'PT Serif', serif;
     color: var(--black)
@@ -685,11 +665,11 @@ textarea:focus, input:focus{
     font-family: 'Poppins', sans-serif;
     color: var(--black);
     font-weight: 300;
+    font-size: .90rem;
 }
 
 .city-post-content-container {
     background-color: var(--gray);
-    min-width: 400px;
 }
 
 .city-post-footer {

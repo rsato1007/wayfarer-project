@@ -24,3 +24,9 @@ class ProfileForm(ModelForm):
     class Meta:
         model = User
         fields = ('first_name', 'last_name', 'current_city')
+
+class ProfilePictureForm(ModelForm):
+
+    class Meta:
+        model = Profile
+        fields = ('image',)

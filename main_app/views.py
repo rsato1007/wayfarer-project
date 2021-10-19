@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile, City, Post
-from .forms import SignupForm, ProfileForm
+from .forms import SignupForm, ProfileForm, ProfilePictureForm
 
 
 
@@ -86,6 +86,14 @@ class ProfileUpdate(UpdateView):
     model = User
     form_class = ProfileForm
     template_name = "profile_update.html"
+    
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.object.pk})
+
+class ProfilePictureUpdate(UpdateView):
+    model = Profile
+    form_class = ProfilePictureForm
+    template_name = "profile_picture_update.html"
     
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.object.pk})

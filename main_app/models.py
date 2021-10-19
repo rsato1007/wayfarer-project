@@ -1,5 +1,6 @@
 from django.db import models
 from django.contrib.auth.models import User
+import time
 
 # Create your models here.
 
@@ -31,6 +32,7 @@ class Post(models.Model):
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post")
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="post")
     image = models.FileField(blank=True, null=True, upload_to='post/')
+    created_at = models.DateTimeField(auto_now_add=True)
 
     def __str__(self):
         return self.title

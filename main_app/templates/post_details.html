@@ -1,17 +1,8 @@
 {% extends 'base.html' %} {% block content %}
-<!-- Sanity Check Code -->
-<h1>POST DETAILS PAGE</h1>
-
-<h2>{{post.city}}</h2>
-<h3>{{post.title}}</h3> 
-<p>{{post.description}}</p>
-<p>{{post.profile}}</p>
-
-<!-- Sanity Check Code End -->
 
 <div class="post-card-container">
     <div class="individual-post-title">
-        <p class="individual-post-title-text">Winter in Rocky Mountain National Park by {{post.profile}}</p>
+        <p class="individual-post-title-text">{{post.title}} by {{post.profile}}</p>
         <p class="individual-post-title-city">Inspiration from {{post.city}}</p>
     </div>
     <div class="individual-post-content">
@@ -22,7 +13,19 @@
             </div>
             <div class="individual-post-content-info-comments">
                 <p class="individual-post-content-info-comments-header">Comments</p>
-                <!-- Comments Form will go here -->
+                <div class="individual-post-content-info-comments-post-form">
+                    <!-- <img class="" src="" alt=""> -->
+                    <!-- Form will go here eventually -->
+                </div>
+                <div class="individual-post-content-info-comments-list">
+                    <!-- Insert Foreach loop -->
+                    <div class="individual-post-content-info-comments-single">
+                        <img class="individual-post-content-info-comments-single-profile-pic" src="https://cdn.shopify.com/s/files/1/2609/7284/files/colorado-flag_large.jpg?v=1530740070" alt="">
+                        <div class="individual-post-content-info-comments-single-content">
+                            <p class="individual-post-content-info-comments-single-conten"> MrCO <span>26 Mins Ago</span></p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </div>

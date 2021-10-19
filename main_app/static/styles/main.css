@@ -688,9 +688,9 @@ border-radius: 2rem;
     background-color: #E8D5D9;
     height: 35vw;
     width: 92%;
-    margin-right: auto;
-    margin-left: auto;
     border-radius: 10px;
+    box-shadow: 1px 1px 2px 0.5px rgb(54, 54, 54);
+    margin: 3em auto 0 auto;
 }
 
 .individual-post-title {
@@ -744,4 +744,27 @@ border-radius: 2rem;
     color: black;
     font-weight: bold;
     font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments-single {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+.individual-post-content-info-comments-single-profile-pic {
+    height: 4vw;
+    width: 4vw;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.individual-post-content-info-comments-single-content {
+    height: 5vw;
+    width: 100%;
+    background: white;
+    border: 0.1px solid gray;
+    border-radius: 10px;
 }

@@ -1,8 +1,53 @@
 {% extends 'base.html' %} {% block content %}
-<h1>POST DETAILS PAGE</h1>
 
-<h2>{{post.city}}</h2>
-<h3>{{post.title}}</h3> 
-<p>{{post.description}}</p> 
+<div class="post-card-container">
+    <div class="individual-post-title">
+        <p class="individual-post-title-text">{{post.title}} by {{post.profile}}</p>
+        <p class="individual-post-title-city">Inspiration from {{post.city}}</p>
+    </div>
+    <div class="individual-post-content">
+        <img class="individual-post-content-image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/beautiful-denver-colorado-l-o-c.jpg" alt="">
+        <div class="individual-post-content-info">
+            <div class="individual-post-content-info-description">
+                {{post.description}}
+            </div>
+            <div class="individual-post-content-info-comments">
+                <p class="individual-post-content-info-comments-header">Comments</p>
+                <div class="individual-post-content-info-comments-post-form">
+                    <!-- <img class="" src="" alt=""> -->
+                    <!-- Form will go here eventually -->
+                </div>
+                <div class="individual-post-content-info-comments-list">
+                    <!-- Insert Foreach loop -->
+                    <div class="individual-post-content-info-comments-single">
+                        <img class="individual-post-content-info-comments-single-profile-pic" src="https://cdn.shopify.com/s/files/1/2609/7284/files/colorado-flag_large.jpg?v=1530740070" alt="">
+                        <div class="individual-post-content-info-comments-single-container">
+                            <span class="individual-post-content-info-comments-single-container-user"> MrCO </span><span class="individual-post-content-info-comments-single-container-postTime">26 Mins Ago</span>
+                            <p class="individual-post-content-info-comments-single-container-content">
+                                Let's type an very long comment to see what happens when we have a long comment
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-posts-from-user-container">
+    <p class="more-posts-from-user-container-header">More Posts From {{post.profile}}</p>
+    <div class="individual-user-post">
+        <img class="individual-user-post-image" src="https://upload.wikimedia.org/wikipedia/commons/thumb/0/09/Downtown_Fort_Collins_Colorado.jpg/1280px-Downtown_Fort_Collins_Colorado.jpg" alt="">
+        <div class="individual-user-post-description">
+            <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+            <p class="individual-user-post-title">A Day in Fort Collins</p>
+            <p class="individual-user-post-text">Today I went to fort collins, that shit was super dope and the booze up there was top class.</p>
+            <div class="individual-user-post-gray-text">
+                <p class="individual-user-post-time">1 Hour Ago</p>
+                <p class="individual-user-post-comments">250 Comments</p>
+            </div>
+        </div>
+    </div>
+</div>
 
  {% endblock %}

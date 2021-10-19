@@ -680,3 +680,122 @@ margin-bottom: 4rem;
 .blog-pagination > .btn {
 border-radius: 2rem;
 }
+
+
+/* Post Detail CSS
+-------------------------------------------------- */
+.post-card-container {
+    background-color: #E8D5D9;
+    height: 35vw;
+    width: 92%;
+    border-radius: 10px;
+    box-shadow: 1px 1px 2px 0.5px rgb(54, 54, 54);
+    margin: 3em auto 0 auto;
+}
+
+.individual-post-title {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: black;
+    font-size: 2.5vw;
+    padding-top: .5em;
+    margin-bottom: 0;
+}
+
+.individual-post-title-city {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    font-size: 0.65em;
+}
+
+.individual-post-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.individual-post-content-image {
+    height: 26vw;
+    width: 100%;
+    padding: 0 0 2em 2em;
+}
+
+.individual-post-content-info {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.individual-post-content-info-description {
+    text-align: center;
+    font-size: 1.3vw;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    color: rgb(34, 34, 34);
+    font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments-single {
+    display: grid;
+    grid-template-columns: 15% 85%;
+    width: 80%;
+    margin: 0 auto 0 auto;
+    text-align: left;
+}
+
+.individual-post-content-info-comments-single-profile-pic {
+    height: 4vw;
+    width: 4vw;
+    border-radius: 50%;
+    align-self: center;
+}
+
+.individual-post-content-info-comments-single-container {
+    height: 5vw;
+    width: 100%;
+    background: white;
+    border: 0.1px solid gray;
+    border-radius: 10px;
+}
+
+.individual-post-content-info-comments-single-container-user {
+    margin-left: 0.5em;
+    font-size: 1.2vw;
+    font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments-single-container-postTime {
+    margin-left: 0.9em;
+    font-size: 1.2vw;
+    font-family: 'Poppins', sans-serif;
+    color: #9D9D9D;
+}
+
+.individual-post-content-info-comments-single-container-content {
+    color: black;
+    font-size: 0.9vw;
+    font-weight: normal;
+    margin-left: 0.9em;
+    width: 95%;
+}
+
+.more-posts-from-user-container-header {
+    font-family: 'Montserrat', sans-serif;
+    color: black;
+    font-weight: bold;
+    font-size: 1.4em;
+    letter-spacing: 4px;
+    display: inline-block;
+    margin: 2em 0 2em 2em;
+}

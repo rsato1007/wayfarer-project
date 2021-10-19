@@ -8,7 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     current_city = models.CharField(max_length=100)
     email = models.EmailField(max_length=500, blank=True, null=True)
-    image = models.FileField(upload_to='profile/')
+    image = models.FileField(blank=True, null=True, upload_to='profile/')
    
     
     def __str__(self):

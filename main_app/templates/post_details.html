@@ -1,8 +1,35 @@
 {% extends 'base.html' %} {% block content %}
+<!-- Sanity Check Code -->
 <h1>POST DETAILS PAGE</h1>
 
 <h2>{{post.city}}</h2>
 <h3>{{post.title}}</h3> 
-<p>{{post.description}}</p> 
+<p>{{post.description}}</p>
+<p>{{post.profile}}</p>
+
+<!-- Sanity Check Code End -->
+
+<div class="post-card-container">
+    <div class="individual-post-title">
+        <p class="individual-post-title-text">Winter in Rocky Mountain National Park by {{post.profile}}</p>
+        <p class="individual-post-title-city">Inspiration from {{post.city}}</p>
+    </div>
+    <div class="individual-post-content">
+        <img class="individual-post-content-image" src="https://images.fineartamerica.com/images/artworkimages/mediumlarge/1/beautiful-denver-colorado-l-o-c.jpg" alt="">
+        <div class="individual-post-content-info">
+            <div class="individual-post-content-info-description">
+                {{post.description}}
+            </div>
+            <div class="individual-post-content-info-comments">
+                <p class="individual-post-content-info-comments-header">Comments</p>
+                <!-- Comments Form will go here -->
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="more-posts-from-user-container">
+
+</div>
 
  {% endblock %}

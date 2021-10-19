@@ -680,3 +680,68 @@ margin-bottom: 4rem;
 .blog-pagination > .btn {
 border-radius: 2rem;
 }
+
+
+/* Post Detail CSS
+-------------------------------------------------- */
+.post-card-container {
+    background-color: #E8D5D9;
+    height: 35vw;
+    width: 92%;
+    margin-right: auto;
+    margin-left: auto;
+    border-radius: 10px;
+}
+
+.individual-post-title {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: black;
+    font-size: 2.5vw;
+    padding-top: .5em;
+    margin-bottom: 0;
+}
+
+.individual-post-title-city {
+    text-align: center;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: rgb(58, 58, 58);
+    font-size: 0.65em;
+}
+
+.individual-post-content {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.individual-post-content-image {
+    height: 26vw;
+    width: 100%;
+    padding: 0 0 2em 2em;
+}
+
+.individual-post-content-info {
+    margin-right: auto;
+    margin-left: auto;
+}
+
+.individual-post-content-info-description {
+    text-align: center;
+    font-size: 1.3vw;
+    width: 75%;
+    margin-right: auto;
+    margin-left: auto;
+    color: rgb(34, 34, 34);
+    font-family: 'Poppins', sans-serif;
+}
+
+.individual-post-content-info-comments {
+    text-align: center;
+    margin-top: 1em;
+    font-size: 1.5vw;
+    color: black;
+    font-weight: bold;
+    font-family: 'Poppins', sans-serif;
+}

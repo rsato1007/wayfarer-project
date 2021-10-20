@@ -16,12 +16,7 @@ class Profile(models.Model):
         return str (self.user)
 
 class City(models.Model):
-    CITY_NAME = (
-        ('LOS ANGELES, CA', 'LOS ANGELES, CA'),
-        ('NEW YORK, NY', 'NEW YORK, NY'),
-        ('WASHINGTON, D.C', 'WASHINGTON, D.C')
-    )
-    name = models.CharField(max_length=50, null=True, choices=CITY_NAME)
+    name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     image = models.FileField(blank=True, null=True, upload_to='profile/')
 

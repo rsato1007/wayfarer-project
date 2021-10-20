@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile, City, Post
-from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm, CreatePostForm
+from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm
 
 
 
@@ -145,7 +145,7 @@ class CityDetail(TemplateView):
 
 class Post_Create(CreateView):
     model = Post
-    form_class = CreatePostForm
+    fields = ['title', 'description', 'city']
     template_name = "post_create.html"
     success_url ="/city/"
 

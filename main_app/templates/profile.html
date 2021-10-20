@@ -37,10 +37,9 @@
     <div class="user-profile-posts">
         <div class="post-top-section">
             <p class="post-history-text">{{profile.user.username}}'s Post History</p>
-            <div class="add-post-icon"></div>
 
             {% if user.username == profile.user.username %}
-            <a class="" href="{% url 'profile_post_create' profile.pk %}">Add Post</a>
+            <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>
             {% endif %}
 
         </div>
@@ -85,9 +84,6 @@
 
 
         </div>
-    </div>
-    <div>
-        
     </div>
 </div>
 

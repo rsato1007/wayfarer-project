@@ -12,6 +12,7 @@ urlpatterns = [
     path('profile/<int:pk>/picture', views.ProfilePictureUpdate.as_view(), name="profile_picture_update"),
     # Post routes
     path('post/<int:pk>', views.PostDetail.as_view(), name="post_detail"),
+    path('post/<int:pk>/new', views.ProfilePostCreate.as_view(), name="profile_post_create"),
     # City routes
     path('city/', views.CityList.as_view(), name="city_list"),
     path('city/<int:pk>', views.CityDetail.as_view(), name="city_detail"),

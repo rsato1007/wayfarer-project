@@ -79,10 +79,13 @@ class Signup(View):
 class ProfilePage(TemplateView):
     model = Profile
     template_name = "profile.html"
+    ordering = ['created_at']
 
     def get_context_data(self, pk, **kwargs):
+        profile = Profile.objects.get(pk=pk)
         context = super().get_context_data(**kwargs)
-        context["profile"] = Profile.objects.get(pk=pk)
+        context["profile"] = profile
+        context["posts"] = profile.post.all().order_by('-created_at')
         return context
 
 class ProfileUpdate(UpdateView):
@@ -141,6 +144,18 @@ class CityDetail(TemplateView):
 #         context = super().get_context_data(**kwargs)
 #         context["post"] = Post.objects.all()
 #         return context
+
+class ProfilePostCreate(CreateView):
+    model = Post
+    fields = ['city', 'title', 'description', 'image']
+    template_name = "post_create.html"
+
+    def form_valid(self, form, **kwargs):
+        form.instance.profile = self.request.user.profile
+        return super(ProfilePostCreate, self).form_valid(form)
+
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.kwargs.get('pk')})
 
 class Post_Create(CreateView):
     model = Post

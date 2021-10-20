@@ -145,23 +145,23 @@ class CityDetail(TemplateView):
 
 class Post_Create(CreateView):
     model = Post
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'city']
     template_name = "post_create.html"
-    success_url ="/cities/"
+    success_url ="/city/"
 
 class Post_Update(UpdateView):
     model = Post
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'city']
     template_name = "post_update.html"
-    success_url ="/cities/"
+    success_url ="/city/"
 
 class Post_Detail(DetailView):
     model = Post
     template_name = "post_details.html"
-    success_url = "/cities/"
+    success_url = "/city/"
     
 class Post_Delete(DeleteView):
     model = Post
-    fields = ['title', 'description']
+    fields = ['title', 'description', 'city']
     template_name = "post_delete_confirmation.html"
-    success_url ="/cities/"
+    success_url ="/city/"

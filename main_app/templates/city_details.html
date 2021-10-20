@@ -76,6 +76,8 @@
         <h3>Post title: {{post.title}}</h3>
         <h6>Posted by: {{post.profile.user.username}}</h6>
         <p>Post content: {{post.description}}</p> 
+        <a class="" href="{% url 'post_update' post.pk %}">Edit Post</a>
+ <a class="" href="{% url 'post_delete' post.pk %}">Delete Post</a> 
 
         <hr>
         {% endfor %}

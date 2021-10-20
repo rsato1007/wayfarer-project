@@ -38,9 +38,11 @@
         <div class="post-top-section">
             <p class="post-history-text">{{profile.user.username}}'s Post History</p>
             <div class="add-post-icon"></div>
+            {% comment %}
             {% if user.username == profile.user.username %}
             <a class="" href="{% url 'post_create' %}">Add Post</a>
             {% endif %}
+            {% endcomment %}
         </div>
         <div class="user-profile-posts-list">
             <!-- Eventaully this will be users.posts -->

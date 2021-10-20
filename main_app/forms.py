@@ -43,3 +43,9 @@ class ProfilePictureForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('image',)
+
+class PostCreateForm(ModelForm):
+    
+    class Meta:
+        model = Post
+        fields = ('title', 'description', 'image')

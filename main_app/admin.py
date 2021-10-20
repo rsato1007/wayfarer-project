@@ -5,4 +5,13 @@ from .models import Profile, Post, City, Comment
 admin.site.register(Profile)
 admin.site.register(Post)
 admin.site.register(City)
-admin.site.register(Comment)
+
+@admin.register(Comment)
+class CommentAdmin(admin.ModelAdmin):
+    list_display = ('post', 'user', 'body', 'created', 'updated', 'active')
+    list_filter = ('active', 'created')
+    search_fields = ('post', 'user', 'body')
+    actions = ['approve_comments']
+
+    def approve_comments(self, request, queryset):
+        queryset.update(active=True)

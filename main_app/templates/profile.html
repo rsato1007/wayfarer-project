@@ -34,6 +34,20 @@
         <!-- This line of code will be replaced by actual img later -->
         <img src="https://wallpaper.dog/large/20442004.jpg" alt="colorado mountain" class="bg-img">
     </div>
+    <div class="profile-header-container">
+        <div class="profile-header">
+            {% if profile.image %}
+            <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
+            </div>
+            {% else %}
+            <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
+            </div>
+            {% endif %}
+            <div>
+                Testing Profile Info Spot
+            </div>
+        </div>
+    </div>
     <div class="user-profile-posts">
         <div class="post-top-section">
             <p class="post-history-text">{{profile.user.username}}'s Post History</p>

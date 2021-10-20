@@ -332,7 +332,7 @@ SVG Icons
 }
 
 
-/* Robert's Code for Profile page*/
+/* CODE TO REMOVE*/
 .profile-header-section {
     position: relative;
 }
@@ -404,6 +404,42 @@ SVG Icons
 
 .profile-edit-button:hover {
     background-color: #ddcace;
+}
+
+/* CODE TO REMOVE END */
+
+.profile-header-container {
+    height: 34vw;
+    width: 80%;
+    background-color: #E8D5D9;
+    border-radius: 10px;
+    margin: 3em auto 2em auto;
+    position: relative;
+}
+
+.profile-header {
+    height: 26vw;
+    width: 80%;
+    background-color: white;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    display: grid;
+    grid-template-columns: 55% 45%;
+    box-shadow: 0.5px 0.5px 10px 0.5px #cebdc0;
+}
+
+.profile-header-image-container {
+    height: 27vw;
+    margin: -0.5vw 0 -0.5vw -1vw;
+    background-color: rgb(195, 195, 195);
+    max-height: 28vw;
+    border-radius: 12px;
+    border: 0.1px solid rgb(185, 185, 185);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
 .post-top-section {

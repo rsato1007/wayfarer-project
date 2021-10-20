@@ -83,7 +83,6 @@ class ProfilePage(TemplateView):
     def get_context_data(self, pk, **kwargs):
         context = super().get_context_data(**kwargs)
         context["profile"] = Profile.objects.get(pk=pk)
-        context["post"] = Post.objects.filter(profile=pk)
         return context
 
 class ProfileUpdate(UpdateView):
@@ -145,13 +144,21 @@ class CityDetail(TemplateView):
 
 class Post_Create(CreateView):
     model = Post
-    fields = ['title', 'description', 'city']
+    fields = ['title', 'description', 'image']
     template_name = "post_create.html"
-    success_url ="/city/"
+
+    def form_valid(self, form, **kwargs):
+        form.instance.profile = self.request.user.profile
+        form.instance.city = City.objects.get(pk=self.kwargs.get('pk'))
+        return super(Post_Create, self).form_valid(form)
+
+
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 class Post_Update(UpdateView):
     model = Post
-    fields = ['title', 'description', 'city']
+    fields = ['title', 'description', 'city', 'image']
     template_name = "post_update.html"
     success_url ="/city/"
 

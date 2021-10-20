@@ -6,7 +6,6 @@
         <div class="profile-card-container">
             <a href="{% url 'profile_picture_update' user.pk %}">
                 <div class="profile-user-image-container">
-                    <!-- replace image with ability to add user images -->
                     {% if profile.image %}
                     <img class="profile-user-image" src="{{ profile.image.url }}" alt="Profile image">
                     {% else %}
@@ -22,11 +21,13 @@
                     <p class="user-text">First Name: {{ profile.user.first_name }}</p>
                     <p class="user-text">Last Name: {{ profile.user.last_name }}</p>
                     <p class="user-text">Current City: {{ profile.current_city }}</p>
+                    {% if user.username == profile.user.username %}
                     <a href="{% url 'profile_update' user.pk %}">
                         <div class="profile-edit-button">
                             Edit Profile
                         </div>
                     </a>
+                    {% endif %}
                 </div>
             </div>
         </div>
@@ -35,34 +36,22 @@
     </div>
     <div class="user-profile-posts">
         <div class="post-top-section">
-            <p class="post-history-text">Your Post History</p>
+            <p class="post-history-text">{{profile.user.username}}'s Post History</p>
             <div class="add-post-icon"></div>
+            {% comment %}
+            {% if user.username == profile.user.username %}
             <a class="" href="{% url 'post_create' %}">Add Post</a>
-        
+            {% endif %}
+            {% endcomment %}
         </div>
         <div class="user-profile-posts-list">
             <!-- Eventaully this will be users.posts -->
             <!-- Danielle's code for posts below -->
           
 
-            {% for post in profile.post.all %}
-                
-                <div class="row position-relative">
-                    <div class="mb-2 p-3 d-flex">
-                        <img src="{{ post.image.url }}" alt="" class="w-50 img-fluid rounded shadow-sm">
-                        <div class="ps-lg-5 pe-lg-3 py-lg-5" >
-                            <h3>Title: {{post.title}}</h3>
-                            <h4>City: {{post.city}}</h4>
-                            <h5>Posted by: {{post.profile.user.username}}</h5>
-                            <h5>Posted: {{post.created_at}}</h5>
-                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                            <p>Post Content: {{post.description}}</p>
-                            <a href="{% url 'post_detail' post.pk %}" class="stretched-link">Continue Reading</a>
-                            <hr />
-                            <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>
-                        </div>
-                    </div>
-                </div>                      
+
+            {% for post in profile.post.all %}          
+
             
                 <div class="individual-user-post position-relative">
                     <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
@@ -72,7 +61,11 @@
                         <p class="individual-user-post-text">{{post.description}}</p>
                         <a href="{% url 'post_detail' post.pk %}" class="stretched-link"></a>
                         <div class="d-flex justify-content-start">   
+                            {% if profile.image %}
                             <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
+                            {% else %}
+                            <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
+                            {% endif %}
                             <h5>{{post.profile.user.username}}</h5>
                         </div>
                         <div class="individual-user-post-gray-text">
@@ -82,6 +75,7 @@
                     </div>
                 </div>
                 <br />
+           
             {% empty %}
 
                     <div class="message-header">

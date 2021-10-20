@@ -51,12 +51,31 @@
             {% for post in posts %}          
 
                 <div class="individual-user-post position-relative">
-                    <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
+                    <a href="{% url 'post_detail' post.pk %}">
+                        <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
+                    </a>
                     <div class="individual-user-post-description">
-                        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-                        <p class="individual-user-post-title">{{post.title}}</p>
+                        <div class="d-flex justify-content-between">
+                            <a href="{% url 'post_detail' post.pk %}">
+                                <p class="individual-user-post-title">{{post.title}}</p>
+                            </a>
+                            {% if user.is_authenticated %}
+                                {% if user.username == profile.user.username %}
+                            
+                            <div>
+                                <a href="{% url 'profile_post_update' post.pk %}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
+                                </a>
+                                <a href="{% url 'profile_post_delete' post.pk %}">
+                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
+                                </a>
+                            </div>
+
+                                {% endif %}
+                            {% endif%}
+                        </div>
+                        <h3>{{post.city}}</h3>
                         <p class="individual-user-post-text">{{post.description}}</p>
-                        <a href="{% url 'post_detail' post.pk %}" class="stretched-link"></a>
                         <div class="d-flex justify-content-start">   
                             {% if profile.image %}
                             <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
@@ -69,6 +88,7 @@
                             <p class="individual-user-post-time">{{post.created_at}}</p>
                             <p class="individual-user-post-comments">250 Comments</p>
                         </div>
+
                     </div>
                 </div>
                 <br />

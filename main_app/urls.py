@@ -13,12 +13,13 @@ urlpatterns = [
     # Post routes
     path('post/<int:pk>', views.PostDetail.as_view(), name="post_detail"),
     path('post/<int:pk>/new', views.ProfilePostCreate.as_view(), name="profile_post_create"),
+    path('post/<int:pk>/update', views.ProfilePostUpdate.as_view(), name="profile_post_update"),
+    path('post/<int:pk>/delete', views.ProfilePostDelete.as_view(), name="profile_post_delete"),
     # City routes
     path('city/', views.CityList.as_view(), name="city_list"),
     path('city/<int:pk>', views.CityDetail.as_view(), name="city_detail"),
     path('city/<int:pk>/post/new', views.Post_Create.as_view(), name="post_create"),
-    path('city/post/<int:pk>/update', views.Post_Update.as_view(), name="post_update"),
-    path('city/post/<int:pk>', views.Post_Detail.as_view(), name="post_detail"),
-    path('city/post/<int:pk>/delete', views.Post_Delete.as_view(), name="post_delete"),
+    path('city/<int:city_pk>/post/<int:pk>/update', views.Post_Update.as_view(), name="post_update"),
+    path('city/<int:city_pk>/post/<int:pk>/delete', views.Post_Delete.as_view(), name="post_delete"),
 ] 
 

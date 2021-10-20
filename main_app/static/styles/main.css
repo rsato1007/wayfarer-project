@@ -442,6 +442,17 @@ SVG Icons
     color: white;
 }
 
+.add-post-icon:hover {
+    width: 55px;
+    height: 55px;
+}
+
+.add-post-icon:hover::before {
+    height: 55px;
+    width: 55px;
+    font-size: 55px;
+}
+
 .user-profile-posts-list {
     text-align: center;
 }

@@ -152,7 +152,6 @@ class Post_Create(CreateView):
         form.instance.city = City.objects.get(pk=self.kwargs.get('pk'))
         return super(Post_Create, self).form_valid(form)
 
-
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
 

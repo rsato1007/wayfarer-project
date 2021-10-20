@@ -4,18 +4,24 @@ import time
 
 # Create your models here.
 
+
 class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     current_city = models.CharField(max_length=100)
     email = models.EmailField(max_length=500, blank=True, null=True)
-    image = models.FileField(blank=True, null=True, default='./static/images/london-eye.jpeg', upload_to='profile/')
+    image = models.FileField(blank=True, null=True, upload_to='profile/')
    
     
     def __str__(self):
         return str (self.user)
 
 class City(models.Model):
-    name = models.CharField(max_length=50)
+    CITY_NAME = (
+        ('LOS ANGELES, CA', 'LOS ANGELES, CA'),
+        ('NEW YORK, NY', 'NEW YORK, NY'),
+        ('WASHINGTON, D.C', 'WASHINGTON, D.C')
+    )
+    name = models.CharField(max_length=50, null=True, choices=CITY_NAME)
     country = models.CharField(max_length=50)
     image = models.FileField(blank=True, null=True, upload_to='profile/')
 

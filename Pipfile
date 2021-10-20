@@ -8,6 +8,8 @@ django = "*"
 psycopg2-binary = "*"
 django-storages = "*"
 boto3 = "*"
+seed = "*"
+django-seed = "*"
 
 [dev-packages]
 

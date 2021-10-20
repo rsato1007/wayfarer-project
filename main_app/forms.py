@@ -4,7 +4,7 @@ from django.forms import ModelForm
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm
 from django.core.exceptions import ValidationError
-from .models import Post, Profile
+from .models import Post, Profile, City
 
 class CustomUserCreationForm(UserCreationForm):
     username = forms.CharField(label="", help_text="", widget=forms.TextInput(attrs={'placeholder': 'Username', 'class': 'modal-form-input',}))
@@ -43,9 +43,3 @@ class ProfilePictureForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('image',)
-
-class PostCreateForm(ModelForm):
-    
-    class Meta:
-        model = Post
-        fields = ('title', 'description', 'image')

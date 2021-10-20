@@ -16,6 +16,12 @@
                 <div class="individual-post-content-info-comments-post-form">
                     <!-- <img class="" src="" alt=""> -->
                     <!-- Form will go here eventually -->
+                    {% for comment in post.comment_set.all %}
+                    <p>{{ comment.author }} ({{ comment.comment_date }}) {{ comment.description|safe }}</p>
+                    {% endfor %}
+                    <hr>
+                    {% if user.is_authenticated %}
+                    <p><a href = "{% url 'comment_create' post.id %}">Add a new comment</a></p>
                 </div>
                 <div class="individual-post-content-info-comments-list">
                     <!-- Insert Foreach loop -->

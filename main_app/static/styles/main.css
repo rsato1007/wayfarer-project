@@ -457,6 +457,14 @@ SVG Icons
     text-align: center;
 }
 
+.individual-user-post-link {
+    text-decoration: none;
+}
+
+.individual-user-post-link:hover {
+    background-color: #d1bbc0;
+}
+
 .individual-user-post {
     background-color: #ddcace;
     height: 24vw;
@@ -467,6 +475,10 @@ SVG Icons
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr;
     padding: 1vw;
+}
+
+.individual-user-post:hover {
+    background-color: #d1bbc0;
 }
 
 .individual-user-post-image {
@@ -489,7 +501,7 @@ SVG Icons
 }
 
 .three-dot-editing:hover {
-    background-color: #d1bbc0;
+    background-color: #bba1a7;
 }
 
 .individual-user-post-title {

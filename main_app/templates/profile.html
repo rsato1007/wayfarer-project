@@ -44,32 +44,14 @@
             <!-- Danielle's code for posts below -->
           
 
-            {% for post in post %}
-                
-                <div class="row position-relative">
-                    <div class="mb-2 p-3 d-flex">
-                        <img src="{{ post.image.url }}" alt="" class="w-50 img-fluid rounded shadow-sm">
-                        <div class="ps-lg-5 pe-lg-3 py-lg-5" >
-                            <h3>Title: {{post.title}}</h3>
-                            <h4>City: {{post.city}}</h4>
-                            <h5>Posted by: {{post.profile.user.username}}</h5>
-                            <h5>Posted: {{post.created_at}}</h5>
-                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                            <p>Post Content: {{post.description}}</p>
-                            <a href="{% url 'post_detail' post.pk %}" class="stretched-link">Continue Reading</a>
-                            <hr />
-                            <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>
-                        </div>
-                    </div>
-                </div>                      
-            
+            {% for post in post %}                   
+            <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
                 <div class="individual-user-post position-relative">
                     <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
                     <div class="individual-user-post-description">
                         <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
                         <p class="individual-user-post-title">{{post.title}}</p>
                         <p class="individual-user-post-text">{{post.description}}</p>
-                        <a href="{% url 'post_detail' post.pk %}" class="stretched-link"></a>
                         <div class="d-flex justify-content-start">   
                             <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
                             <h5>{{post.profile.user.username}}</h5>
@@ -80,6 +62,7 @@
                         </div>
                     </div>
                 </div>
+                </a>
                 <br />
             {% empty %}
 

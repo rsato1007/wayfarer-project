@@ -41,11 +41,15 @@ class Post(models.Model):
         ordering = ['title']
         
 class Comment(models.Model):
-    body = models.TextField(blank=False, max_length=250)
-    created = models.DateTimeField(auto_now_add=True)
-    updated = models.DateTimeField(auto_now=True) 
-    post = models.ForeignKey(Post, on_delete=models.CASCADE)
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comments")
     user = models.ForeignKey(User, on_delete=models.CASCADE)
-
+    body = models.TextField()
+    created = models.DateTimeField(auto_now_add=True)
+    updated = models.DateTimeField(auto_now=True)
+    active = models.BooleanField(default=False) 
+    
     def __str__(self): 
-        return self.body
+        return 'Comment {} by {}'.format(self.body, self.name)
+    
+    class Meta:
+        ordering = ['created']

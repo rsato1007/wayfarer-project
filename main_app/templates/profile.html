@@ -37,15 +37,17 @@
         <div class="post-top-section">
             <p class="post-history-text">Your Post History</p>
             <div class="add-post-icon"></div>
+            <a class="" href="{% url 'post_create' %}">Add Post</a>
+        
         </div>
         <div class="user-profile-posts-list">
             <!-- Eventaully this will be users.posts -->
             <!-- Danielle's code for posts below -->
           
-            {% for post in post %}
 
+            {% for post in post %}
                 
-                <!-- <div class="row position-relative">
+                <div class="row position-relative">
                     <div class="mb-2 p-3 d-flex">
                         <img src="{{ post.image.url }}" alt="" class="w-50 img-fluid rounded shadow-sm">
                         <div class="ps-lg-5 pe-lg-3 py-lg-5" >
@@ -60,7 +62,7 @@
                             <span class="font-weight-bold mb-0 d-block">215</span><span class="text-muted">Cities</span>
                         </div>
                     </div>
-                </div>                     -->
+                </div>                      
             
                 <div class="individual-user-post position-relative">
                     <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">

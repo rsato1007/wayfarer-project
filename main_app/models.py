@@ -8,7 +8,7 @@ class Profile(models.Model):
     user = models.OneToOneField(User, on_delete=models.CASCADE)
     current_city = models.CharField(max_length=100)
     email = models.EmailField(max_length=500, blank=True, null=True)
-    image = models.FileField(blank=True, null=True, upload_to='profile/')
+    image = models.FileField(blank=True, null=True, default='./static/images/london-eye.jpeg', upload_to='profile/')
    
     
     def __str__(self):
@@ -29,7 +29,7 @@ class City(models.Model):
 class Post(models.Model):
     title = models.CharField(max_length=100)
     description = models.CharField(max_length=500)
-    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post")
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post", default=1)
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="post")
     image = models.FileField(blank=True, null=True, upload_to='post/')
     created_at = models.DateTimeField(auto_now_add=True)

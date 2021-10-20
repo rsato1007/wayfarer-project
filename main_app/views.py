@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, reverse
+from django.shortcuts import render, redirect, reverse, get_object_or_404
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -7,7 +7,7 @@ from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
 from .models import Profile, City, Post
-from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm
+from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm, CommentForm
 
 
 
@@ -105,6 +105,23 @@ class ProfilePictureUpdate(UpdateView):
 class PostDetail(DetailView):
     model = Post
     template_name = "post_details.html"
+    
+    #create new comment on a post
+    def get_context_data(self, **kwargs):
+       context = super(PostDetail, self).get_context_data(**kwargs)
+       context['commentform'] = CommentForm()
+       return context
+
+    def post(self, request, pk):
+       post = get_object_or_404(Post, pk=pk)
+       form = CommentForm(request.POST)
+
+       if form.is_valid():
+           obj  = form.save(commit=False)
+           obj.post = post
+           obj.user = self.request.user
+           obj.save()
+           return redirect('detail', post.pk)
 
 class CityList(TemplateView):
     template_name = "city_list.html"

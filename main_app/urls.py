@@ -19,5 +19,7 @@ urlpatterns = [
     path('city/post/<int:pk>/update', views.Post_Update.as_view(), name="post_update"),
     path('city/post/<int:pk>', views.Post_Detail.as_view(), name="post_detail"),
     path('city/post/<int:pk>/delete', views.Post_Delete.as_view(), name="post_delete"),
+    # Comment routes
+    path('comment/<int:pk>', views.Comment_Create.as_view(), name="comment_create"),
 ] 
 

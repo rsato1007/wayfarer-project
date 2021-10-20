@@ -33,7 +33,7 @@ class Login(View):
     
     def get(self, request):
         form = LoginForm()
-        signupform = SignupForm()
+        signupform = CustomUserCreationForm()
         context = {"loginform": form, "signupform": signupform}
         return render(request, "registration/login.html", context)
     
@@ -46,7 +46,7 @@ class Login(View):
             return redirect('profile', pk=user.id)
         else:
             form = LoginForm()
-            signupform = SignupForm()
+            signupform = CustomUserCreationForm()
             error = "Invalid Credentials" 
             context = {"loginform": form, "signupform": signupform, "error": error}
             return render(request, "registration/login.html", context)

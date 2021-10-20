@@ -1,32 +1,50 @@
 INSERT INTO main_app_city(name, country, image)
-    VALUES('LOS ANGELES, CA', 'US', 'null');
+    VALUES('Los Angeles, CA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('SAN FRANCISCO, CA', 'US', 'null');
+    VALUES('San Francisco, CA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('NEW YORK, NY', 'US', 'null');
+    VALUES('New York, NY', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('WASHINGTON, D.C', 'US', 'null');
+    VALUES('Washington, D.C', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('BOSTON, MA' 'US', 'null');
+    VALUES('Boston, MA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('SEATTLE, WA', 'US', 'null');
+    VALUES('Seattle, WA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('DENVER, CO', 'US', 'null');
+    VALUES('Denver, CO', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('NEW ORLEANS, LA', 'US', 'null');
+    VALUES('New Orleans, LA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('MIAMI, FL', 'US', 'null');
+    VALUES('Miami, FL', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('ATLANTA, GA', 'US', 'null');
+    VALUES('Atlanta, GA', 'US', 'null');
 
 INSERT INTO main_app_city(name, country, image)
-    VALUES('DETROIT, MI', 'US', 'null');
+    VALUES('Detroit, MI', 'US', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('London', 'United Kingdom', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('Sydney', 'Austrailia', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('Paris', 'France', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('Madrid', 'Spain', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('Mexico City', 'Mexico', 'null');
+
+INSERT INTO main_app_city(name, country, image)
+    VALUES('Sydney', 'Austrailia', 'null');

@@ -331,83 +331,6 @@ SVG Icons
     width: 130px;
 }
 
-
-/* CODE TO REMOVE*/
-.profile-header-section {
-    position: relative;
-}
-
-.profile-card-container {
-    position: absolute;
-    top: 25%;
-    bottom: 25%;
-    left: 25%;
-    right: 25%;
-    width: 50%;
-    height: 50%;
-    background-color: white;
-    z-index: 1;
-    text-align: center;
-    border-radius: 10px;
-    display: grid;
-    grid-template-columns: 50% 50%;
-    filter: drop-shadow(1px 4px 3px black);
-}
-
-.profile-user-image-container {
-    width: 100%;
-    height: 100%;
-}
-
-.profile-user-image {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px 0 0 10px;
-}
-
-.username {
-    font-family: 'PT Serif', serif;
-    font-weight: 700;
-    font-size: 3em;
-    color: black;
-    margin-top: 1em;
-}
-
-.user-info-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: black;
-    text-align: left;
-    margin-top: 15em;
-    padding: 0em 2em 0 2em;
-}
-
-.user-text {
-    font-size: 1.2em;
-    font-weight: bold;
-}
-
-.profile-edit-button {
-    float: left;
-    width: 200px;
-    height: 30px;
-    background-color: #E8D5D9;
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    font: 18px;
-    line-height: 30px;
-    font-size: 1em;
-    border-radius: 6px;
-    font-weight: bold;
-    text-align: center;
-}
-
-.profile-edit-button:hover {
-    background-color: #ddcace;
-}
-
-/* CODE TO REMOVE END */
-
 .profile-header-container {
     height: 34vw;
     width: 80%;
@@ -440,6 +363,33 @@ SVG Icons
     background-position: 50% 50%;
     background-repeat: no-repeat;
     background-size: cover;
+}
+
+.profile-content-container {
+    text-align: center;
+}
+
+.profile-username {
+    padding-top: 1.5vw;
+    font-size: 2.3vw;
+    font-family: 'PT Serif', serif;
+    color: black;
+    font-weight: bold;
+}
+
+.profile-userinfo-headers {
+    margin-top: 1.1vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+    margin-bottom: 0.2vw;
+}
+
+.profile-userinfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: black;
 }
 
 .post-top-section {

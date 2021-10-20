@@ -4,18 +4,9 @@
 <div class="profile-container">
     <div class="has-bg-img profile-header-section">
         <div class="profile-card-container">
-            <a href="{% url 'profile_picture_update' user.pk %}">
-                <div class="profile-user-image-container">
-                    {% if profile.image %}
-                    <img class="profile-user-image" src="{{ profile.image.url }}" alt="Profile image">
-                    {% else %}
-                    <img class="profile-user-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" alt="Profile picture">
-                    {% endif %}
-                </div>
-            </a>
+
             
             <div class="user-profile-details">
-                <p class="username">{{ profile.user.username }}</p>
                 <div class="user-info-text">
                     <p class="user-text">Member Since: {{ profile.user.date_joined }}</p>
                     <p class="user-text">First Name: {{ profile.user.first_name }}</p>
@@ -31,9 +22,9 @@
                 </div>
             </div>
         </div>
-        <!-- This line of code will be replaced by actual img later -->
-        <img src="https://wallpaper.dog/large/20442004.jpg" alt="colorado mountain" class="bg-img">
     </div>
+
+    <!-- NEW PROFILE HTML CODE -->
     <div class="profile-header-container">
         <div class="profile-header">
             {% if profile.image %}
@@ -43,11 +34,19 @@
             <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
             </div>
             {% endif %}
-            <div>
-                Testing Profile Info Spot
+            <div class="profile-content-container">
+                <p class="profile-username">{{ profile.user.username }}</p>
+                <p class="profile-userinfo-headers">Name:</p>
+                <p class="profile-userinfo">{{ profile.user.first_name }} {{profile.user.last_name}}</p>
+                <p class="profile-userinfo-headers">Current City:</p>
+                <p class="profile-userinfo">{{ profile.current_city }}</p>
+                <p class="profile-userinfo-headers">Member Since:</p>
+                <p class="profile-userinfo">{{ profile.user.date_joined }}</p>
             </div>
         </div>
     </div>
+
+    <!-- HTML code for posts -->
     <div class="user-profile-posts">
         <div class="post-top-section">
             <p class="post-history-text">{{profile.user.username}}'s Post History</p>

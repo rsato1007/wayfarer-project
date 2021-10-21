@@ -331,79 +331,86 @@ SVG Icons
     width: 130px;
 }
 
-
-/* Robert's Code for Profile page*/
-.profile-header-section {
+.profile-header-container {
+    height: 34vw;
+    width: 80%;
+    background-color: #E8D5D9;
+    border-radius: 10px;
+    margin: 3em auto 2em auto;
     position: relative;
 }
 
-.profile-card-container {
-    position: absolute;
-    top: 25%;
-    bottom: 25%;
-    left: 25%;
-    right: 25%;
-    width: 50%;
-    height: 50%;
+.profile-header {
+    height: 26vw;
+    width: 80%;
     background-color: white;
-    z-index: 1;
-    text-align: center;
-    border-radius: 10px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
     display: grid;
-    grid-template-columns: 50% 50%;
-    filter: drop-shadow(1px 4px 3px black);
+    grid-template-columns: 55% 45%;
+    box-shadow: 0.5px 0.5px 10px 0.5px #cebdc0;
 }
 
-.profile-user-image-container {
-    width: 100%;
-    height: 100%;
+.profile-header-image-container {
+    height: 27vw;
+    margin: -0.5vw 0 -0.5vw -1vw;
+    background-color: rgb(195, 195, 195);
+    max-height: 28vw;
+    border-radius: 12px;
+    border: 0.1px solid rgb(185, 185, 185);
+    background-position: 50% 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
 }
 
-.profile-user-image {
-    height: 100%;
-    width: 100%;
-    border-radius: 10px 0 0 10px;
+.profile-content-container {
+    text-align: center;
 }
 
-.username {
+.profile-username {
+    padding-top: 1.5vw;
+    font-size: 2.3vw;
     font-family: 'PT Serif', serif;
-    font-weight: 700;
-    font-size: 3em;
     color: black;
-    margin-top: 1em;
-}
-
-.user-info-text {
-    font-family: 'Poppins', sans-serif;
-    font-weight: 400;
-    color: black;
-    text-align: left;
-    margin-top: 15em;
-    padding: 0em 2em 0 2em;
-}
-
-.user-text {
-    font-size: 1.2em;
     font-weight: bold;
+}
+
+.profile-userinfo-headers {
+    margin-top: 1.1vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    font-size: 1vw;
+    margin-bottom: 0.2vw;
+}
+
+.profile-userinfo {
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.2vw;
+    font-weight: bold;
+    color: black;
 }
 
 .profile-edit-button {
-    float: left;
-    width: 200px;
-    height: 30px;
-    background-color: #E8D5D9;
-    font-family: 'Montserrat', sans-serif;
-    color: black;
-    font: 18px;
-    line-height: 30px;
-    font-size: 1em;
-    border-radius: 6px;
+    height: 3vw;
+    width: 50%;
+    background-color: black;
+    color: white;
+    margin: 1.5vw auto 0 auto;
+    line-height: 3vw;
+    font-size: 1vw;
+    font-family: 'Poppins', sans-serif;
     font-weight: bold;
-    text-align: center;
+    border-radius: 30px;
 }
 
 .profile-edit-button:hover {
-    background-color: #ddcace;
+    background-color: rgb(32, 32, 32);
+}
+
+.profile-edit-button-link {
+    text-decoration: none;
 }
 
 .post-top-section {
@@ -442,6 +449,17 @@ SVG Icons
     color: white;
 }
 
+.add-post-icon:hover {
+    height: 55px;
+    width: 55px;
+}
+
+.add-post-icon:hover::before {
+    height: 55px;
+    width: 55px;
+    font-size: 55px;
+}
+
 .user-profile-posts-list {
     text-align: center;
 }
@@ -456,6 +474,19 @@ SVG Icons
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr;
     padding: 1vw;
+    margin-top: 2vw;
+}
+
+.individual-user-post-header {
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin-top: -1vw;
+    margin-bottom: 1vw;
+}
+
+.individual-user-post-link {
+    text-decoration: none;
 }
 
 .individual-user-post-image {
@@ -490,23 +521,40 @@ SVG Icons
     padding-top: 2vw;
 }
 
+.individual-user-post-city {
+    margin-left: 2vw;
+    font-size: 1.8em;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+}
+
 .individual-user-post-text {
     text-align: left;
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-size: 1.7em;
+    font-size: 1.5vw;
     width: 80%;
     font-weight: 200;
+    margin-top: 1vw;
+    display: block;
 }
 
 .individual-user-post-gray-text {
-    margin-top: 3vw;
+    margin-top: 2vw;
     display: grid;
     grid-template-columns: 50% 50%;
     padding-right: 5vw;
     color: rgb(87, 87, 87);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
+}
+
+.individual-user-post-username {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.2em;
+    text-align: left;
 }
 
 .individual-user-post-time {

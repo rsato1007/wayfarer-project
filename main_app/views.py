@@ -157,6 +157,25 @@ class ProfilePostCreate(CreateView):
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.kwargs.get('pk')})
 
+class ProfilePostUpdate(UpdateView):
+    model = Post
+    fields = ['city', 'title', 'description', 'image']
+    template_name = "post_update.html"
+
+    def form_valid(self, form, **kwargs):
+        form.instance.profile = self.request.user.profile
+        return super(ProfilePostUpdate, self).form_valid(form)
+
+    def get_success_url(self, **kwargs):
+        return reverse('profile', kwargs={'pk': self.request.user.pk})
+
+class ProfilePostDelete(DeleteView):
+    model = Post
+    template_name = "post_delete_confirmation.html"
+    
+    def get_success_url(self):
+        return reverse('profile', kwargs={'pk': self.kwargs.get('pk')})
+
 class Post_Create(CreateView):
     model = Post
     fields = ['title', 'description', 'image']
@@ -171,18 +190,18 @@ class Post_Create(CreateView):
         return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 class Post_Update(UpdateView):
+    
     model = Post
-    fields = ['title', 'description', 'city', 'image']
+    fields = ['title', 'description', 'image']
     template_name = "post_update.html"
-    success_url ="/city/"
+    
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})
 
-class Post_Detail(DetailView):
-    model = Post
-    template_name = "post_details.html"
-    success_url = "/city/"
     
 class Post_Delete(DeleteView):
     model = Post
-    fields = ['title', 'description', 'city']
     template_name = "post_delete_confirmation.html"
-    success_url ="/city/"
+    
+    def get_success_url(self):
+        return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})

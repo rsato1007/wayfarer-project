@@ -392,6 +392,27 @@ SVG Icons
     color: black;
 }
 
+.profile-edit-button {
+    height: 3vw;
+    width: 50%;
+    background-color: black;
+    color: white;
+    margin: 1.5vw auto 0 auto;
+    line-height: 3vw;
+    font-size: 1vw;
+    font-family: 'Poppins', sans-serif;
+    font-weight: bold;
+    border-radius: 30px;
+}
+
+.profile-edit-button:hover {
+    background-color: rgb(32, 32, 32);
+}
+
+.profile-edit-button-link {
+    text-decoration: none;
+}
+
 .post-top-section {
     margin: 3em 7em;
 }

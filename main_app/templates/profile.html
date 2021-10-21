@@ -1,29 +1,6 @@
 {% extends 'base.html' %} 
 {% block content %}
 
-<div class="profile-container">
-    <div class="has-bg-img profile-header-section">
-        <div class="profile-card-container">
-
-            
-            <div class="user-profile-details">
-                <div class="user-info-text">
-                    <p class="user-text">Member Since: {{ profile.user.date_joined }}</p>
-                    <p class="user-text">First Name: {{ profile.user.first_name }}</p>
-                    <p class="user-text">Last Name: {{ profile.user.last_name }}</p>
-                    <p class="user-text">Current City: {{ profile.current_city }}</p>
-                    {% if user.username == profile.user.username %}
-                    <a href="{% url 'profile_update' user.pk %}">
-                        <div class="profile-edit-button">
-                            Edit Profile
-                        </div>
-                    </a>
-                    {% endif %}
-                </div>
-            </div>
-        </div>
-    </div>
-
     <!-- NEW PROFILE HTML CODE -->
     <div class="profile-header-container">
         <div class="profile-header">
@@ -42,6 +19,13 @@
                 <p class="profile-userinfo">{{ profile.current_city }}</p>
                 <p class="profile-userinfo-headers">Member Since:</p>
                 <p class="profile-userinfo">{{ profile.user.date_joined }}</p>
+                {% if user.username == profile.user.username %}
+                <a class="profile-edit-button-link" href="{% url 'profile_update' user.pk %}">
+                    <div class="profile-edit-button">
+                        Edit Profile
+                    </div>
+                </a>
+                {% endif %}
             </div>
         </div>
     </div>

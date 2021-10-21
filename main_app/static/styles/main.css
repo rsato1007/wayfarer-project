@@ -474,6 +474,19 @@ SVG Icons
     grid-template-columns: 50% 50%;
     grid-template-rows: 1fr;
     padding: 1vw;
+    margin-top: 2vw;
+}
+
+.individual-user-post-header {
+    float: left;
+    width: 100%;
+    text-align: left;
+    margin-top: -1vw;
+    margin-bottom: 1vw;
+}
+
+.individual-user-post-link {
+    text-decoration: none;
 }
 
 .individual-user-post-image {
@@ -508,23 +521,40 @@ SVG Icons
     padding-top: 2vw;
 }
 
+.individual-user-post-city {
+    margin-left: 2vw;
+    font-size: 1.8em;
+    font-family: 'PT Serif', serif;
+    font-weight: bold;
+    color: rgb(54, 54, 54);
+}
+
 .individual-user-post-text {
     text-align: left;
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-size: 1.7em;
+    font-size: 1.5vw;
     width: 80%;
     font-weight: 200;
+    margin-top: 1vw;
+    display: block;
 }
 
 .individual-user-post-gray-text {
-    margin-top: 3vw;
+    margin-top: 2vw;
     display: grid;
     grid-template-columns: 50% 50%;
     padding-right: 5vw;
     color: rgb(87, 87, 87);
     font-family: 'Montserrat', sans-serif;
     font-size: 1.2em;
+}
+
+.individual-user-post-username {
+    font-family: 'Poppins', sans-serif;
+    color: black;
+    font-size: 1.2em;
+    text-align: left;
 }
 
 .individual-user-post-time {

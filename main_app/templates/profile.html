@@ -44,30 +44,27 @@
             <!-- Eventaully this will be users.posts -->
             <!-- Danielle's code for posts below -->
 
-            {% for post in posts %}          
-
-                <div class="individual-user-post position-relative">
-                    <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
+            {% for post in posts %}   
+            <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
+                <div class="individual-user-post">
+                    <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
                     <div class="individual-user-post-description">
                         <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-                        <p class="individual-user-post-title">{{post.title}}</p>
-                        <p class="individual-user-post-text">{{post.description}}</p>
-                        <a href="{% url 'post_detail' post.pk %}" class="stretched-link"></a>
-                        <div class="d-flex justify-content-start">   
-                            {% if profile.image %}
-                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                            {% else %}
-                            <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
-                            {% endif %}
-                            <h5>{{post.profile.user.username}}</h5>
+                        <div class="individual-user-post-header">
+                            <span class="individual-user-post-title">{{post.title}}</span> 
+                            <span class="individual-user-post-city">{{post.city}}</span>
+                            <p class="individual-user-post-username">by {{post.profile}}</p>
                         </div>
+                        <br>
+                        <p class="individual-user-post-text">{{post.description}}</p>
                         <div class="individual-user-post-gray-text">
                             <p class="individual-user-post-time">{{post.created_at}}</p>
                             <p class="individual-user-post-comments">250 Comments</p>
                         </div>
                     </div>
                 </div>
-                <br />
+            </a>     
+            <br />
            
             {% empty %}
 

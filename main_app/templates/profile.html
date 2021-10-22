@@ -1,4 +1,5 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
 
     <!-- NEW PROFILE HTML CODE -->
@@ -49,11 +50,11 @@
                     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
                     <div class="individual-user-post-description">
                         <div class="individual-post-options">
-                            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-text">Edit Post</a>
+                            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
                             <br>
-                            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-text">Delete Post</a>
+                            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
                             <br>
-                            <p class="individual-post-options-menu-text" id="cancel">Cancel</p>
+                            <p class="individual-post-options-menu-link" id="cancel">Cancel</p>
                         </div>
                       {% if user.is_authenticated %}
                             {% if user.username == profile.user.username %}

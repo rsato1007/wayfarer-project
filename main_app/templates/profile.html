@@ -41,9 +41,6 @@
 
         </div>
         <div class="user-profile-posts-list">
-            <!-- Eventaully this will be users.posts -->
-            <!-- Danielle's code for posts below -->
-
 
             {% for post in posts %}  
                  
@@ -51,16 +48,20 @@
                 <div class="individual-user-post">
                     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
                     <div class="individual-user-post-description">
-                      
+                        <div class="individual-post-options">
+                            <p class="individual-post-options-menu-text">Edit Post</p>
+                            <p class="individual-post-options-menu-text">Delete Post</p>
+                            <p class="individual-post-options-menu-text" id="cancel">Cancel</p>
+                        </div>
                       {% if user.is_authenticated %}
                             {% if user.username == profile.user.username %}
                       
-                        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-                            
-                             {% endif %}
+                            <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+                            <div class="individual-user-post-header">
+
+                            {% endif %}
                        {% endif%} 
-                      
-                        <div class="individual-user-post-header">
+
                             <span class="individual-user-post-title">{{post.title}}</span> 
                             <span class="individual-user-post-city">{{post.city}}</span>
                             <p class="individual-user-post-username">

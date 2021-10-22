@@ -498,6 +498,7 @@ SVG Icons
 
 .individual-user-post-description {
     padding-left: 2vw;
+    position: relative;
 }
 
 .three-dot-editing {
@@ -510,6 +511,27 @@ SVG Icons
 
 .three-dot-editing:hover {
     background-color: #d1bbc0;
+}
+
+.individual-post-options {
+    width: 25%;
+    position: absolute;
+    left: 75%;
+    background-color: white;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 0.5vw;
+    display: none;
+}
+
+.individual-post-options-menu-text {
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.80vw;
+    color: black;
+}
+
+.individual-post-options-menu-text:hover {
+    background: rgb(241, 241, 241);
 }
 
 .individual-user-post-title {

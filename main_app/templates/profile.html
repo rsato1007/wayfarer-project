@@ -44,7 +44,7 @@
     <!-- This is the actual list of posts the user has -->
     <div class="user-profile-posts-list">
 
-        {% for post in posts %}  
+        {% for post in posts %}
         <!-- This is the code for individual posts. -->
         <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
             <div class="individual-user-post">

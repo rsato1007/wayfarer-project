@@ -2,11 +2,43 @@
 <div class="individual-user-post">
     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
     <div class="individual-user-post-description">
-        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+        <!-- This code is for the drop down menu on the three dots. -->
+        <div class="individual-post-options">
+            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+            <br>
+            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+            <br>
+            <p class="individual-post-options-menu-link" id="cancel">Cancel</p>
+        </div>
+        <!-- The three dots only show if the loggedin user is the one who created the p -->
+        {% if user.is_authenticated and user.username == post.profile.user.username %}
+            <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+        {% else %}
+            <!-- INSERT CODE FOR FORMATTING WHEN THREE DOTS ARE NOT PRESENT. -->
+        {% endif%}
+        <!-- This is the code that includes the post title, city name, and user who post it -->
         <div class="individual-user-post-header">
             <span class="individual-user-post-title">{{post.title}}</span> 
             <span class="individual-user-post-city">{{post.city}}</span>
-            <p class="individual-user-post-username">by {{post.profile}}</p>
+            <p class="individual-user-post-username">
+
+                {% if profile.image %}
+
+                <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
+                
+                {% else %}
+    
+                <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
+            
+                {% endif %}
+                
+                {{post.profile}}
+            
+            </p>
+
+            {% comment %}
+            {% endcomment %}
+
         </div>
         <br>
         <p class="individual-user-post-text">{{post.description}}</p>
@@ -14,6 +46,7 @@
             <p class="individual-user-post-time">{{post.created_at}}</p>
             <p class="individual-user-post-comments">250 Comments</p>
         </div>
+
     </div>
 </div>
 

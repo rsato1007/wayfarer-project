@@ -5,11 +5,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;200;300;400;500;600&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=PT+Serif:wght@400;700&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600&display=swap');
 
 /* SAVING HERE FOR FUTURE REFERENCE
 font-family: 'Montserrat', sans-serif;
 font-family: 'Poppins', sans-serif;
 font-family: 'PT Serif', serif; 
+font-family: 'Abhaya Libre', serif;
 */
 
 
@@ -21,11 +23,16 @@ font-family: 'PT Serif', serif;
     --white: #FFFFFF;
     --black: #000000;
     --navy: #222222;
+    --salmon: #FFA69E;
+    --yellow: #FAF3DD;
+    --green: #B8F2E6;
+    --blue: #AED9e0;
+    --darkblue: #5E6472;
+    --offwhite: #FBF9F5;
 }
 
 body {
-    padding-bottom: 3rem;
-    color: #5a5a5a;
+    color: var(--offwhite);
 }
 
 *:focus {
@@ -52,7 +59,7 @@ SVG Icons
 -------------------------------------------------- */
 
 .nav-message {
-    background-color: #E8D5D9;
+    background-color: var(--blue);
     font-family: 'Montserrat', sans-serif;
     font-size: 10px;
     letter-spacing: 8px;
@@ -70,17 +77,52 @@ SVG Icons
     font-size: 12px;
     letter-spacing: 8px;
     color: var(--black);
+    background-color: var(--offwhite);
     border-style: none none solid none;
     border-width: 1px;
     box-shadow: 0 1px 0 0 black;
 }
-
+.nav-logo {
+    font-family: 'Abhaya Libre', serif;
+    color: var(--black);
+    font-size: 48px;
+    font-weight: 600;
+    display: flex;
+    flex-direction: column;
+}
+.nav-logo-item {
+    line-height: 32px;
+    letter-spacing: 0px;
+}
+.nav-logo-stops {
+    display: flex;
+    justify-content: space-between;
+    padding-left: 24px;
+}
+.stops {
+    padding-left: 94px;
+}
+.nav-logo-image {
+    position: absolute;
+    width: 72px;
+    top: 32px;
+    left: 12vw; 
+    z-index: 0;
+}
+.z-loc-top {
+    z-index: 5;
+}
 .navbar-item a {
     color: var(--black);
 }
 
 .navbar-item a:hover {
-    color: var(--teal);
+    color: var(--darkblue);
+}
+.nav-bar-signup {
+    /* border: 1px solid black; */
+    background-color: var(--salmon);
+    padding: 24px 48px;
 }
   
 /* CUSTOMIZE THE CAROUSEL
@@ -88,7 +130,10 @@ SVG Icons
   
 /* Carousel base class */
 .carousel {
+    position: relative;
     margin-bottom: 8rem;
+    background-color: var(--offwhite);
+    z-index: 2;
 }
 /* Since positioning the image, we need to help out the caption */
 .carousel-caption {
@@ -98,7 +143,7 @@ SVG Icons
 
 /* Declare heights because of positioning of img element */
 .carousel-item {
-    height: 48rem;
+    height: 40rem;
 }
 
 .carousel-item > img {
@@ -106,7 +151,7 @@ SVG Icons
     top: 0;
     left: 0;
     min-width: 100%;
-    height: 48rem;
+    height: 40rem;
     object-fit: cover;
 }
 
@@ -120,9 +165,11 @@ SVG Icons
 -------------------------------------------------- */
 
 /* Center align the text within the three columns below the carousel */
+
 .marketing .col-lg-4 {
     margin-bottom: 1.5rem;
     text-align: center;
+
 }
 .marketing h2 {
     font-weight: 400;
@@ -133,12 +180,18 @@ SVG Icons
     margin-left: .75rem;
 }
 /* rtl:end:ignore */
+.marketing-header {
+    position: relative;
+    z-index: 2;
+    margin-bottom: 4rem;
+}
 .marketing-header > h1 {
-    font-family: 'PT Serif', serif;
+    font-family: 'Abhaya Libre', serif;
     font-weight: 100;
-    font-size: 2.5rem;
+    font-size: 3.25rem;
     color: var(--black);
     margin-bottom: 1.75rem;
+
 }
 .marketing-header > p {
     font-family: 'Poppins', sans-serif;
@@ -169,8 +222,46 @@ SVG Icons
     font-weight: 200;
     padding: 0px;
 }
-
-
+.square {
+    position: absolute;
+    z-index: 0;
+    background-color: var(--green);
+    width: 200px;
+    height: 200px;
+    top: 700px;
+    left: 12vw;
+    transform: rotate(20deg);
+}
+.triangle{
+    position: absolute;
+    width: 0;
+    height: 0;
+    border: 300px solid transparent;
+    border-top: 0;
+    border-bottom: 400px solid var(--yellow);
+    transform: rotate(-20deg);
+    top: 675px;
+    left: 24vw;
+}
+.circle {
+    position: absolute;
+    z-index: 0;
+    background-color: var(--blue);
+    border-radius: 50%;
+    width: 200px;
+    height: 200px;
+    top: 700px;
+    left: 75vw;
+}
+.plant {
+    position: absolute;
+    z-index: 0;
+    width: 500px;
+    top: 818px;
+    left: 56vw;
+   
+    overflow: none;
+}
 /* Featurettes
 ------------------------- */
 
@@ -254,6 +345,7 @@ SVG Icons
     padding-bottom: 2rem;
 }
 .modal-footer {
+    color: var(--black);
     display: flex;
     justify-content: center;
     font-family: 'Poppins', sans-serif;
@@ -270,7 +362,7 @@ SVG Icons
 
 .modal-title {
     color: var(--black);
-    font-family: 'PT Serif', serif;
+    font-family: 'Abhaya Libre', serif;
     font-size: 2rem; 
     
 }
@@ -298,13 +390,15 @@ SVG Icons
     width: 60%;
 }
 .form-button {
-    border: 1px solid var(--black);
-    background-color: var(--pink);
-    width: 32%;
-    padding: 4px;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 12px;
+    letter-spacing: 4px;
+    border-style: none;
+    background-color: var(--salmon);
+    padding: 16px 28px;
 }
 .link-modal {
-    color: var(--teal);
+    color: var(--blue);
 }
 /* PROFILE PAGE CSS
 -------------------------------------------------- */
@@ -336,7 +430,7 @@ SVG Icons
     width: 80%;
     background-color: #E8D5D9;
     border-radius: 10px;
-    margin: 3em auto 2em auto;
+    margin: 0 auto 2em auto;
     position: relative;
 }
 
@@ -383,6 +477,7 @@ SVG Icons
     font-weight: bold;
     font-size: 1vw;
     margin-bottom: 0.2vw;
+    color: black;
 }
 
 .profile-userinfo {
@@ -578,7 +673,7 @@ SVG Icons
     background-color: rgba(0, 0, 0, .1);
     border: solid rgba(0, 0, 0, .15);
     border-width: 1px 0;
-    box-shadow: inset 0 .5em 1.5em rgba(0, 0, 0, .1), inset 0 .125em .5em rgba(0, 0, 0, .15);
+
 }
   
 .bi {
@@ -587,7 +682,9 @@ SVG Icons
 }
 
 .footer-main {
-    margin-top: 300px;
+    position: relative;
+    background-color: var(--darkblue);
+    z-index: 50;
 }
 
 /* SIDEBAR CSS

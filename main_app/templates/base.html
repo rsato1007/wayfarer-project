@@ -23,11 +23,16 @@
         WHERE TO NEXT? - INSPIRE AND BE INSPIRED
       </span>
     </div>
-    <nav class="navbar-main navbar navbar-expand-md bg-transparent">
+    <nav class="navbar-main navbar navbar-expand-md">
     
       <div class="container d-flex justify-content-between">
         <a class="navbar-brand" href="{% url 'home' %}">
-          <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/splash/wayfarer-logo.png" width="256" />
+          <div class="nav-logo">
+            <div class="nav-logo-historic nav-logo-item z-loc-top">HISTORIC</div>
+            <div class="nav-logo-stops nav-logo-item">
+              <img class="nav-logo-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/splash/seedling.png"  /><span class="stops z-loc-top">STOPS</span>
+            </div>
+          </div>
         </a>
         
         {% if user.is_authenticated %}
@@ -65,7 +70,7 @@
               <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalToggle">LOGIN</a>
             </li>
             <li class="navbar-item nav-item mx-md-4">
-              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2">SIGNUP</a>
+              <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#exampleModalToggle2"><span class="nav-bar-signup">SIGNUP</span></a>
             </li>
           </ul>
         </div>
@@ -78,7 +83,7 @@
 
     <!--CONTENT-->
 
-    <main>
+    <main style="background-color: var(--offwhite); padding-bottom: 100px; position: relative; z-index: 1;">
   
       {% block content %}
       
@@ -87,12 +92,12 @@
     </main>
 
     <!-- FOOTER -->
-    <div class="container footer-main">
-      <footer class="py-3 my-4">
-        <div class="nav w-100 justify-content-center border-bottom pb-3 mb-3">
-          <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/splash/wayfarer-logo.png" width="60" /> 
+    <div class="footer-main">
+      <footer class="p-lg-5">
+        <div class="nav w-100 justify-content-center border-bottom">
+          Historic Stops
         </div>  
-        <p class="text-center text-muted">&copy; 2021 Pythonic Lava, Inc</p>
+        <p class="text-center text-white">&copy; 2021 Pythonic Lava, Inc</p>
       </footer>
     </div>
 

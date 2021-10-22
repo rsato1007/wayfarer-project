@@ -4,13 +4,15 @@
     <!-- NEW PROFILE HTML CODE -->
     <div class="profile-header-container">
         <div class="profile-header">
-            {% if profile.image %}
-            <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
-            </div>
-            {% else %}
-            <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
-            </div>
-            {% endif %}
+            <a href="{% url 'profile_picture_update' user.pk %}">
+                {% if profile.image %}
+                <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
+                </div>
+                {% else %}
+                <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
+                </div>
+                {% endif %}
+            </a>
             <div class="profile-content-container">
                 <p class="profile-username">{{ profile.user.username }}</p>
                 <p class="profile-userinfo-headers">Name:</p>

@@ -1,154 +1,120 @@
 {% extends 'base.html' %} 
+{% load static %}
 {% block content %}
 
-    <!-- NEW PROFILE HTML CODE -->
-    <div class="profile-header-container">
-        <div class="profile-header">
-            <a href="{% url 'profile_picture_update' user.pk %}">
-                {% if profile.image %}
-                <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
-                </div>
-                {% else %}
-                <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
-                </div>
-                {% endif %}
-            </a>
-            <div class="profile-content-container">
-                <p class="profile-username">{{ profile.user.username }}</p>
-                <p class="profile-userinfo-headers">Name:</p>
-                <p class="profile-userinfo">{{ profile.user.first_name }} {{profile.user.last_name}}</p>
-                <p class="profile-userinfo-headers">Current City:</p>
-                <p class="profile-userinfo">{{ profile.current_city }}</p>
-                <p class="profile-userinfo-headers">Member Since:</p>
-                <p class="profile-userinfo">{{ profile.user.date_joined }}</p>
-                {% if user.username == profile.user.username %}
-                <a class="profile-edit-button-link" href="{% url 'profile_update' user.pk %}">
-                    <div class="profile-edit-button">
-                        Edit Profile
-                    </div>
-                </a>
-                {% endif %}
+
+<!-- NEW PROFILE HTML CODE -->
+<div class="profile-header-container">
+    <div class="profile-header">
+        <a href="{% url 'profile_picture_update' user.pk %}">
+            {% if profile.image %}
+            <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
             </div>
-        </div>
-    </div>
-
-    <!-- HTML code for posts -->
-    <div class="user-profile-posts">
-        <div class="post-top-section">
-            <p class="post-history-text">{{profile.user.username}}'s Post History</p>
-
-            {% if user.username == profile.user.username %}
-            <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>
+            {% else %}
+            <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
+            </div>
             {% endif %}
-
-        </div>
-        <div class="user-profile-posts-list">
-            <!-- Eventaully this will be users.posts -->
-            <!-- Danielle's code for posts below -->
-
-
-            {% for post in posts %}  
-                 
-            <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
-                <div class="individual-user-post">
-                    <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
-                    <div class="individual-user-post-description">
-                      
-                      {% if user.is_authenticated %}
-                            {% if user.username == profile.user.username %}
-                      
-                        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-                            
-                             {% endif %}
-                       {% endif%} 
-                      
-                        <div class="individual-user-post-header">
-                            <span class="individual-user-post-title">{{post.title}}</span> 
-                            <span class="individual-user-post-city">{{post.city}}</span>
-                            <p class="individual-user-post-username">
-                              
-                              {% if profile.image %}
-                              
-                                <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                              
-                              {% else %}
-                              
-                                <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
-                            
-                              {% endif %}
-                              
-                              {{post.profile}}
-                            
-                            </p>
-
-            {% comment %}
-            {% for post in posts %}          
-
-                <div class="individual-user-post position-relative">
-                    <a href="{% url 'post_detail' post.pk %}">
-                        <img class="individual-user-post-image" src="{{ post.image.url }}" alt="">
-                    </a>
-                    <div class="individual-user-post-description">
-                        <div class="d-flex justify-content-between">
-                            <a href="{% url 'post_detail' post.pk %}">
-                                <p class="individual-user-post-title">{{post.title}}</p>
-                            </a>
-                            {% if user.is_authenticated %}
-                                {% if user.username == profile.user.username %}
-                            
-                            <div>
-                                <a href="{% url 'profile_post_update' post.pk %}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M20 14.66V20a2 2 0 0 1-2 2H4a2 2 0 0 1-2-2V6a2 2 0 0 1 2-2h5.34"></path><polygon points="18 2 22 6 12 16 8 16 8 12 18 2"></polygon></svg>
-                                </a>
-                                <a href="{% url 'profile_post_delete' post.pk %}">
-                                    <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="#000000" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="18" y1="6" x2="6" y2="18"></line><line x1="6" y1="6" x2="18" y2="18"></line></svg>
-                                </a>
-                            </div>
-
-                                {% endif %}
-                            {% endif%}
-                        </div>
-                        <h3>{{post.city}}</h3>
-                        <p class="individual-user-post-text">{{post.description}}</p>
-                        <div class="d-flex justify-content-start">
-                          
-                            {% if profile.image %}
-                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                            {% else %}
-                            <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
-                            {% endif %}
-                          
-                            <h5>{{post.profile.user.username}}</h5>
-               
-               {% endcomment %}
-                          
-
-                        </div>
-                        <br>
-                        <p class="individual-user-post-text">{{post.description}}</p>
-                        <div class="individual-user-post-gray-text">
-                            <p class="individual-user-post-time">{{post.created_at}}</p>
-                            <p class="individual-user-post-comments">250 Comments</p>
-                        </div>
-
-                    </div>
+        </a>
+        <div class="profile-content-container">
+            <p class="profile-username">{{ profile.user.username }}</p>
+            <p class="profile-userinfo-headers">Name:</p>
+            <p class="profile-userinfo">{{ profile.user.first_name }} {{profile.user.last_name}}</p>
+            <p class="profile-userinfo-headers">Current City:</p>
+            <p class="profile-userinfo">{{ profile.current_city }}</p>
+            <p class="profile-userinfo-headers">Member Since:</p>
+            <p class="profile-userinfo">{{ profile.user.date_joined }}</p>
+            {% if user.username == profile.user.username %}
+            <a class="profile-edit-button-link" href="{% url 'profile_update' user.pk %}">
+                <div class="profile-edit-button">
+                    Edit Profile
                 </div>
-            </a>     
-            <br />
-           
-            {% empty %}
-
-                    <div class="message-header">
-                      <p>No Posts Yet</p>
-                    </div>
-                    
-            {% endfor %}
-
-          <!-- End of Danielle's code for posts -->
-
-
+            </a>
+            {% endif %}
         </div>
     </div>
 </div>
+
+<!-- This is the entire HTML code for the user's posts. -->
+<div class="user-profile-posts">
+    <div class="post-top-section">
+        <!-- This is the HTML code to act as a header for the post section -->
+        <p class="post-history-text">{{profile.user.username}}'s Post History</p>
+        <!-- This code only shows if this is the logged in user's profile page. -->
+        {% if user.username == profile.user.username %}
+        <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>
+        {% endif %}
+    </div>
+    <!-- This is the actual list of posts the user has -->
+    <div class="user-profile-posts-list">
+
+        {% for post in posts %}
+        <!-- This is the code for individual posts. -->
+        <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
+            <div class="individual-user-post">
+                <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
+                <div class="individual-user-post-description">
+                    <!-- This code is for the drop down menu on the three dots. -->
+                    <div class="individual-post-options">
+                        <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+                        <br>
+                        <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+                        <br>
+                        <p class="individual-post-options-menu-link" id="cancel">Cancel</p>
+                    </div>
+                    <!-- The three dots only show if the loggedin user is the one who created the p -->
+                    {% if user.is_authenticated and user.username == profile.user.username %}
+                        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+                        <div class="individual-user-post-header">
+                    {% else %}
+                        <!-- Code that formats the post when the three dots are present. -->
+                        <div class="individual-user-post-header no-dots">
+                    {% endif%}
+                    <!-- This is the code that includes the post title, city name, and user who post it -->
+                        <span class="individual-user-post-title">{{post.title}}</span> 
+                        <span class="individual-user-post-city">{{post.city}}</span>
+                        <p class="individual-user-post-username">
+        
+                            {% if profile.image %}
+
+                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
+                            
+                            {% else %}
+                
+                            <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
+                        
+                            {% endif %}
+                            
+                            {{post.profile}}
+                        
+                        </p>
+
+                        {% comment %}
+                        {% endcomment %}
+
+                    </div>
+                    <br>
+                    <p class="individual-user-post-text">{{post.description}}</p>
+                    <div class="individual-user-post-gray-text">
+                        <p class="individual-user-post-time">{{post.created_at}}</p>
+                        <p class="individual-user-post-comments">250 Comments</p>
+                    </div>
+
+                </div>
+            </div>
+        </a>
+        <br />
+        
+        {% empty %} 
+            <!-- This code is here in case the user has no posts yet. -->
+            <div class="message-header">
+                <p>No Posts Yet</p>
+            </div>
+                
+        {% endfor %}
+
+    </div>
+    <!-- This is the end of the list of posts from the user. -->
+</div>
+<!-- This is the end of the entire HTML code for the user's posts. -->
 
 {% endblock %}

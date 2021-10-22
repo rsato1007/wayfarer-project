@@ -586,6 +586,10 @@ SVG Icons
     margin-bottom: 1vw;
 }
 
+.no-dots {
+    margin-top: 2vw;
+}
+
 .individual-user-post-link {
     text-decoration: none;
 }
@@ -599,6 +603,7 @@ SVG Icons
 
 .individual-user-post-description {
     padding-left: 2vw;
+    position: relative;
 }
 
 .three-dot-editing {
@@ -611,6 +616,33 @@ SVG Icons
 
 .three-dot-editing:hover {
     background-color: #d1bbc0;
+}
+
+.individual-post-options {
+    width: 25%;
+    position: absolute;
+    left: 75%;
+    background-color: white;
+    z-index: 2;
+    border-radius: 10px;
+    padding: 0.5vw;
+    display: none;
+    margin-top: -0.2vw;
+}
+
+.individual-post-options-menu-link {
+    display: inline-block;
+    margin-bottom: 0.3vw;
+    width: 100%;
+    text-decoration: none;
+    font-family: 'Montserrat', sans-serif;
+    font-size: 0.80vw;
+    color: black;
+    display: inline-block;
+}
+
+.individual-post-options-menu-link:hover {
+    background: rgb(241, 241, 241);
 }
 
 .individual-user-post-title {
@@ -642,7 +674,7 @@ SVG Icons
 }
 
 .individual-user-post-gray-text {
-    margin-top: 2vw;
+    margin-top: 3vw;
     display: grid;
     grid-template-columns: 50% 50%;
     padding-right: 5vw;

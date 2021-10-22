@@ -522,12 +522,17 @@ SVG Icons
     border-radius: 10px;
     padding: 0.5vw;
     display: none;
+    margin-top: -0.2vw;
 }
 
 .individual-post-options-menu-text {
     font-family: 'Montserrat', sans-serif;
     font-size: 0.80vw;
     color: black;
+    display: inline-block;
+    text-decoration: none;
+    margin-bottom: 0.3vw;
+    width: 100%;
 }
 
 .individual-post-options-menu-text:hover {

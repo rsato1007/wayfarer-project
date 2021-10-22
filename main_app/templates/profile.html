@@ -49,8 +49,10 @@
                     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
                     <div class="individual-user-post-description">
                         <div class="individual-post-options">
-                            <p class="individual-post-options-menu-text">Edit Post</p>
-                            <p class="individual-post-options-menu-text">Delete Post</p>
+                            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-text">Edit Post</a>
+                            <br>
+                            <a class="individual-post-options-menu-text">Delete Post</a>
+                            <br>
                             <p class="individual-post-options-menu-text" id="cancel">Cancel</p>
                         </div>
                       {% if user.is_authenticated %}

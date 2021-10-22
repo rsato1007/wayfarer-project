@@ -51,7 +51,7 @@
                         <div class="individual-post-options">
                             <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-text">Edit Post</a>
                             <br>
-                            <a class="individual-post-options-menu-text">Delete Post</a>
+                            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-text">Delete Post</a>
                             <br>
                             <p class="individual-post-options-menu-text" id="cancel">Cancel</p>
                         </div>

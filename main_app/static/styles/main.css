@@ -485,6 +485,10 @@ SVG Icons
     margin-bottom: 1vw;
 }
 
+.no-dots {
+    margin-top: 2vw;
+}
+
 .individual-user-post-link {
     text-decoration: none;
 }

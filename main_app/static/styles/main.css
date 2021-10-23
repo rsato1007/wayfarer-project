@@ -7,16 +7,8 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;200;300;400;500&display=swap');
 @import url('https://fonts.googleapis.com/css2?family=Abhaya+Libre:wght@400;500;600&display=swap');
 
-/* SAVING HERE FOR FUTURE REFERENCE
-font-family: 'Montserrat', sans-serif;
-font-family: 'Poppins', sans-serif;
-font-family: 'PT Serif', serif; 
-font-family: 'Abhaya Libre', serif;
-*/
-
-
-/* GLOBAL COLORS */
 :root {
+    /*  GLOBAL COLORS */
     --pink: #E8D5D9;
     --teal: #8FA88F;
     --gray: #EBEBE9;
@@ -27,8 +19,15 @@ font-family: 'Abhaya Libre', serif;
     --yellow: #FAF3DD;
     --green: #B8F2E6;
     --blue: #AED9e0;
+    --darker-blue: #9dc3c8;
     --darkblue: #5E6472;
     --offwhite: #FBF9F5;
+
+    /* GLOBAL FONTS */
+    --montserrat: 'Montserrat', sans-serif;
+    --poppins: 'Poppins', sans-serif;
+    --pt-serif: 'PT Serif', serif;
+    --abhaya-libre: 'Abhaya Libre', serif;
 }
 
 body {
@@ -484,6 +483,7 @@ SVG Icons
 }
 
 .profile-header-container {
+
     height: 24vw;
     width: 70%;
     background-color: var(--blue);
@@ -504,7 +504,7 @@ SVG Icons
     transform: translate(-50%, -50%);
     display: grid;
     grid-template-columns: 55% 45%;
-    box-shadow: 0.5px 0.5px 10px 0.5px #cebdc0;
+    box-shadow: 0.5px 0.5px 10px 0.5px var(--darker-blue);
 }
 
 .profile-header-image-container {
@@ -618,8 +618,29 @@ SVG Icons
     text-align: center;
 }
 
+/* Possible feature down the road. */
+
+/* .individual-post-large-image {
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    left: 0;
+    top: 0;
+    background: rgba(51,51,51,0.7);
+    z-index: 10;
+}
+
+.individual-user-post-image-large {
+    position: fixed;
+    width: 50%;
+    height: 50%;
+    left: 0;
+    top: 0;
+    z-index: 11;
+} */
+
 .individual-user-post {
-    background-color: #ddcace;
+    background-color: var(--blue);
     height: 24vw;
     width: 85%;
     margin-left: auto;
@@ -668,7 +689,7 @@ SVG Icons
 }
 
 .three-dot-editing:hover {
-    background-color: #d1bbc0;
+    background-color: var(--darker-blue);
 }
 
 .individual-post-options {
@@ -753,6 +774,108 @@ SVG Icons
 
 .individual-user-post-comments:hover {
     text-decoration: underline;
+}
+
+.comment-section-title {
+    font-family: var(--montserrat);
+    color: black;
+    font-weight: bold;
+    font-size: clamp(0.9em, 1.8vw, 1.4em);
+    letter-spacing: 4px;
+    display: inline-block;
+    margin: 2em 0 2em 2em;
+}
+
+.comment-section-list {
+    padding: 1.5vw;
+    color: black;
+    background-color: var(--blue);
+    width: clamp(200px, 50vw, 50vw);
+    min-width: 525px;
+    margin: 0 auto;
+    border-radius: 10px;
+}
+
+.comment-section-post-form {
+    margin-bottom: 1vw;
+}
+
+.comment-section-post-form-image {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    margin-left: 1vw;
+}
+
+.comment-section-input {
+    background: white;
+    height: 3vw;
+    width: 70%;
+    border-radius: 10px;
+    border: 0.5px solid rgb(128, 128, 128);
+    margin-left: 1vw;
+    font-size: clamp(15px, 1.2vw, 1.2vw);
+}
+
+.comment-section-submit {
+    background-color: black;
+    color: white;
+    height: clamp(20px, 2vw, 2vw);
+    width: clamp(60px, 6vw, 6vw);
+    font-size: clamp(12px, 1.2vw, 1.2vw);
+    border-radius: 15px;
+    border: none;
+    font-weight: bold;
+    font-family: var(--poppins);
+    margin-left: 1vw;
+}
+
+.comment-section-submit:hover {
+    background-color: rgb(27, 27, 27);
+}
+
+.comment-list {
+    display: grid;
+    grid-template-columns: 4vw 1fr;
+    margin-top: -.5vw;
+}
+
+.comment-list-image {
+    height: 3vw;
+    width: 3vw;
+    border-radius: 50%;
+    margin-left: 1vw;
+    margin-top: 1vw;
+}
+
+.comment-list-info {
+    margin-left: 1.3vw;
+    margin-top: 0.5vw;
+}
+
+.comment-list-info-user-name {
+    display: inline-block;
+    font-weight: bold;
+    font-size: clamp(13px, 1vw, 1vw);
+    font-family: var(--poppins);
+}
+
+.comment-list-info-post-time {
+    display: inline-block;
+    font-family: var(--poppins);
+    margin-left: 1vw;
+    font-size: clamp(12px, 0.8vw, 0.8vw);
+    color: rgb(47, 47, 47);
+}
+
+.comment-list-info-text {
+    font-size: clamp(12px, 0.8vw, 0.8vw);
+    margin-top: -1vw;
+    width: 80%;
+}
+
+.comment-list-info-line {
+    width: 80%;
 }
 
 /* FOOTER CSS
@@ -1104,3 +1227,9 @@ textarea:focus, input:focus{
     padding: 15px;
     margin: auto;
   }
+
+/* RESPONSIVE CSS CODE */
+@media only screen and (max-width: 1600px) {
+    /* Comment Section CSS */
+  }
+  

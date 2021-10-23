@@ -29,7 +29,7 @@ class City(models.Model):
 
 class Post(models.Model):
     title = models.CharField(max_length=100)
-    description = models.CharField(max_length=500)
+    description = models.CharField(max_length=5000)
     profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="post")
     city = models.ForeignKey(City, on_delete=models.CASCADE, related_name="post")
     image = models.FileField(blank=True, null=True, upload_to='post/')

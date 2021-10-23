@@ -45,7 +45,7 @@
 <div class="user-profile-posts">
     <div class="post-top-section">
         <!-- This is the HTML code to act as a header for the post section -->
-        <p class="post-history-text">{{profile.user.username}}'s Post</p>
+        <p class="post-history-text">{{profile.user.username}}'s Posts</p>
         <!-- This code only shows if this is the logged in user's profile page. -->
         {% if user.username == profile.user.username %}
         <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>

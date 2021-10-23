@@ -620,7 +620,7 @@ SVG Icons
 
 .individual-user-post {
     background-color: #ddcace;
-    height: clamp(300px, 52.5vh, 52.5vh);
+    height: clamp(100px, auto, 51vh);
     width: 85%;
     margin-left: auto;
     margin-right: auto;
@@ -704,13 +704,13 @@ SVG Icons
     font-family: 'PT Serif', serif;
     font-weight: bold;
     color: black;
-    font-size: 2.2em;
+    font-size: clamp(1em, 2vw, 2vw);
     padding-top: 2vw;
 }
 
 .individual-user-post-city {
     margin-left: 2vw;
-    font-size: 1.8em;
+    font-size: clamp(0.85em, 1.6vw, 1.6vw);
     font-family: 'PT Serif', serif;
     font-weight: bold;
     color: rgb(54, 54, 54);
@@ -720,7 +720,7 @@ SVG Icons
     text-align: left;
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-size: 1.5vw;
+    font-size: clamp(.8em, 1.5vw, 1.5vw);
     width: 80%;
     font-weight: 200;
     margin-top: 1vw;
@@ -734,7 +734,7 @@ SVG Icons
     padding-right: 5vw;
     color: rgb(87, 87, 87);
     font-family: 'Montserrat', sans-serif;
-    font-size: 1.2em;
+    font-size: clamp(.7em, 1.2vw, 1.2vw);
 }
 
 .individual-user-post-username {

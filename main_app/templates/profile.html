@@ -18,12 +18,9 @@
         </a>
         <div class="profile-content-container">
             <p class="profile-username">{{ profile.user.username }}</p>
-            <p class="profile-userinfo-headers">Name:</p>
-            <p class="profile-userinfo">{{ profile.user.first_name }} {{profile.user.last_name}}</p>
-            <p class="profile-userinfo-headers">Current City:</p>
-            <p class="profile-userinfo">{{ profile.current_city }}</p>
-            <p class="profile-userinfo-headers">Member Since:</p>
-            <p class="profile-userinfo">{{ profile.user.date_joined }}</p>
+            <p class="profile-userinfo-headers"><span class="profile-userinfo">{{ profile.user.first_name }} {{profile.user.last_name}}</span></p>
+            <p class="profile-userinfo-headers"><span class="profile-userinfo">{{ profile.current_city }}</p></p>
+            <p class="profile-userinfo-headers">Joined <span class="profile-userinfo">{{ profile.user.date_joined|date:"M Y" }}</span></p>
             {% if user.username == profile.user.username %}
             <a class="profile-edit-button-link" href="{% url 'profile_update' user.pk %}">
                 <div class="profile-edit-button">
@@ -35,11 +32,21 @@
     </div>
 </div>
 
+<div style="position: relative; width: 0; height: 0"></div>
+  <div class="square square-profile"></div>
+</div>
+<!-- <div style="position: relative; width: 0; height: 0"></div>
+  <div class="triangle triangle-profile"></div>
+</div> -->
+<div style="position: relative; width: 0; height: 0"></div>
+  <div class="circle circle-profile"></div>
+</div>
+
 <!-- This is the entire HTML code for the user's posts. -->
 <div class="user-profile-posts">
     <div class="post-top-section">
         <!-- This is the HTML code to act as a header for the post section -->
-        <p class="post-history-text">{{profile.user.username}}'s Post History</p>
+        <p class="post-history-text">{{profile.user.username}}'s Post</p>
         <!-- This code only shows if this is the logged in user's profile page. -->
         {% if user.username == profile.user.username %}
         <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>

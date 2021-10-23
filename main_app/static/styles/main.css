@@ -640,7 +640,7 @@ SVG Icons
 } */
 
 .individual-user-post {
-    background-color: #ddcace;
+    background-color: var(--blue);
     height: clamp(100px, auto, 51vh);
     width: 85%;
     margin-left: auto;

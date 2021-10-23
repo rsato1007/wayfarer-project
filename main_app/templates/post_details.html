@@ -37,9 +37,6 @@
             
             </p>
 
-            {% comment %}
-            {% endcomment %}
-
         </div>
         <br>
         <p class="individual-user-post-text">{{post.description}}</p>
@@ -48,6 +45,26 @@
             <p class="individual-user-post-comments">250 Comments</p>
         </div>
 
+    </div>
+</div>
+
+<!-- HTMl code for the comment section -->
+<div class="comment-section-container">
+    <!-- HARDCODED, will need to updated to dynamically update the number of comments -->
+    <h3 class="comment-section-title">56 Comments for: {{post.title}}</h3>
+    <div class="comment-section-list">
+        <div class="comment-section-post-form">
+            <img class="comment-section-post-form-image" src="{{user.profile.image.url}}" alt="">
+            <input type="text" class="comment-section-input">
+            <input class="comment-section-submit" type="submit" value="Post">
+        </div>
+        <!-- Once comments are properly coded in, this will need to updated. -->
+        <div class="comment-list">
+            <img class="" src="{{user.profile.image.url}}" alt="">
+            <div class="comment-list-info">
+
+            </div>
+        </div>
     </div>
 </div>
 

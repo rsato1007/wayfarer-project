@@ -43,3 +43,11 @@ class ProfilePictureForm(ModelForm):
     class Meta:
         model = Profile
         fields = ('image',)
+
+class CreatePostForm (ModelForm):
+    title = forms.CharField(max_length=100, required=True)
+    description = forms.CharField(max_length=5000, required=True)
+    
+    class Meta:
+        model: Post
+        fields = ('title', 'description', 'city', 'image')

@@ -37,9 +37,6 @@
             
             </p>
 
-            {% comment %}
-            {% endcomment %}
-
         </div>
         <br>
         <p class="individual-user-post-text">{{post.description}}</p>
@@ -48,6 +45,39 @@
             <p class="individual-user-post-comments">250 Comments</p>
         </div>
 
+    </div>
+</div>
+
+<!-- HTMl code for the comment section -->
+<div class="comment-section-container">
+    <!-- HARDCODED, will need to updated to dynamically update the number of comments -->
+    <h3 class="comment-section-title">56 Comments for: {{post.title}}</h3>
+    <div class="comment-section-list">
+        <div class="comment-section-post-form">
+            <img class="comment-section-post-form-image" src="{{user.profile.image.url}}" alt="">
+            <input type="text" class="comment-section-input">
+            <input class="comment-section-submit" type="submit" value="Post">
+        </div>
+        <!-- Once comments are properly coded in, this will need to updated. -->
+        <div class="comment-list">
+            <img class="comment-list-image" src="{{user.profile.image.url}}" alt="">
+            <div class="comment-list-info">
+                <p class="comment-list-info-user-name">MrCO</p>
+                <p class="comment-list-info-post-time">Posted 3 minutes ago</p>
+                <p class="comment-list-info-text">I really enjoyed this post a lot. It inspired me to do inspired things like wash my car and walk my dog.</p>
+                <hr class="comment-list-info-line">
+            </div>
+        </div>
+        <!-- This is a second hard coded comment to see how well it works. -->
+        <div class="comment-list">
+            <img class="comment-list-image" src="{{user.profile.image.url}}" alt="">
+            <div class="comment-list-info">
+                <p class="comment-list-info-user-name">MrCO</p>
+                <p class="comment-list-info-post-time">Posted 3 minutes ago</p>
+                <p class="comment-list-info-text">I really enjoyed this post a lot. It inspired me to do inspired things like wash my car and walk my dog.</p>
+                <hr class="comment-list-info-line">
+            </div>
+        </div>
     </div>
 </div>
 

@@ -10,6 +10,7 @@
             {% if profile.image %}
             <div class="profile-header-image-container" style="background-image: url('{{profile.image.url}}');">
             </div>
+            <!-- <img src="" alt=""> -->
             {% else %}
             <div class="profile-header-image-container" style="background-image: url('https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg');">
             </div>
@@ -72,7 +73,7 @@
                         <br>
                         <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
                         <br>
-                        <p class="individual-post-options-menu-link" id="cancel">Cancel</p>
+                        <p class="individual-post-options-menu-link cancel">Cancel</p>
                     </div>
                     <!-- The three dots only show if the loggedin user is the one who created the p -->
                     {% if user.is_authenticated and user.username == profile.user.username %}

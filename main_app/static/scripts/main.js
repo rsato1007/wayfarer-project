@@ -1,13 +1,15 @@
-let editForm = document.querySelector(".three-dot-editing");
-let postOptionsMenuEl = document.querySelector(".individual-post-options");
+let editForm = document.getElementsByClassName("three-dot-editing");
+let postOptionsMenuEl = document.getElementsByClassName("individual-post-options");
+const cancelEl = document.getElementsByClassName("cancel");
 
-editForm.addEventListener('click', (e) => {
-    postOptionsMenuEl.style.display = "block";
-})
-
-postOptionsMenuEl.addEventListener('click', (e) => {
-    const cancelEl = document.getElementById("cancel");
-    if (e.target === cancelEl) {
-        postOptionsMenuEl.style.display = "none";
-    }
-})
+for (let i = 0; i < editForm.length; i++) {
+    editForm[i].addEventListener('click', (e) => {
+        postOptionsMenuEl[i].style.display = "block";
+    })
+    
+    postOptionsMenuEl[i].addEventListener('click', (e) => {
+        if (e.target === cancelEl[i]) {
+            postOptionsMenuEl[i].style.display = "none";
+        }
+    })
+}

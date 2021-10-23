@@ -125,7 +125,7 @@
                     </div>
                     
                     <div class="city-post-date mb-1 text-muted">{{post.created_at}}</div>
-                    <p class="city-post-content card-text mb-auto">{{post.description}}</p>
+                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}</p>
         
                     <div class="d-flex w-100">
                         <div class="city-post-footer d-flex w-100 justify-content-lg-between">

@@ -124,16 +124,16 @@ class CityList(TemplateView):
 class CityDetail(TemplateView):
     template_name = "city_details.html"
 
-    def get_context_data(self, pk, **kwargs):
+    def get_context_data(self, slug, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
 
         if name != None:
             context["cities"] = City.objects.filter(name__icontains=name)
-            context["city_details"] = City.objects.get(pk=pk)
+            context["city_details"] = City.objects.get(slug=slug)
         else:
             context["cities"] = City.objects.all()
-            context["city_details"] = City.objects.get(pk=pk)
+            context["city_details"] = City.objects.get(slug=slug)
         return context
 
 # class City(TemplateView):

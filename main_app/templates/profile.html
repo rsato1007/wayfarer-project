@@ -43,18 +43,24 @@
 
 <!-- This is the entire HTML code for the user's posts. -->
 <div class="user-profile-posts">
-    <div class="post-top-section">
-        <!-- This is the HTML code to act as a header for the post section -->
-        <p class="post-history-text">{{profile.user.username}}'s Post</p>
-        <!-- This code only shows if this is the logged in user's profile page. -->
-        {% if user.username == profile.user.username %}
-        <a class="" href="{% url 'profile_post_create' profile.pk %}"><div class="add-post-icon"></div></a>
-        {% endif %}
+
+    <div class="d-flex justify-content-between" style="padding: 64px 126px 24px 126px;">
+        <span class="city-post-subtitle fs-4">POSTS</span>
+        <span>
+            <button class="city-post-add">
+                {% if user.is_authenticated and user.username == profile.user.username %}
+                <a style="color: black; text-decoration: none;" href="{% url 'profile_post_create' user.pk %}">+</a>
+                {% else %}
+                <a style="color: black; text-decoration: none;" href="#">+</a>
+                {% endif%}
+            </button>
+        </span>
     </div>
     <!-- This is the actual list of posts the user has -->
     <div class="user-profile-posts-list">
 
         {% for post in posts %}
+        {% comment %}  
         <!-- This is the code for individual posts. -->
         <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
             <div class="individual-user-post">
@@ -95,8 +101,8 @@
                         
                         </p>
 
-                        {% comment %}
-                        {% endcomment %}
+                        
+                        
 
                     </div>
                     <br>
@@ -110,7 +116,62 @@
             </div>
         </a>
         <br />
+        {% endcomment %}
+        <!--Test-->
+        <div class="mb-lg-5 mt-lg-4">
+            <div class="row g-0 border overflow-hidden flex-md-row mb-2 h-250 h-md-250 shadow-sm position-relative">
+                <div class="col-auto d-none d-lg-block">
+                    {% if post.image %}
+                    <img src="{{post.image.url}}" width="500px" height="350px" style="object-fit: cover;"/>
+                    {% else %}
+                    <h1>No image</h1>
+                    {% endif %}
+                </div>
+                <div class="city-post-content-container col p-4 d-flex flex-column position-static">
+                    <div class="d-flex justify-content-between">
+                        <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
+                            <h3 class="city-post-title mb-0">{{post.title}}</h3>
+                        </a>
+                        <div class="individual-post-options">
+                            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+                            <br>
+                            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+                            <br>
+                            <p class="individual-post-options-menu-link" id="cancel">Cancel</p>
+                        </div>
+                        {% if user.is_authenticated %}
+                                {% if user.id == post.profile.user.id %}
+                            
+                                <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+
+                                {% endif %}
+                        {% endif%}
+
+                    </div>
+                    <div class="mb-2"><span>{{post.city}}</span><span class="city-post-date ps-3 text-muted">{{post.created_at|timesince}} ago</span></div>
+                    
+                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">See More</a></p>
+                    
+
+                    
         
+                    <div class="d-flex w-100">
+                        <div class="city-post-footer d-flex w-100 justify-content-lg-between">
+                            {% if post.profile.image %}
+                            <span><img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" /> {{post.profile.user.username}}</span>
+                            {% else %}
+                            <span>{{post.profile.user.username}}</span>
+                            {% endif %}
+                            <span>132 Comments</span>
+                        </div>
+                    </div>
+                </div>
+            
+            </div>
+        </div>
+        <!--End of Test-->
+
+
         {% empty %} 
             <!-- This code is here in case the user has no posts yet. -->
             <div class="message-header">

@@ -615,7 +615,7 @@ SVG Icons
 }
 
 .user-profile-posts-list {
-    text-align: center;
+    padding: 0 208px;
 }
 
 .individual-user-post {
@@ -660,21 +660,20 @@ SVG Icons
 }
 
 .three-dot-editing {
-    height: 3vw;
-    width: 4vw;
+    width: 32px;
     float: right;
     margin-right: 16px;
-    border-radius: 50%;
+    padding: 4px;
 }
 
 .three-dot-editing:hover {
-    background-color: #d1bbc0;
+    background-color: var(--green);
 }
 
 .individual-post-options {
-    width: 25%;
+    width: 100px;
     position: absolute;
-    left: 75%;
+    left: 90%;
     background-color: white;
     z-index: 2;
     border-radius: 10px;
@@ -919,7 +918,7 @@ textarea:focus, input:focus{
     font-size: 20px;
 }
 .city-post-add:hover {
-    background-color: var(--teal);
+    background-color: var(--salmon);
 }
 .city-post-title {
     font-family: 'PT Serif', serif;

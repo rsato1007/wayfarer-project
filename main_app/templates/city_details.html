@@ -100,7 +100,7 @@
       <!-- City Posts  -->
       <div class="p-lg-5">
         <div class="d-flex justify-content-between">
-            <span class="city-post-subtitle fs-4">CITY POSTS</span><span><button class="city-post-add"><a class="" href="{% url 'post_create' city_details.pk %}">+</a></button></span>
+            <span class="city-post-subtitle fs-4">CITY POSTS</span><span><button class="city-post-add"><a style="color: black; text-decoration: none;" href="{% url 'post_create' city_details.pk %}">+</a></button></span>
         </div>
 
         {% for post in city_details.post.all %}
@@ -137,8 +137,8 @@
 
                     </div>
                     
-                    <div class="city-post-date mb-1 text-muted">{{post.created_at|timesince}}</div>
-                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a href="{% url 'post_detail' post.pk %}">See More</a></p>
+                    <div class="city-post-date mb-1 text-muted">{{post.created_at|timesince}} ago</div>
+                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">See More</a></p>
                     
 
                     

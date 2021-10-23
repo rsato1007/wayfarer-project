@@ -736,7 +736,7 @@ SVG Icons
     padding: 1.5vw;
     color: black;
     background-color: var(--blue);
-    width: 50vw;
+    width: clamp(200px, 50vw, 50vw);
     min-width: 525px;
     margin: 0 auto;
     border-radius: 10px;
@@ -760,15 +760,15 @@ SVG Icons
     border-radius: 10px;
     border: 0.5px solid rgb(128, 128, 128);
     margin-left: 1vw;
-    font-size: 1.2vw;
+    font-size: clamp(15px, 1.2vw, 1.2vw);
 }
 
 .comment-section-submit {
     background-color: black;
     color: white;
-    height: 2vw;
-    width: 6vw;
-    font-size: 1vw;
+    height: clamp(20px, 2vw, 2vw);
+    width: clamp(60px, 6vw, 6vw);
+    font-size: clamp(12px, 1.2vw, 1.2vw);
     border-radius: 15px;
     border: none;
     font-weight: bold;
@@ -802,7 +802,7 @@ SVG Icons
 .comment-list-info-user-name {
     display: inline-block;
     font-weight: bold;
-    font-size: 1vw;
+    font-size: clamp(13px, 1vw, 1vw);
     font-family: var(--poppins);
 }
 
@@ -810,12 +810,12 @@ SVG Icons
     display: inline-block;
     font-family: var(--poppins);
     margin-left: 1vw;
-    font-size: .8vw;
+    font-size: clamp(12px, 0.8vw, 0.8vw);
     color: rgb(47, 47, 47);
 }
 
 .comment-list-info-text {
-    font-size: 0.8vw;
+    font-size: clamp(12px, 0.8vw, 0.8vw);
     margin-top: -1vw;
     width: 80%;
 }

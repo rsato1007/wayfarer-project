@@ -259,6 +259,10 @@ SVG Icons
     top: 6vw;
     left: 12vw;
 }
+.square-city {
+    top: 360px;
+    left: 8vw;
+}
 .triangle{
     position: absolute;
     width: 0;
@@ -277,6 +281,10 @@ SVG Icons
     right: 4vw;
     border: 200px solid transparent;
     border-bottom: 300px solid var(--yellow);
+}
+.triangle-city {
+    top: 4px;
+    left: 30vw;
 }
 .circle {
     position: absolute;
@@ -305,6 +313,13 @@ SVG Icons
    
     overflow: none;
 }
+.branch {
+    position: absolute;
+    z-index: 0;
+    width: 400px;
+    top: 0px;
+    right: 0px;
+   }
 /* Featurettes
 ------------------------- */
 
@@ -767,7 +782,7 @@ SVG Icons
 -------------------------------------------------- */
 
 .sidebar-city {
-    background-color: white;
+    background-color: var(--offwhite);
     border-style: none solid none none;
     border-width: 2px;
     border-color: var(--black);
@@ -787,10 +802,10 @@ SVG Icons
     align-items: center;
     margin: 12px 0px 0px 0px;
     transition: .25s ease-in-out;
-
+    background-color: var(--darkblue);
 }
 .sidebar-nav-item:hover {
-    background-color: var(--pink);
+    background-color: var(--salmon);
     border: 1px solid var(--gray);
 }
 .sidebar-city-name {
@@ -800,7 +815,7 @@ SVG Icons
     justify-content: space-around;
     font-family: 'PT Serif', serif;
     font-size: 1.25rem;
-    color: var(--black);
+    color: var(--white);
 }
 .sidebar-nav-link{
     text-decoration: none;
@@ -817,6 +832,7 @@ SVG Icons
     border-style: none none solid none;
     border-color: var(--black);
     width: 90%;
+    background-color: var(--offwhite);
 
 }
 textarea:focus, input:focus{
@@ -833,16 +849,14 @@ textarea:focus, input:focus{
 /* CITIES CONTENT CSS
 -------------------------------------------------- */
 .city-header-container {
+    position: relative;
     display: flex;
-    padding: 48px 48px 0 48px;
-    margin-top: 28px;
+    padding: 48px;
+    z-index: 2;
 }
 .city-image-title-container {
     /* border: 1px solid black; */
-    width: 100%;
-    position: relative;
-    top: -85px;
-    z-index: -1;
+    width: 65%;
 }
 .city-content-header-title {
     margin-right: 40px;
@@ -908,7 +922,8 @@ textarea:focus, input:focus{
 }
 .city-post-title {
     font-family: 'PT Serif', serif;
-    color: var(--black)
+    color: var(--black);
+
 }
 
 .city-post-content {
@@ -919,7 +934,7 @@ textarea:focus, input:focus{
 }
 
 .city-post-content-container {
-    background-color: var(--gray);
+    background-color: var(--blue);
 }
 
 .city-post-footer {

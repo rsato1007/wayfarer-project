@@ -6,7 +6,7 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
-from .models import Profile, City, Post
+from .models import Profile, City, Post, Comment
 from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm
 
 
@@ -205,3 +205,4 @@ class Post_Delete(DeleteView):
     
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})
+    

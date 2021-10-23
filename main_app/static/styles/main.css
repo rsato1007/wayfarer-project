@@ -726,7 +726,7 @@ SVG Icons
     font-family: var(--montserrat);
     color: black;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: clamp(0.9em, 1.8vw, 1.4em);
     letter-spacing: 4px;
     display: inline-block;
     margin: 2em 0 2em 2em;
@@ -736,7 +736,8 @@ SVG Icons
     padding: 1.5vw;
     color: black;
     background-color: var(--blue);
-    width: 50%;
+    width: 50vw;
+    min-width: 525px;
     margin: 0 auto;
     border-radius: 10px;
 }
@@ -759,6 +760,7 @@ SVG Icons
     border-radius: 10px;
     border: 0.5px solid rgb(128, 128, 128);
     margin-left: 1vw;
+    font-size: 1.2vw;
 }
 
 .comment-section-submit {
@@ -1170,3 +1172,9 @@ textarea:focus, input:focus{
     padding: 15px;
     margin: auto;
   }
+
+/* RESPONSIVE CSS CODE */
+@media only screen and (max-width: 1600px) {
+    /* Comment Section CSS */
+  }
+  

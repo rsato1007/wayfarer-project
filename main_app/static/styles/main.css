@@ -318,7 +318,7 @@ SVG Icons
     z-index: 0;
     width: 400px;
     top: 0px;
-    right: 0px;
+    right: -10px;
    }
 /* Featurettes
 ------------------------- */
@@ -826,6 +826,7 @@ SVG Icons
     border: 1px solid black;
     margin: 8px 0 8px 8px;
     background-color: var(--white);
+
 }
 .sidebar-search-input {
     font-family: 'Poppins', sans-serif;;

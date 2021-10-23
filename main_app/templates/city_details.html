@@ -37,7 +37,13 @@
             <a class="sidebar-nav-link" href="{% url 'city_detail' city.pk %}" aria-current="page">
                 <div class="sidebar-nav-item">
                 
-                    <div class="image-placeholder"></div>
+                    <div class="image-placeholder">
+                        {% if city_details.image.url == 'null' %}
+                        <img src="{{ city_details.image.url }}" style="width: 100%; height:100%; object-fit: cover;" />
+                        {% else %}
+                        <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/city/default-city.jpg" style="width: 100%; height:100%; object-fit: cover;" />
+                        {% endif %}
+                    </div>
                     <div class="sidebar-city-name">{{city.name}}</div>
                 
                 </div>
@@ -74,7 +80,11 @@
         </div>
         <div class="city-header-container">
           <div class="city-image-title-container">
-            <img class="mb-4" src="{% static 'images/london-eye.jpeg'%}" style="width: 100%; height: 420px; object-fit: cover;" />
+            {% if city_details.image.url == 'null' %}
+            <img class="mb-4" src="{{ city_details.image.url }}" style="width: 100%; height: 420px; object-fit: cover;" />
+            {% else %}
+            <img class="mb-4" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/city/default-city.jpg" style="width: 100%; height: 420px; object-fit: cover;" />
+            {% endif %}
             <div class="city-content-header d-flex justify-content-between align-items-center">
               <div class="city-content-header-title">
                 <h1 class="city-content-city">{{city_details.name}}</h1>

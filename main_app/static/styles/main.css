@@ -1246,5 +1246,18 @@ textarea:focus, input:focus{
         height: auto;
         margin-bottom: 0;
     }
+
+    .individual-post-options {
+        width: 90%;
+        position: absolute;
+        left: 10%;
+        display: none;
+        margin-top: -0.2vw;
+    }
+
+    .individual-post-options-menu-link {
+        margin-bottom: 0.3vw;
+        font-size: 3vw;
+    }
   }
   

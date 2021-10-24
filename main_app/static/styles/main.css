@@ -765,7 +765,7 @@ SVG Icons
 .individual-user-post-username {
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-size: 1.2em;
+    font-size: clamp(0.9em, 2vw, 1.2em);
     text-align: left;
 }
 
@@ -1234,7 +1234,7 @@ textarea:focus, input:focus{
   }
 
 /* RESPONSIVE CSS CODE */
-@media only screen and (max-width: 1000px) {
+@media only screen and (max-width: 1050px) {
     /* Comment Section CSS */
     .individual-user-post {
         display: flex;
@@ -1287,17 +1287,25 @@ textarea:focus, input:focus{
     }
 
     .comment-section-input {
-        width: 67%;
+        width: 67vw;
         height: 6vw;
     }
 
     .comment-section-submit {
         display: inline-block;
+        width: 12vw;
+        font-size: 4vw;
     }
 
     .comment-list-image {
         height: 6vw;
         width: 6vw;
     }
-  }
+}
   
+
+@media only screen and (max-width: 500px) {
+    .comment-section-post-form {
+        margin: 2vw 0;
+    }
+}

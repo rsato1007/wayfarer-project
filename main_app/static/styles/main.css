@@ -714,6 +714,7 @@ SVG Icons
     font-size: 0.80vw;
     color: black;
     display: inline-block;
+    cursor: pointer;
 }
 
 .individual-post-options-menu-link:hover {

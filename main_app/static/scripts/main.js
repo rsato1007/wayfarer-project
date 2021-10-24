@@ -15,8 +15,9 @@ for (let i = 0; i < editForm.length; i++) {
 }
 
 // We'll use this code to eventually design a nav bar for mobile devices.
-if (screen.width <= 580) {
-    console.log("small ass screen");
+if (screen.width <= 550) {
+    document.querySelector(".navbar").style.display = "none";
 } else {
-    console.log("Not so small screen");
+    document.querySelector(".hamburger-menu").style.display = "none";
+    document.querySelector(".mobile-header").style.display = "none";
 }

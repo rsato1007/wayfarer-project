@@ -65,8 +65,8 @@ SVG Icons
 .nav-message {
     background-color: var(--blue);
     font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    letter-spacing: 8px;
+    font-size: clamp(5px, 1vw, 1vw);
+    letter-spacing: clamp(3px, 1vw, 10vw);
     color: var(--black);
     height: 32px;
     display: flex;
@@ -1304,7 +1304,32 @@ textarea:focus, input:focus{
 }
   
 
-@media only screen and (max-width: 500px) {
+@media only screen and (max-width: 550px) {
+    .main-content {
+        margin-top: 100px;
+    }
+    /* NAV BAR STYLING */
+    .nav-message {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+    }
+
+    .mobile-header {
+        position: fixed;
+        z-index: 5;
+        top: 11vw;
+        width: 100%;
+        border-style: none none solid none;
+        border-width: 1px;
+        box-shadow: 0 1px 0 0 black;
+        padding-bottom: 0.5rem;
+        padding-left: 2vw;
+    }
+
+    /* COMMENT SECTION STYLING */
     .comment-section-post-form {
         margin: 2vw 0;
     }

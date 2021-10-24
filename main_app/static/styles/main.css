@@ -570,7 +570,7 @@ SVG Icons
 }
 
 .post-top-section {
-    margin: 3em 7em;
+    margin: 5vw 4vw 3vw 4vw;
     position: relative;
     z-index: 2;
 }
@@ -1234,7 +1234,17 @@ textarea:focus, input:focus{
   }
 
 /* RESPONSIVE CSS CODE */
-@media only screen and (max-width: 1600px) {
+@media only screen and (max-width: 1000px) {
     /* Comment Section CSS */
+    .individual-user-post {
+        display: flex;
+        flex-direction: column;
+    }
+
+    .individual-user-post-image {
+        width: 100%;
+        height: auto;
+        margin-bottom: 0;
+    }
   }
   

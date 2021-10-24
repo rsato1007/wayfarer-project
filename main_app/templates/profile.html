@@ -57,59 +57,60 @@
 
         {% for post in posts %}
         <!-- This is the code for individual posts. -->
-        <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
-            <div class="individual-user-post">
-                <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
-                <div class="individual-user-post-description">
-                    <!-- This code is for the drop down menu on the three dots. -->
-                    <div class="individual-post-options">
-                        <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
-                        <br>
-                        <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
-                        <br>
-                        <p class="individual-post-options-menu-link cancel">Cancel</p>
-                    </div>
-                    <!-- The three dots only show if the loggedin user is the one who created the p -->
-                    {% if user.is_authenticated and user.username == profile.user.username %}
-                        <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-                        <div class="individual-user-post-header">
-                    {% else %}
-                        <!-- Code that formats the post when the three dots are present. -->
-                        <div class="individual-user-post-header no-dots">
-                    {% endif%}
-                    <!-- This is the code that includes the post title, city name, and user who post it -->
-                        <span class="individual-user-post-title">{{post.title}}</span> 
-                        <span class="individual-user-post-city">{{post.city}}</span>
-                        <p class="individual-user-post-username">
         
-                            {% if profile.image %}
-
-                            <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
-                            
-                            {% else %}
-                
-                            <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
-                        
-                            {% endif %}
-                            
-                            {{post.profile}}
-                        
-                        </p>
-
-                        {% comment %}
-                        {% endcomment %}
-
-                    </div>
+        <div class="individual-user-post">
+            <a href="{% url 'post_detail' post.pk %}" class="individual-user-post-link">
+                <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
+            </a>
+            <div class="individual-user-post-description">
+                <!-- This code is for the drop down menu on the three dots. -->
+                <div class="individual-post-options">
+                    <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
                     <br>
-                    <p class="individual-user-post-text">{{post.description}}</p>
-                    <div class="individual-user-post-gray-text">
-                        <p class="individual-user-post-time">{{post.created_at}}</p>
-                        <p class="individual-user-post-comments">250 Comments</p>
-                    </div>
+                    <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+                    <br>
+                    <p class="individual-post-options-menu-link cancel">Cancel</p>
+                </div>
+                <!-- The three dots only show if the loggedin user is the one who created the p -->
+                {% if user.is_authenticated and user.username == profile.user.username %}
+                    <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+                    <div class="individual-user-post-header">
+                {% else %}
+                    <!-- Code that formats the post when the three dots are present. -->
+                    <div class="individual-user-post-header no-dots">
+                {% endif%}
+                <!-- This is the code that includes the post title, city name, and user who post it -->
+                    <span class="individual-user-post-title">{{post.title}}</span> 
+                    <span class="individual-user-post-city">{{post.city}}</span>
+                    <p class="individual-user-post-username">
+    
+                        {% if profile.image %}
+
+                        <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
+                        
+                        {% else %}
+            
+                        <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
+                    
+                        {% endif %}
+                        
+                        {{post.profile}}
+                    
+                    </p>
+
+                    {% comment %}
+                    {% endcomment %}
 
                 </div>
+                <br>
+                <p class="individual-user-post-text">{{post.description}}</p>
+                <div class="individual-user-post-gray-text">
+                    <p class="individual-user-post-time">{{post.created_at}}</p>
+                    <p class="individual-user-post-comments">250 Comments</p>
+                </div>
+
             </div>
-        </a>
+        </div>
         <br />
         
         {% empty %} 

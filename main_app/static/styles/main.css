@@ -788,7 +788,7 @@ SVG Icons
     font-size: clamp(0.9em, 1.8vw, 1.4em);
     letter-spacing: 4px;
     display: inline-block;
-    margin: 2em 0 2em 2em;
+    margin: 2vw 0 1.5vw 2vw;
 }
 
 .comment-section-list {
@@ -1184,10 +1184,10 @@ textarea:focus, input:focus{
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: clamp(0.9em, 1.8vw, 1.4em);
     letter-spacing: 4px;
     display: inline-block;
-    margin: 2em 0 2em 2em;
+    margin: 2vw 0 2vw 2vw;
 }
 
 .form-body {
@@ -1239,6 +1239,7 @@ textarea:focus, input:focus{
     .individual-user-post {
         display: flex;
         flex-direction: column;
+        margin-top: 4vw;
     }
 
     .individual-user-post-image {
@@ -1258,6 +1259,18 @@ textarea:focus, input:focus{
     .individual-post-options-menu-link {
         margin-bottom: 0.3vw;
         font-size: 3vw;
+    }
+
+    .more-posts-from-user-container-header {
+        margin-top: 5vw;
+    }
+
+    .comment-section-title {
+        margin: 4vw 2vw 4vw 3vw;
+    }
+
+    .more-posts-from-user-container-header {
+        margin: 4vw 2vw 4vw 3vw;
     }
   }
   

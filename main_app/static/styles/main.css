@@ -28,6 +28,10 @@
     --poppins: 'Poppins', sans-serif;
     --pt-serif: 'PT Serif', serif;
     --abhaya-libre: 'Abhaya Libre', serif;
+
+    /* MISC Variables */
+    --add-post-dimension: clamp(30px, 3vw, 3vw);
+    --add-post-dimension-hover: clamp(40px, 4vw, 4vw);
 }
 
 body {
@@ -575,15 +579,15 @@ SVG Icons
     font-family: 'Montserrat', sans-serif;
     color: black;
     font-weight: bold;
-    font-size: 1.4em;
+    font-size: clamp(0.75em, 1.5vw, 1.5vw);
     letter-spacing: 4px;
     display: inline-block;
 }
 
 .add-post-icon {
     border-radius: 50%;
-    width: 45px;
-    height: 45px;
+    width: var(--add-post-dimension);
+    height: var(--add-post-dimension);
     background-color: black;
     display: inline-block;
     float: right;
@@ -591,9 +595,9 @@ SVG Icons
 
 .add-post-icon::before {
     content: "+";
-    height: 45px;
-    width: 45px;
-    font-size: 45px;
+    height: var(--add-post-dimension);
+    width: var(--add-post-dimension);
+    font-size: var(--add-post-dimension);
     display: flex;
     flex-direction: row;
     align-items: center;
@@ -604,14 +608,14 @@ SVG Icons
 }
 
 .add-post-icon:hover {
-    height: 55px;
-    width: 55px;
+    height: var(--add-post-dimension-hover);
+    width: var(--add-post-dimension-hover);
 }
 
 .add-post-icon:hover::before {
-    height: 55px;
-    width: 55px;
-    font-size: 55px;
+    height: var(--add-post-dimension-hover);
+    width: var(--add-post-dimension-hover);
+    font-size: var(--add-post-dimension-hover);
 }
 
 .user-profile-posts-list {

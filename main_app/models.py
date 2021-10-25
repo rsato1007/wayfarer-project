@@ -18,7 +18,7 @@ class Profile(models.Model):
 class City(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    image = models.FileField(blank=True, null=True, upload_to='profile/')
+    image = models.FileField(blank=True, null=True, upload_to='city/')
 
     def __str__(self):
         return str (self.name)

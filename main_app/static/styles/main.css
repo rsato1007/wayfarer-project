@@ -137,8 +137,14 @@ SVG Icons
     background-color: var(--salmon);
     padding: 16px 32px;
     margin-left: 0;
+    transition: .25s ease-in-out;
 }
- 
+.nav-bar-logout:hover {
+    /* border: 1px solid black; */
+    background-color: var(--black);
+    color: var(--white);
+    transition: .25s ease-in-out;
+}
 .main-content {
     background-color: var(--offwhite); 
     padding-bottom: 100px; 
@@ -545,20 +551,21 @@ SVG Icons
 }
 
 .profile-edit-button {
-    height: 3vw;
-    width: 50%;
-    background-color: var(--darkblue);
-    color: white;
+    width: 86%;
+    background-color: var(--salmon);
+    color: var(--black);
     margin: 1.5vw auto 0 auto;
     line-height: 3vw;
-    font-size: 1vw;
-    font-family: 'Poppins', sans-serif;
-    font-weight: bold;
-    border-radius: 30px;
+    font-size: .9vw;
+    font-family: var(--montserrat);
+    padding: 4px 8px 4px 8px;
+    letter-spacing: 8px;
+    transition: .25s ease-in-out;
 }
 
 .profile-edit-button:hover {
     background-color: rgb(32, 32, 32);
+    color: var(--white);
 }
 
 .profile-edit-button-link {

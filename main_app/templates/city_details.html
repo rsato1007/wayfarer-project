@@ -137,8 +137,8 @@
 
                     </div>
                     
-                    <div class="city-post-date mb-1 text-muted">{{post.created_at|timesince}} ago</div>
-                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">See More</a></p>
+                    <div class="mb-2"><span>{{post.city}}</span><span class="city-post-date ps-3 text-muted">{{post.created_at|timesince}} ago</span></div>
+                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
                     
 
                     

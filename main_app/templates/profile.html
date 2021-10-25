@@ -24,7 +24,7 @@
             {% if user.username == profile.user.username %}
             <a class="profile-edit-button-link" href="{% url 'profile_update' user.pk %}">
                 <div class="profile-edit-button">
-                    Edit Profile
+                    EDIT PROFILE
                 </div>
             </a>
             {% endif %}
@@ -95,7 +95,7 @@
                     </div>
                     <div class="mb-2"><span>{{post.city}}</span><span class="city-post-date ps-3 text-muted">{{post.created_at|timesince}} ago</span></div>
                     
-                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">See More</a></p>
+                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
                     
 
                     

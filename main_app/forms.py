@@ -51,3 +51,4 @@ class CreatePostForm (ModelForm):
     class Meta:
         model: Post
         fields = ('title', 'description', 'city', 'image')
+       

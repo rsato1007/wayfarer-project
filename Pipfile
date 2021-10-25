@@ -11,6 +11,8 @@ boto3 = "*"
 seed = "*"
 django-seed = "*"
 django-crispy-forms = "*"
+django-heroku = "*"
+gunicorn = "*"
 
 [dev-packages]
 

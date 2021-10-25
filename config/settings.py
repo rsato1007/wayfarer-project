@@ -147,3 +147,7 @@ DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
 AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY
 AWS_STORAGE_BUCKET_NAME = 'wayfarer-pythonic-lava'
 AWS_QUERYSTRING_AUTH = True
+
+# Heroku deployment
+import django_heroku
+django_heroku.settings(locals())

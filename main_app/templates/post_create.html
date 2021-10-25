@@ -1,14 +1,44 @@
 {% extends 'base.html' %} 
+{% load crispy_forms_tags %}
 {% block content %}
-<h1>Create Post</h1>
+<div class="container text-center">
+<h1 class="post">Create Post</h1>
+</div>
 
 <form method="post" enctype="multipart/form-data">
 <!-- Security Feature  -->
   {% csrf_token %} 
 <!--  Generate inputs  -->
-  {{form.as_p}} 
+
+<!-- Title -->
+<div class="row">
+<div class="col-4">
+    {{ form.title|as_crispy_field }}
+</div>
+ 
+<!-- City -->
+<div class="col-4">
+  {{ form.city|as_crispy_field }}
+</div>
+
+<!-- Description -->
+<div class="row">
+<div class="col-4">
+  {{ form.description|as_crispy_field}}
+</div>
+</div>
+
+<!--Image -->
+<div class="row">
+<div class="col-4">
+  {{ form.image|as_crispy_field}}
+</div>
+</div>
+
 <!--  Submit form  -->
-  <input type="submit" value="Submit" />
+
+  <input type="submit" class="form-button" value="Submit" style="height:50px; width:200px" />
+
 </form>
 
 {% endblock %}

@@ -1,8 +1,15 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="">Update {{post.title}}</h1>
 
-<form action="" method="post" enctype="multipart/form-data">
-  {% csrf_token %} {{form.as_p}} <input type="submit" value="Submit" />
-</form>
+<div class="form-body">
+  <main class="form-signin">
+    <form class="modal-form" method="post" enctype="multipart/form-data">
+      
+      <h1 class="modal-title h3 mb-3 fw-normal">Update Post</h1>
 
+      {% csrf_token %} {{ form.as_p }}
+
+      <input type="submit" class="form-button" value="UPDATE" />
+    </form>
+  </main>
+</div>
 {% endblock %}

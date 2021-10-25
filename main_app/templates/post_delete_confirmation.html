@@ -1,14 +1,16 @@
 {% extends 'base.html' %} {% block content %}
-<h1 class="">Are you sure you want to Delete {{post.title}}?</h1>
-<form method="post">
-  {% csrf_token %}
-  <div class="buttons">
-   <!-- confirm artist delete -->
-    <input class="" type="submit" value="Confirm" />
-    <!-- Redirect back to detail on cancel -->
-    <a class="" href="{% url 'post_detail' post.pk %}"
-      >Cancel</a
-    >
-  </div>
-</form>
+
+
+<div class="form-body">
+  <main class="form-signin">
+    <form class="modal-form" method="post">
+      <h1 class="modal-title h3 mb-3 fw-normal">Are you sure you want to delete {{post.title}}?</h1>
+      {% csrf_token %}
+      <!-- confirm artist delete -->
+      <input type="submit" class="form-button" value="CONFIRM" />
+      <!-- Redirect back to detail on cancel -->
+      <a class="text-decoration-none mt-3" style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">Cancel</a>
+    </form>
+  </main>
+</div>
 {% endblock %}

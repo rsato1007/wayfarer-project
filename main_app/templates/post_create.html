@@ -1,14 +1,17 @@
 {% extends 'base.html' %} 
 {% block content %}
-<h1>Create Post</h1>
 
-<form method="post" enctype="multipart/form-data">
-<!-- Security Feature  -->
-  {% csrf_token %} 
-<!--  Generate inputs  -->
-  {{form.as_p}} 
-<!--  Submit form  -->
-  <input type="submit" value="Submit" />
-</form>
+<div class="form-body">
+  <main class="form-signin">
+    <form class="modal-form" method="post" enctype="multipart/form-data">
+      
+      <h1 class="modal-title h3 mb-3 fw-normal">Create Post</h1>
 
+      {% csrf_token %} {{ form.as_p }}
+
+      <input type="submit" class="form-button" value="POST" />
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </main>
+</div>
 {% endblock %}

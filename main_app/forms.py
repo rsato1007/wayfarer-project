@@ -45,8 +45,8 @@ class ProfilePictureForm(ModelForm):
         fields = ('image',)
 
 class CreatePostForm (ModelForm):
-    title = forms.CharField(max_length=100, required=True)
-    description = forms.CharField(max_length=5000, required=True)
+    title = forms.CharField(max_length=100, required=True, label="", widget=forms.TextInput(attrs={'placeholder': 'Title', 'class': 'modal-form-input',}))
+    description = forms.CharField(max_length=5000, required=True, label="", widget=forms.TextInput(attrs={'placeholder': 'Description', 'class': 'modal-form-input',}))
     
     class Meta:
         model: Post

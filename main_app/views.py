@@ -174,7 +174,7 @@ class ProfilePostDelete(DeleteView):
     template_name = "post_delete_confirmation.html"
     
     def get_success_url(self):
-        return reverse('profile', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('profile', kwargs={'pk': self.request.user.pk})
 
 # class Post_Create(CreateView):
 #     model = Post
@@ -190,9 +190,9 @@ class ProfilePostDelete(DeleteView):
 #         return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 
-class Post_Create(View):
+class Post_Create(CreateView):
     model = Post
-    form_class = CreatePostForm
+    fields = ['title', 'description', 'image']
     template_name = "post_create.html"
 
     def form_valid(self, form, **kwargs):

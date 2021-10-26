@@ -13,7 +13,7 @@ class Profile(models.Model):
    
     
     def __str__(self):
-        return str (self.user)
+        return self.user.username
 
 class City(models.Model):
     name = models.CharField(max_length=50)
@@ -21,7 +21,7 @@ class City(models.Model):
     image = models.FileField(blank=True, null=True, upload_to='city/')
 
     def __str__(self):
-        return str (self.name)
+        return self.name
     
     class Meta: 
         ordering = ['name']
@@ -39,5 +39,5 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['title']
+        ordering = ['-created_at']
         

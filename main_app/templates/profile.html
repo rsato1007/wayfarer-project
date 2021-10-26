@@ -48,13 +48,19 @@
     <div class="d-flex justify-content-between" style="padding: 64px 126px 24px 126px;">
         <span class="city-post-subtitle fs-4">POSTS</span>
         <span>
-            <button class="city-post-add">
-                {% if user.is_authenticated and user.username == profile.user.username %}
-                <a style="color: black; text-decoration: none;" href="{% url 'profile_post_create' user.pk %}">+</a>
+            {% if user.is_authenticated and user.username == profile.user.username %}
+            <a style="color: black; text-decoration: none;" href="{% url 'profile_post_create' user.pk %}">
+                <button class="city-post-add">
+                +
+                </button>
+            </a>
                 {% else %}
-                <a style="color: black; text-decoration: none;" href="#">+</a>
+            <a style="color: black; text-decoration: none;" href="#">    
+                <button class="city-post-add">
+                +
+                </button>
+            </a>    
                 {% endif%}
-            </button>
         </span>
     </div>
     <!-- This is the actual list of posts the user has -->

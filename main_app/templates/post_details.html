@@ -36,8 +36,25 @@
                 {{post.profile}}
             
             </p>
-
+                </br>
+                <h2>Comments:</h2>
+                </br>
+                    {% if not parent_post.comments.all %}
+                        No Comments Yet...<a href="#">
+                        Add One </a>
+                    {% else %}
+                        {% for comment in parent_post.comments %}
+                            <strong>
+                                {{ comment.user }} -
+                                {{ comment.created_date }}
+                            </strong>
+                            </br>
+                            {{ comment.content }} 
+                        {% endfor %}
+                    {% endif %}
             {% comment %}
+            
+
             {% endcomment %}
 
         </div>

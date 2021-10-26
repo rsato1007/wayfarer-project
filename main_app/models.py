@@ -55,11 +55,11 @@ class Post(models.Model):
         
 
 class Comment(models.Model):
+    parent_post = models.ForeignKey(Post, related_name="comments", on_delete=models.CASCADE)
     user = models.ForeignKey(Profile, on_delete=models.CASCADE)
     title = models.CharField(max_length=100)
     content = models.TextField(max_length=300)
     created_date = models.DateTimeField(auto_now_add=True)
-    parent_post = models.ForeignKey(Post, on_delete=models.CASCADE)
     
     def __str__(self):
         return f'{self.user} made comment {self.title} on {self.created_date}'

@@ -6,7 +6,7 @@ from django.views import View
 from django.contrib.auth.models import User
 from django.contrib.auth.forms import UserCreationForm, AuthenticationForm
 from django.contrib.auth import login, authenticate
-from .models import Profile, City, Post
+from .models import Profile, City, Post, Comment
 from .forms import SignupForm, LoginForm, ProfileForm, ProfilePictureForm, CreatePostForm
 
 
@@ -176,19 +176,6 @@ class ProfilePostDelete(DeleteView):
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.request.user.pk})
 
-# class Post_Create(CreateView):
-#     model = Post
-#     fields = ['title', 'description', 'image']
-#     template_name = "post_create.html"
-
-#     def form_valid(self, form, **kwargs):
-#         form.instance.profile = self.request.user.profile
-#         form.instance.city = City.objects.get(pk=self.kwargs.get('pk'))
-#         return super(Post_Create, self).form_valid(form)
-
-#     def get_success_url(self):
-#         return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
-
 
 class Post_Create(CreateView):
     model = Post
@@ -219,3 +206,12 @@ class Post_Delete(DeleteView):
     
     def get_success_url(self):
         return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})
+
+class CommentCreate(View):
+
+    def post(self, request, pk):
+        profile = self.request.user.profile
+        post = Post.objects.get(pk=pk)
+        description = request.POST.get("description")
+        Comment.objects.create(profile=profile, post=post, description=description)
+        return redirect('post_detail', pk=pk)

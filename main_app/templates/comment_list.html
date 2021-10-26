@@ -1,0 +1,27 @@
+{% extends 'base.html' %} {% comment %} for head title tags and helping us with
+SEO {% endcomment %} {% block title %}Comments{% endblock %} {% block content %}
+<h1 class="title pt-5">Trending Discussions</h1>
+<div class="gallery">
+  {% for comment in commentss %}
+  <a href="">
+    <div class="card">
+      <div class="card-image">
+        <figure class="image is-square">
+          <p>Name: {{comment.comment}}</p>
+          <p>Comment: {{comment.post}}</p>
+        </figure>
+      </div>
+      <div class="card-header">
+        <p class="card-header-title">{{comment.name}}</p>
+      </div>
+    </div>
+  </a>
+  {% empty %}
+  <article class="message">
+    <div class="message-header">
+      <p>No comments available</p>
+    </div>
+  </article>
+  {% endfor %}
+</div>
+{% endblock %}

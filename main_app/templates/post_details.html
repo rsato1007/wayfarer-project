@@ -36,11 +36,12 @@
                 {{post.profile}}
             
             </p>
+
                 </br>
                 <h2>Comments:</h2>
                 </br>
                     {% if not parent_post.comments.all %}
-                        No Comments Yet...<a href="#">
+                        No Comments Yet... <a href="#">
                         Add One </a>
                     {% else %}
                         {% for comment in parent_post.comments %}
@@ -50,10 +51,11 @@
                             </strong>
                             </br>
                             {{ comment.content }} 
+                            </br></br><hr>
                         {% endfor %}
                     {% endif %}
-            {% comment %}
             
+            {% comment %}
 
             {% endcomment %}
 

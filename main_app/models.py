@@ -2,14 +2,17 @@ from django.db import models
 from django.contrib.auth.models import User
 import time
 
-# Pretty URLs using slugify
-import string
-import random
+# Pretty URLS with Slug
+from django.urls import reverse
+from django.template.defaultfilters import slugify
 
-from django.utils.text import slugify
-
-def rand_slug():
-    return ''.join(random.choice(string.ascii_letters + string.digits) for _ in range(6))
+def create_slug(name): # new
+       slug = slugify(name)
+       qs = City.objects.filter(slug=slug)
+       exists = qs.exists()
+       if exists:
+           slug = "%s-%s" %(slug, qs.first().id)
+       return slug
 
 # Create your models here.
 
@@ -27,13 +30,19 @@ class City(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
     image = models.FileField(blank=True, null=True, upload_to='profile/')
-    slug = models.SlugField(max_length=255, unique=True, null=True)
+    slug = models.SlugField(null=True, blank=True, unique=True)
     
+    def __str__(self):
+      return self.name
+    
+    def get_absolute_url(self):
+      return reverse('city_detail', kwargs={'slug': self.slug})
+  
     def save(self, *args, **kwargs):
-        if not self.slug:
-            self.slug = slugify(rand_slug() + "-" + self.name)
-        super(City, self).save(*args, **kwargs)
-
+      if not self.slug:
+         self.slug = slugify(self.name)
+      return super().save(*args, **kwargs)
+  
     class Meta: 
         ordering = ['name']
         verbose_name_plural = "Cities"

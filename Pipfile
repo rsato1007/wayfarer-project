@@ -10,6 +10,7 @@ django-storages = "*"
 boto3 = "*"
 seed = "*"
 django-seed = "*"
+python-slugify = "*"
 
 [dev-packages]
 

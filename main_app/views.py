@@ -133,10 +133,10 @@ class CityDetail(TemplateView):
 
         if name != None:
             context["cities"] = City.objects.filter(name__icontains=name)
-            context["city_details"] = City.objects.get(pk=slug)
+            context["city_details"] = City.objects.get(slug=slug)
         else:
             context["cities"] = City.objects.all()
-            context["city_details"] = City.objects.get(pk=slug)
+            context["city_details"] = City.objects.get(slug=slug)
         return context
 
 # class City(TemplateView):

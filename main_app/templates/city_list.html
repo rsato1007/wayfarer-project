@@ -34,7 +34,7 @@
 
         {% for city in cities %}
 
-            <a class="sidebar-nav-link" href="{% url 'city_detail' city.pk %}" aria-current="page">
+            <a class="sidebar-nav-link" href="{% url 'city_detail' city.slug %}" aria-current="page">
                 <div class="sidebar-nav-item">
                 
                     <div class="image-placeholder"></div>

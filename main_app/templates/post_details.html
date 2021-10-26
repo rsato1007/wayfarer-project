@@ -43,7 +43,7 @@
         <p class="individual-user-post-text">{{post.description}}</p>
         <div class="individual-user-post-gray-text">
             <p class="individual-user-post-time">{{post.created_at}}</p>
-            <p class="individual-user-post-comments">250 Comments</p>
+            <p class="individual-user-post-comments">{{post.comment.all|length}} Comments</p>
         </div>
 
     </div>
@@ -52,7 +52,7 @@
 <!-- HTMl code for the comment section -->
 <div class="comment-section-container">
     <!-- HARDCODED, will need to updated to dynamically update the number of comments -->
-    <h3 class="comment-section-title">56 Comments for: {{post.title}}</h3>
+    <h3 class="comment-section-title">{{post.comment.all|length}} Comments for: {{post.title}}</h3>
     <div class="comment-section-list">
         <form class="comment-section-post-form" action="{% url 'comment_create' post.pk %}" method="post">
             {% csrf_token %}

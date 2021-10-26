@@ -28,6 +28,9 @@ class Home(TemplateView):
         context["signupform"] = CustomUserCreationForm()
         context["loginform"] = LoginForm()
         return context
+    
+class About(TemplateView):
+    template_name = "about.html"    
 
 class Login(View):
     

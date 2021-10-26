@@ -13,6 +13,7 @@ django-seed = "*"
 django-crispy-forms = "*"
 django-heroku = "*"
 gunicorn = "*"
+django-environ = "*"
 
 [dev-packages]
 

@@ -1317,7 +1317,9 @@ textarea:focus, input:focus{
         width: 100%;
     }
 
-    .mobile-header {
+    /* This is here until I figure out the navbar situation. */
+
+    /* .mobile-header {
         position: fixed;
         z-index: 5;
         top: 11vw;
@@ -1328,6 +1330,14 @@ textarea:focus, input:focus{
         padding-bottom: 0.5rem;
         padding-left: 2vw;
     }
+
+    .mobile-navbar {
+        position: fixed !important;
+        background-color: var(--blue);
+        height: 100vw;
+        width: 200vw;
+        top: 0px;
+    } */
 
     /* COMMENT SECTION STYLING */
     .comment-section-post-form {

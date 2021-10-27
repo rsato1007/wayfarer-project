@@ -1276,16 +1276,17 @@ textarea:focus, input:focus{
 
 
 /* RESPONSIVE CSS CODE */
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
 
-    .individual-user-post {
+    .specific-user-post {
         display: flex;
         flex-direction: column;
         margin-top: 4vw;
+        height: auto;
     }
 
-    .individual-user-post-image {
+    .specific-user-post-image {
         width: 100%;
         height: auto;
         margin-bottom: 0;

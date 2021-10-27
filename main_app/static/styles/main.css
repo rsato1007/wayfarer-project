@@ -743,7 +743,6 @@ SVG Icons
 .individual-user-post-title {
     text-align: left;
     font-family: 'PT Serif', serif;
-    font-weight: bold;
     color: black;
     font-size: clamp(1em, 2vw, 2vw);
     padding-top: 2vw;
@@ -763,7 +762,7 @@ SVG Icons
     font-family: 'Poppins', sans-serif;
     color: black;
     font-size: clamp(.8em, 0.75vw, 0.75vw);
-    width: 80%;
+    width: 90%;
     font-weight: 300;
     margin-top: 1vw;
     display: block;
@@ -790,10 +789,12 @@ SVG Icons
 .individual-user-post-time {
     text-align: left;
     color: #6c757d!important;
-    font-size: clamp(13px, 2vw, 2vw);
+    font-size: clamp(5px, 1vw, 1vw);
 }
 
 .individual-user-post-comments {
+    font-family: 'Poppins', sans-serif;  
+    font-size: clamp(0.9em, 2vw, 1.2em);
     text-align: right;
     float: right;
 
@@ -807,7 +808,7 @@ SVG Icons
     position: absolute;
     bottom: 0;
     width: 95%;
-    padding: 1vw 0vw;
+    padding: 1.35vw 0vw;
     color: var(--black);
     font: var(--poppins);
     letter-spacing: 1px;
@@ -1286,12 +1287,18 @@ input:focus {
 
 .create-button {
   margin-top: 2rem;
-  font-family: "Abhaya Libre", serif;
+  font-family: "Montserrat", sans-serif;
   font-size: 12px;
   letter-spacing: 4px;
   border-style: none;
   background-color: var(--salmon);
   padding: 16px 28px;
+  transition: 0.25s ease-in-out;
+}
+
+.create-button:hover {
+  background-color: rgb(32, 32, 32);
+  color: var(--white);
 }
 
 /* RESPONSIVE CSS CODE */

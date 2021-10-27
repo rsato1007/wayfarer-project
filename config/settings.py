@@ -10,6 +10,7 @@ For the full list of settings and their values, see
 https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
+import django_heroku
 from pathlib import Path
 # from .secrets import *
 import os
@@ -44,7 +45,10 @@ INSTALLED_APPS = [
     'django.contrib.staticfiles',
     'main_app',
     'django.contrib.humanize',
+    'crispy_forms',
 ]
+
+CRISPY_TEMPLATE_PACK = 'bootstrap4'
 
 MIDDLEWARE = [
     'django.middleware.security.SecurityMiddleware',
@@ -127,7 +131,6 @@ USE_TZ = True
 STATIC_URL = '/static/'
 
 
-
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
@@ -138,11 +141,11 @@ LOGOUT_REDIRECT_URL = '/'
 
 # Auto E-mail on sign up
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST='smtp.gmail.com'
+EMAIL_HOST = 'smtp.gmail.com'
 EMAIL_PORT = 587
 EMAIL_USE_TLS = True
-EMAIL_HOST_USER='gaproject.wayfarer@gmail.com'
-EMAIL_HOST_PASSWORD='ocxdbffhqixwxrut'
+EMAIL_HOST_USER = 'gaproject.wayfarer@gmail.com'
+EMAIL_HOST_PASSWORD = 'ocxdbffhqixwxrut'
 DEFAULT_FROM_EMAIL = 'gaproject.wayfarer@gmail.com'
 
 # Image file storage
@@ -152,5 +155,4 @@ AWS_STORAGE_BUCKET_NAME = 'wayfarer-pythonic-lava'
 AWS_QUERYSTRING_AUTH = True
 
 # Heroku deployment
-import django_heroku
 django_heroku.settings(locals())

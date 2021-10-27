@@ -657,7 +657,7 @@ SVG Icons
 
 .individual-user-post {
     background-color: var(--blue);
-    height: clamp(100px, auto, 51vh);
+    height: clamp(200px, auto, 51vh);
     width: 100%;
     margin-left: auto;
     margin-right: auto;
@@ -802,7 +802,7 @@ SVG Icons
 
 .individual-user-post-bottom {
     position: absolute;
-    bottom: 0px;
+    bottom: 0;
     width: 95%;
     padding: 1vw 0vw;
     color: var(--black);
@@ -1294,8 +1294,12 @@ textarea:focus, input:focus{
 @media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
 
+    .post-detail {
+        margin-left: 5%;
+    }
+
     .individual-user-post {
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         margin-top: 4vw;
         height: auto;
@@ -1305,6 +1309,7 @@ textarea:focus, input:focus{
         width: 100%;
         height: auto;
         margin-bottom: 0;
+        padding: 0;
     }
 
     .individual-post-options {
@@ -1318,6 +1323,11 @@ textarea:focus, input:focus{
     .individual-post-options-menu-link {
         margin-bottom: 0.3vw;
         font-size: 3vw;
+    }
+
+    .individual-user-post-bottom {
+        position: relative;
+        margin-bottom: 3vw;
     }
 
     .more-posts-from-user-container-header {

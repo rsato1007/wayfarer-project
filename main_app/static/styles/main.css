@@ -657,27 +657,27 @@ SVG Icons
 
 .individual-user-post {
     background-color: var(--blue);
-    height: clamp(100px, auto, 51vh);
-    width: 85%;
+    height: clamp(200px, auto, 51vh);
+    width: 100%;
     margin-left: auto;
     margin-right: auto;
     display: grid;
-    grid-template-columns: 50% 50%;
+    grid-template-columns: 35% 65%;
     grid-template-rows: 1fr;
-    padding: 1vw;
     margin-top: 2vw;
+}
+
+.post-detail {
+    width: 90%;
 }
 
 .individual-user-post-header {
     float: left;
     width: 100%;
     text-align: left;
-    margin-top: -1vw;
-    margin-bottom: 1vw;
-}
-
-.no-dots {
     margin-top: 2vw;
+    margin-bottom: 1vw;
+    margin-left: 0;
 }
 
 .individual-user-post-link {
@@ -692,17 +692,17 @@ SVG Icons
 }
 
 .individual-user-post-description {
-    padding-left: 2vw;
+    padding-left: 1vw;
     position: relative;
 }
 
 .three-dot-editing {
-
+    position: absolute;
     height: clamp(30px, 3vw, 3vw);
     width: clamp(40px, 4vw, 4vw);
     min-width: 30px;
-    float: right;
-    margin-right: 16px;
+    right: 1vw;
+    top: 1.5vw;
     padding: 4px;
 }
 
@@ -745,11 +745,12 @@ SVG Icons
     color: black;
     font-size: clamp(1em, 2vw, 2vw);
     padding-top: 2vw;
+    margin-left: -0.1vw;
 }
 
 .individual-user-post-city {
-    margin-left: 2vw;
-    font-size: clamp(0.85em, 1.6vw, 1.6vw);
+    margin-right: 1vw;
+    font-size: clamp(0.85em, 1vw, 1vw);
     font-family: 'PT Serif', serif;
     font-weight: bold;
     color: rgb(54, 54, 54);
@@ -759,9 +760,9 @@ SVG Icons
     text-align: left;
     font-family: 'Poppins', sans-serif;
     color: black;
-    font-size: clamp(.8em, 1.5vw, 1.5vw);
+    font-size: clamp(.8em, 0.75vw, 0.75vw);
     width: 80%;
-    font-weight: 200;
+    font-weight: 300;
     margin-top: 1vw;
     display: block;
 }
@@ -782,18 +783,33 @@ SVG Icons
     color: black;
     font-size: clamp(0.9em, 2vw, 1.2em);
     text-align: left;
+    float: left;
 }
 
 .individual-user-post-time {
     text-align: left;
+    color: #6c757d!important;
+    font-size: clamp(13px, 2vw, 2vw);
 }
 
 .individual-user-post-comments {
     text-align: right;
+    float: right;
 }
 
 .individual-user-post-comments:hover {
     text-decoration: underline;
+}
+
+.individual-user-post-bottom {
+    position: absolute;
+    bottom: 0;
+    width: 95%;
+    padding: 1vw 0vw;
+    color: var(--black);
+    font: var(--poppins);
+    letter-spacing: 1px;
+    font-weight: 300;
 }
 
 .comment-section-title {
@@ -834,13 +850,13 @@ SVG Icons
     border-radius: 10px;
     border: 0.5px solid rgb(128, 128, 128);
     margin-left: 1vw;
-    font-size: clamp(15px, 1.2vw, 1.2vw);
+    font-size: clamp(10px, 1.2vw, 1.2vw);
 }
 
 .comment-section-submit {
     background-color: black;
     color: white;
-    height: clamp(20px, 2vw, 2vw);
+    height: clamp(50px, 2vw, 2vw);
     width: clamp(60px, 6vw, 6vw);
     font-size: clamp(12px, 1.2vw, 1.2vw);
     border-radius: 15px;
@@ -1276,19 +1292,30 @@ textarea:focus, input:focus{
 
 
 /* RESPONSIVE CSS CODE */
-@media only screen and (max-width: 1050px) {
+@media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
+    .user-profile-posts-list {
+        padding: 5vw;
+    }
 
     .individual-user-post {
-        display: flex;
+        display: inline-flex;
         flex-direction: column;
         margin-top: 4vw;
+        height: auto;
+        width: 100%;
+    }
+
+    .post-detail {
+        width: 90%;
+        margin-left: 5%;
     }
 
     .individual-user-post-image {
         width: 100%;
         height: auto;
         margin-bottom: 0;
+        padding: 0;
     }
 
     .individual-post-options {
@@ -1302,6 +1329,11 @@ textarea:focus, input:focus{
     .individual-post-options-menu-link {
         margin-bottom: 0.3vw;
         font-size: 3vw;
+    }
+
+    .individual-user-post-bottom {
+        position: relative;
+        margin-bottom: 3vw;
     }
 
     .more-posts-from-user-container-header {
@@ -1344,6 +1376,11 @@ textarea:focus, input:focus{
         height: 6vw;
         width: 6vw;
     }
+
+    .no-comments-header {
+        margin-left: 1vw;
+        font-size: 2.5vw;
+    }
 }
   
 
@@ -1362,7 +1399,7 @@ textarea:focus, input:focus{
 
     /* This is here until I figure out the navbar situation. */
 
-    /* .mobile-header {
+    .mobile-header {
         position: fixed;
         z-index: 5;
         top: 11vw;
@@ -1380,7 +1417,7 @@ textarea:focus, input:focus{
         height: 100vw;
         width: 200vw;
         top: 0px;
-    } */
+    }
 
     /* COMMENT SECTION STYLING */
     .comment-section-post-form {

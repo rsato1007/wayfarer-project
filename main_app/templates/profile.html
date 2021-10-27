@@ -68,7 +68,62 @@
 
         {% for post in posts %}
 
+        <!-- This is code I am testing before I push up -->
+        <div class="individual-user-post">
+            <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
+                {% if post.image %}
+                    <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
+                {% else %}
+                    <h1>No image</h1>
+                {% endif %}
+            </a>
+            <div class="individual-user-post-description">
+                <!-- This code is for the drop down menu on the three dots. -->
+                <div class="individual-post-options">
+                    <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+                    <br>
+                    <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+                    <br>
+                    <p class="individual-post-options-menu-link cancel">Cancel</p>
+                </div>
+                <!-- The three dots only show if the loggedin user is the one who created the p -->
+                {% if user.is_authenticated and user.username == post.profile.user.username %}
+                    <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
+                    <div class="individual-user-post-header">
+                {% endif%}
+                <!-- This is the code that includes the post title, city name, and user who post it -->
+                <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
+                    <span class="individual-user-post-title">{{post.title}}</span> 
+                </a>
+                    <br>
+                    <span class="individual-user-post-city">{{post.city}}</span>
+                    <span class="individual-user-post-time">Posted {{post.created_at|timesince}} ago</span>
         
+                </div>
+                <br>
+                <p class="individual-user-post-text">{{post.description|truncatechars_html:1000}} <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
+                <div class="individual-user-post-bottom">
+                    <span class="individual-user-post-username">
+        
+                        {% if post.profile.image %}
+        
+                        <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" />
+                        
+                        {% else %}
+        
+                        <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" />
+                    
+                        {% endif %}
+                        
+                        {{post.profile}}
+                    
+                    </span>
+                    <span class="individual-user-post-comments">{{post.comment.all|length}} Comments</span>
+                </div>
+        
+            </div>
+        </div>
+        <!-- This is the old code -->
         <!--Test-->
         <div class="mb-lg-5 mt-lg-4 specific-user-post">
             <div class="row g-0 border overflow-hidden flex-md-row mb-2 h-250 h-md-250 shadow-sm position-relative">

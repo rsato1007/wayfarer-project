@@ -789,6 +789,7 @@ SVG Icons
 .individual-user-post-time {
     text-align: left;
     color: #6c757d!important;
+    font-size: clamp(13px, 2vw, 2vw);
 }
 
 .individual-user-post-comments {
@@ -1293,9 +1294,8 @@ textarea:focus, input:focus{
 /* RESPONSIVE CSS CODE */
 @media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
-
-    .post-detail {
-        margin-left: 5%;
+    .user-profile-posts-list {
+        padding: 5vw;
     }
 
     .individual-user-post {
@@ -1303,6 +1303,12 @@ textarea:focus, input:focus{
         flex-direction: column;
         margin-top: 4vw;
         height: auto;
+        width: 100%;
+    }
+
+    .post-detail {
+        width: 90%;
+        margin-left: 5%;
     }
 
     .individual-user-post-image {
@@ -1393,7 +1399,7 @@ textarea:focus, input:focus{
 
     /* This is here until I figure out the navbar situation. */
 
-    /* .mobile-header {
+    .mobile-header {
         position: fixed;
         z-index: 5;
         top: 11vw;
@@ -1411,7 +1417,7 @@ textarea:focus, input:focus{
         height: 100vw;
         width: 200vw;
         top: 0px;
-    } */
+    }
 
     /* COMMENT SECTION STYLING */
     .comment-section-post-form {

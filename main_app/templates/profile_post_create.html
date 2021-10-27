@@ -1,0 +1,36 @@
+{% extends 'base.html' %} {% load crispy_forms_tags %} {% block content %}
+
+<div class="form-body">
+  <main class="form-signin">
+    <form method="post" enctype="multipart/form-data">
+      <h1 class="create1">Create Post</h1>
+
+      {% csrf_token %}
+
+      <!-- Title -->
+      <div class="row" class="row-custom">{{ form.title|as_crispy_field}}</div>
+
+      <!-- City -->
+      <div class="row" class="row-custom">{{ form.city|as_crispy_field}}</div>
+
+      <!-- Description -->
+      <div class="row" class="row-custom">
+        {{ form.description|as_crispy_field }}
+      </div>
+
+      <!--Image -->
+      <div class="row" class="row-custom">
+        <div class="col-xl">{{ form.image|as_crispy_field}}</div>
+      </div>
+
+      <!--  Submit form  -->
+
+      <input type="submit" class="form-button class="create-button"
+      value="Submit" style="height: 50px; width: 200px" />
+
+      <input type="hidden" name="next" value="{{ next }}" />
+    </form>
+  </main>
+</div>
+
+{% endblock %}

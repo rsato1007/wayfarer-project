@@ -148,7 +148,7 @@ class CityDetail(TemplateView):
 class ProfilePostCreate(CreateView):
     model = Post
     fields = ['city', 'title', 'description', 'image']
-    template_name = "post_create.html"
+    template_name = "profile_post_create.html"
 
     def form_valid(self, form, **kwargs):
         form.instance.profile = self.request.user.profile

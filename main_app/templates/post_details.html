@@ -12,7 +12,7 @@
             <p class="individual-post-options-menu-link cancel">Cancel</p>
         </div>
         <!-- The three dots only show if the loggedin user is the one who created the p -->
-        {% if user.is_authenticated and user.username == post.profile.user.username %}
+        {% if user.is_authenticated and user.id == post.profile.user.id %}
             <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
             <div class="individual-user-post-header">
         {% endif%}

@@ -1,4 +1,5 @@
 {% extends 'base.html' %} {% block content %}
+
 <div class="individual-user-post">
     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
     <div class="individual-user-post-description">
@@ -42,7 +43,7 @@
         <p class="individual-user-post-text">{{post.description}}</p>
         <div class="individual-user-post-gray-text">
             <p class="individual-user-post-time">{{post.created_at}}</p>
-            <p class="individual-user-post-comments">250 Comments</p>
+            <p class="individual-user-post-comments">{{post.comment.all|length}} Comments</p>
         </div>
 
     </div>
@@ -51,13 +52,40 @@
 <!-- HTMl code for the comment section -->
 <div class="comment-section-container">
     <!-- HARDCODED, will need to updated to dynamically update the number of comments -->
-    <h3 class="comment-section-title">56 Comments for: {{post.title}}</h3>
+    <h3 class="comment-section-title">{{post.comment.all|length}} Comments for: {{post.title}}</h3>
     <div class="comment-section-list">
-        <div class="comment-section-post-form">
-            {# <img class="comment-section-post-form-image" src="{{user.profile.image.url}}" alt=""> #}
-            <input type="text" class="comment-section-input">
+        <form class="comment-section-post-form" action="{% url 'comment_create' post.pk %}" method="post">
+            {% csrf_token %}
+            {% if user.profile.image %}
+            <img class="comment-section-post-form-image" src="{{user.profile.image.url}}" alt="">
+            {% else %}
+            <img class="comment-section-post-form-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" alt="">
+            {% endif %}
+            <input type="text" class="comment-section-input" name="description" required>
             <input class="comment-section-submit" type="submit" value="Post">
+        </form>
+        <!-- Comment loop. -->
+        {% for comment in post.comment.all %}
+
+        <div class="comment-list">
+            {% if comment.profile.image %}
+            <img class="comment-list-image" src="{{comment.profile.image.url}}" alt="">
+            {% else %}
+            <img class="comment-list-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" alt="">
+            {% endif %}
+            <div class="comment-list-info">
+                <p class="comment-list-info-user-name">{{comment.profile.user.username}}</p>
+                <p class="comment-list-info-post-time">{{comment.created_at}}</p>
+                <p class="comment-list-info-text">{{comment.description}}</p>
+                <hr class="comment-list-info-line">
+            </div>
         </div>
+
+        {% empty %}
+
+        <h1>No Comments Yet</h1>
+
+        {% endfor %}
         <!-- Once comments are properly coded in, this will need to updated. -->
         <div class="comment-list">
             {#<img class="comment-list-image" src="{{user.profile.image.url}}" alt=""> #}

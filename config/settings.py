@@ -11,10 +11,12 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 """
 
 from pathlib import Path
-from .secrets import *
+# from .secrets import *
 import os
+import environ
 
-
+env = environ.Env()
+environ.Env.read_env()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -23,6 +25,7 @@ BASE_DIR = Path(__file__).resolve().parent.parent
 # Quick-start development settings - unsuitable for production
 # See https://docs.djangoproject.com/en/3.2/howto/deployment/checklist/
 
+SECRET_KEY = env('SECRET_KEY')
 
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
@@ -144,6 +147,10 @@ DEFAULT_FROM_EMAIL = 'gaproject.wayfarer@gmail.com'
 
 # Image file storage
 DEFAULT_FILE_STORAGE = 'storages.backends.s3boto3.S3Boto3Storage'
-AWS_ACCESS_KEY_ID = AWS_ACCESS_KEY
+AWS_ACCESS_KEY_ID = env('AWS_ACCESS_KEY')
 AWS_STORAGE_BUCKET_NAME = 'wayfarer-pythonic-lava'
 AWS_QUERYSTRING_AUTH = True
+
+# Heroku deployment
+import django_heroku
+django_heroku.settings(locals())

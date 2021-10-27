@@ -13,15 +13,15 @@ class Profile(models.Model):
    
     
     def __str__(self):
-        return str (self.user)
+        return self.user.username
 
 class City(models.Model):
     name = models.CharField(max_length=50)
     country = models.CharField(max_length=50)
-    image = models.FileField(blank=True, null=True, upload_to='profile/')
+    image = models.FileField(blank=True, null=True, upload_to='city/')
 
     def __str__(self):
-        return str (self.name)
+        return self.name
     
     class Meta: 
         ordering = ['name']
@@ -39,5 +39,13 @@ class Post(models.Model):
         return self.title
 
     class Meta:
-        ordering = ['title']
+        ordering = ['-created_at']
         
+class Comment(models.Model):
+    profile = models.ForeignKey(Profile, on_delete=models.CASCADE, related_name="comment")
+    post = models.ForeignKey(Post, on_delete=models.CASCADE, related_name="comment")
+    description = models.TextField(max_length=2000)
+    created_at = models.DateTimeField(auto_now_add=True)
+
+    class Meta:
+        ordering = ['-created_at']

@@ -87,7 +87,7 @@
                     <p class="individual-post-options-menu-link cancel">Cancel</p>
                 </div>
                 <!-- The three dots only show if the loggedin user is the one who created the p -->
-                {% if user.is_authenticated and user.username == post.profile.user.username %}
+                {% if user.is_authenticated and user.id == post.profile.user.id %}
                     <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
                     <div class="individual-user-post-header">
                 {% endif%}
@@ -123,62 +123,6 @@
         
             </div>
         </div>
-        <!-- This is the old code -->
-        <!--Test-->
-        <div class="mb-lg-5 mt-lg-4 specific-user-post">
-            <div class="row g-0 border overflow-hidden flex-md-row mb-2 h-250 h-md-250 shadow-sm position-relative">
-                
-                <div class="col-auto d-none d-lg-block">
-                    <a href="{% url 'post_detail' post.pk %}">
-                    {% if post.image %}
-                        <img class="specific-user-post-image" src="{{post.image.url}}" width="500px" height="400px" style="object-fit: cover;"/>
-                    {% else %}
-                        <h1>No image</h1>
-                    {% endif %}
-                    </a>
-                </div>
-                
-                <div class="city-post-content-container col p-4 d-flex flex-column position-static">
-                    <div class="d-flex justify-content-between">
-                        <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
-                            <h3 class="city-post-title mb-0">{{post.title}}</h3>
-                        </a>
-                        <div class="individual-post-options">
-                            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
-                            <br>
-                            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
-                            <br>
-                            <p class="individual-post-options-menu-link cancel">Cancel</p>
-                        </div>
-                        {% if user.is_authenticated %}
-                                {% if user.id == post.profile.user.id %}
-                            
-                                <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
-
-                                {% endif %}
-                        {% endif%}
-
-                    </div>
-                    <div class="mb-2"><span>{{post.city}}</span><span class="city-post-date ps-3 text-muted">{{post.created_at|timesince}} ago</span></div>
-                    
-                    <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
-                                     
-        
-                    <div class="d-flex w-100">
-                        <div class="city-post-footer d-flex w-100 justify-content-lg-between">
-                            {% if post.profile.image %}
-                            <span><img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" /> {{post.profile.user.username}}</span>
-                            {% else %}
-                            <span>{{post.profile.user.username}}</span>
-                            {% endif %}
-                            <span>{{post.comment.all|length}} Comments</span>
-                        </div>
-                    </div>
-                </div>
-            
-            </div>
-        </div>
-        <!--End of Test-->
 
         {% empty %} 
             <!-- This code is here in case the user has no posts yet. -->

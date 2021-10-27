@@ -1,6 +1,6 @@
 {% extends 'base.html' %} {% block content %}
 
-<div class="individual-user-post">
+<div class="individual-user-post post-detail">
     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
     <div class="individual-user-post-description">
         <!-- This code is for the drop down menu on the three dots. -->
@@ -12,38 +12,36 @@
             <p class="individual-post-options-menu-link cancel">Cancel</p>
         </div>
         <!-- The three dots only show if the loggedin user is the one who created the p -->
-        {% if user.is_authenticated and user.username == post.profile.user.username %}
+        {% if user.is_authenticated and user.id == post.profile.user.id %}
             <img class="three-dot-editing" src="https://www.svgrepo.com/show/124304/three-dots.svg" alt="">
             <div class="individual-user-post-header">
-        {% else %}
-            <!-- Code that formats the post when the three dots are present. -->
-            <div class="individual-user-post-header no-dots">
         {% endif%}
         <!-- This is the code that includes the post title, city name, and user who post it -->
             <span class="individual-user-post-title">{{post.title}}</span> 
+            <br>
             <span class="individual-user-post-city">{{post.city}}</span>
-            <p class="individual-user-post-username">
+            <span class="individual-user-post-time">Posted {{post.created_at|timesince}} ago</span>
 
-                {% if profile.image %}
+        </div>
+        <br>
+        <p class="individual-user-post-text">{{post.description}}</p>
+        <div class="individual-user-post-bottom">
+            <span class="individual-user-post-username">
 
-                <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover;" />
+                {% if post.profile.image %}
+
+                <img src="{{ post.profile.image.url }}" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" />
                 
                 {% else %}
-    
-                <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover;" />
+
+                <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/profile/default-profile.jpeg" style="width:20px; height:20px; object-fit: cover; border-radius: 50%;" />
             
                 {% endif %}
                 
                 {{post.profile}}
             
-            </p>
-
-        </div>
-        <br>
-        <p class="individual-user-post-text">{{post.description}}</p>
-        <div class="individual-user-post-gray-text">
-            <p class="individual-user-post-time">{{post.created_at}}</p>
-            <p class="individual-user-post-comments">{{post.comment.all|length}} Comments</p>
+            </span>
+            <span class="individual-user-post-comments">{{post.comment.all|length}} Comments</span>
         </div>
 
     </div>
@@ -51,7 +49,6 @@
 
 <!-- HTMl code for the comment section -->
 <div class="comment-section-container">
-    <!-- HARDCODED, will need to updated to dynamically update the number of comments -->
     <h3 class="comment-section-title">{{post.comment.all|length}} Comments for: {{post.title}}</h3>
     <div class="comment-section-list">
         <form class="comment-section-post-form" action="{% url 'comment_create' post.pk %}" method="post">
@@ -75,7 +72,7 @@
             {% endif %}
             <div class="comment-list-info">
                 <p class="comment-list-info-user-name">{{comment.profile.user.username}}</p>
-                <p class="comment-list-info-post-time">{{comment.created_at}}</p>
+                <p class="comment-list-info-post-time">{{comment.created_at|timesince}} ago</p>
                 <p class="comment-list-info-text">{{comment.description}}</p>
                 <hr class="comment-list-info-line">
             </div>
@@ -83,29 +80,10 @@
 
         {% empty %}
 
-        <h1>No Comments Yet</h1>
+        <h1 class="no-comments-header">No Comments Yet</h1>
 
         {% endfor %}
         <!-- Once comments are properly coded in, this will need to updated. -->
-        <div class="comment-list">
-            {#<img class="comment-list-image" src="{{user.profile.image.url}}" alt=""> #}
-            <div class="comment-list-info">
-                <p class="comment-list-info-user-name">MrCO</p>
-                <p class="comment-list-info-post-time">Posted 3 minutes ago</p>
-                <p class="comment-list-info-text">I really enjoyed this post a lot. It inspired me to do inspired things like wash my car and walk my dog.</p>
-                <hr class="comment-list-info-line">
-            </div>
-        </div>
-        <!-- This is a second hard coded comment to see how well it works. -->
-        <div class="comment-list">
-            {# <img class="comment-list-image" src="{{user.profile.image.url}}" alt=""> #}
-            <div class="comment-list-info">
-                <p class="comment-list-info-user-name">MrCO</p>
-                <p class="comment-list-info-post-time">Posted 3 minutes ago</p>
-                <p class="comment-list-info-text">I really enjoyed this post a lot. It inspired me to do inspired things like wash my car and walk my dog.</p>
-                <hr class="comment-list-info-line">
-            </div>
-        </div>
     </div>
 </div>
 

@@ -67,6 +67,7 @@
     <div class="user-profile-posts-list">
 
         {% for post in posts %}
+
         
         <!--Test-->
         <div class="mb-lg-5 mt-lg-4">
@@ -106,9 +107,7 @@
                     <div class="mb-2"><span>{{post.city}}</span><span class="city-post-date ps-3 text-muted">{{post.created_at|timesince}} ago</span></div>
                     
                     <p class="city-post-content card-text mb-auto">{{post.description|truncatechars_html:1000}}  <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
-                    
-
-                    
+                                     
         
                     <div class="d-flex w-100">
                         <div class="city-post-footer d-flex w-100 justify-content-lg-between">

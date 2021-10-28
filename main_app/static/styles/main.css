@@ -1302,11 +1302,16 @@ input:focus {
 }
 
 .mobile-navbar-main {
-    border: 1px solid black;
+    background-color: var(--offwhite);
+    border-style: none none solid none;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 black;
     position: fixed;
     top: 32px;
     width: 100%;
     z-index: 5;
+    margin-top: 5px;
+    height: 45px;
 }
 
 /* RESPONSIVE CSS CODE */
@@ -1420,6 +1425,7 @@ input:focus {
     top: 50%;
     -ms-transform: translateY(-50%);
     transform: translateY(-50%);
+    z-index: 6;
   }
 
   .nav-logo {
@@ -1451,8 +1457,43 @@ input:focus {
       width: 10vw;
   }
 
+  .mobile-dropDown-menu {
+      position: fixed;
+      margin-top: 82.5px;
+      top: 0;
+      z-index: 5;
+      background-color: rgba(0, 0, 0, .5);
+      height: 100%;
+      width: 100%;
+  }
+
+  .nav-link-container-mobile {
+      background: var(--blue);
+      text-align: center;
+      width: 50%;
+      height: 44vw;
+  }
+
+  .nav-link {
+    font-family: "Montserrat", sans-serif;
+    font-size: 3vw;
+    letter-spacing: 2vw;
+    color: var(--black);
+  }
+
   /* COMMENT SECTION STYLING */
   .comment-section-post-form {
     margin: 2vw 0;
   }
+}
+
+@media only screen and (max-width: 350px) {
+    .mobile-navbar-main {
+        margin-top: 3px;
+        height: 35px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 70.5px;
+    }
 }

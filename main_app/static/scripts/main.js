@@ -15,8 +15,21 @@ for (let i = 0; i < editForm.length; i++) {
 }
 
 // We'll use this code to eventually design a nav bar for mobile devices.
-if (screen.width <= 550) {
-    console.log("The screen is small now");
+// PREVIOUSLY 550px
+if (screen.width <= 900) {
+    const navbarEl = document.querySelector(".navbar-main").style.display = "none";
+    const mobileNavBarEl = document.querySelector(".mobile-navbar-main").style.display = "inline-block";
+
+    // Event that fires when you select the hamburger menu
+    let mobileMenuEl = document.querySelector(".hamburger-menu").addEventListener('click', (e) => {
+        if(document.querySelector(".mobile-dropDown-menu").classList.contains("hidden-menu")) {
+            document.querySelector(".mobile-dropDown-menu").classList.remove("hidden-menu");
+            document.querySelector('.mobile-dropDown-menu').style.display = "block";
+        } else {
+            document.querySelector(".mobile-dropDown-menu").classList.add("hidden-menu");
+            document.querySelector('.mobile-dropDown-menu').style.display = "none";
+        }
+    })
 } else {
     console.log("The screen is not so small now.");
 }

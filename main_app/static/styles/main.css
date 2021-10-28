@@ -1301,6 +1301,20 @@ input:focus {
   color: var(--white);
 }
 
+.mobile-navbar-main {
+    background-color: var(--offwhite);
+    border-style: none none solid none;
+    border-width: 1px;
+    box-shadow: 0 1px 0 0 black;
+    position: fixed;
+    top: 32px;
+    width: 100%;
+    z-index: 5;
+    margin-top: 10px;
+    padding-bottom: 30px;
+    height: 65px;
+}
+
 /* RESPONSIVE CSS CODE */
 @media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
@@ -1328,18 +1342,18 @@ input:focus {
         padding: 0;
     }
 
-  .individual-post-options {
-    width: 90%;
-    position: absolute;
-    left: 10%;
-    display: none;
-    margin-top: -0.2vw;
-  }
+    .individual-post-options {
+        width: 90%;
+        position: absolute;
+        left: 10%;
+        display: none;
+        margin-top: -0.2vw;
+    }
 
-  .individual-post-options-menu-link {
-    margin-bottom: 0.3vw;
-    font-size: 3vw;
-  }
+    .individual-post-options-menu-link {
+        margin-bottom: 0.3vw;
+        font-size: 3vw;
+    }
 
     .individual-user-post-bottom {
         position: relative;
@@ -1350,37 +1364,37 @@ input:focus {
         margin-top: 5vw;
     }
 
-  .comment-section-title {
-    margin: 4vw 2vw 4vw 3vw;
-  }
+    .comment-section-title {
+        margin: 4vw 2vw 4vw 3vw;
+    }
 
-  .more-posts-from-user-container-header {
-    margin: 4vw 2vw 4vw 3vw;
-  }
+    .more-posts-from-user-container-header {
+        margin: 4vw 2vw 4vw 3vw;
+    }
 
-  .comment-section-list {
-    min-width: 95%;
-  }
+    .comment-section-list {
+        min-width: 95%;
+    }
 
-  .comment-list-info {
-    margin-left: 6vw;
-  }
+    .comment-list-info {
+        margin-left: 6vw;
+    }
 
-  .comment-section-post-form-image {
-    height: 6vw;
-    width: 6vw;
-  }
+    .comment-section-post-form-image {
+        height: 6vw;
+        width: 6vw;
+    }
 
-  .comment-section-input {
-    width: 67vw;
-    height: 6vw;
-  }
+    .comment-section-input {
+        width: 67vw;
+        height: 6vw;
+    }
 
-  .comment-section-submit {
-    display: inline-block;
-    width: 12vw;
-    font-size: 4vw;
-  }
+    .comment-section-submit {
+        display: inline-block;
+        width: 12vw;
+        font-size: 4vw;
+    }
 
     .comment-list-image {
         height: 6vw;
@@ -1393,44 +1407,139 @@ input:focus {
     }
 }
 
+@media only screen and (max-width: 750px) {
+    .main-content {
+        margin-top: 100px;
+      }
+      /* NAV BAR STYLING */
+      .mobile-navbar-main {
+          height: 58px;
+      }
+      .nav-message {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    
+      .hamburger-menu {
+        margin: 0 0 0 2vw;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        z-index: 6;
+      }
+    
+      .nav-logo {
+          font-size: 6vw;
+          display: inline-flex;
+          margin-left: 33%;
+      }
+    
+      .nav-logo-item {
+          line-height: 4vw;
+      }
+    
+      .nav-logo-stops {
+          padding: 0;
+      }
+    
+      .stops {
+          padding-left: 15vw;
+      }
+    
+      .nav-logo-box {
+          width: 10vw;
+          height: 10vw;
+          top: 0.6vw;
+          left: 35.9vw;
+      }
+    
+      .nav-logo-image {
+          width: 10vw;
+      }
+    
+      .mobile-dropDown-menu {
+          position: fixed;
+          margin-top: 101px;
+          top: 0;
+          z-index: 5;
+          background-color: rgba(0, 0, 0, .5);
+          height: 100%;
+          width: 100%;
+      }
+    
+      .nav-link-container-mobile {
+          padding-top: 1vw;
+          padding-bottom: 1vw;
+          background: var(--blue);
+          text-align: center;
+          width: 40%;
+          box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .5);
+      }
+    
+      .nav-link {
+        font-family: "Montserrat", sans-serif;
+        font-size: 2vw;
+        letter-spacing: 2vw;
+        color: var(--black);
+        margin-bottom: 2vw;
+      }
+
+      .nav-bar-logout {
+          padding: 2vw 4vw;
+      }
+}
+
+@media only screen and (max-width: 650px) {
+    .mobile-navbar-main {
+        height: 56px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 99.3px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-navbar-main {
+        height: 54px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 96.5px;
+    }
+}
+
 @media only screen and (max-width: 550px) {
   .main-content {
     margin-top: 100px;
   }
-  /* NAV BAR STYLING */
-  .nav-message {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    width: 100%;
+
+  .nav-link-container-mobile {
+    width: 50%;
   }
 
-  /* This is here until I figure out the navbar situation. */
-
-
-    .mobile-header {
-        position: fixed;
-        z-index: 5;
-        top: 11vw;
-        width: 100%;
-        border-style: none none solid none;
-        border-width: 1px;
-        box-shadow: 0 1px 0 0 black;
-        padding-bottom: 0.5rem;
-        padding-left: 2vw;
-    }
-
-    .mobile-navbar {
-        position: fixed !important;
-        background-color: var(--blue);
-        height: 100vw;
-        width: 200vw;
-        top: 0px;
-    }
+  .mobile-navbar-main {
+      padding-bottom: 20px;
+  }
 
   /* COMMENT SECTION STYLING */
   .comment-section-post-form {
     margin: 2vw 0;
   }
+}
+
+@media only screen and (max-width: 350px) {
+    .mobile-navbar-main {
+        margin-top: 3px;
+        height: 40px;
+        padding-bottom: 20px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 75.5px;
+    }
 }

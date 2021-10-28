@@ -1472,17 +1472,24 @@ input:focus {
       }
     
       .nav-link-container-mobile {
+          padding-top: 1vw;
+          padding-bottom: 1vw;
           background: var(--blue);
           text-align: center;
-          width: 50%;
-          height: 44vw;
+          width: 40%;
+          box-shadow: 2px 2px 5px 2px rgba(0, 0, 0, .5);
       }
     
       .nav-link {
         font-family: "Montserrat", sans-serif;
-        font-size: 3vw;
+        font-size: 2vw;
         letter-spacing: 2vw;
         color: var(--black);
+        margin-bottom: 2vw;
+      }
+
+      .nav-bar-logout {
+          padding: 2vw 4vw;
       }
 }
 
@@ -1509,6 +1516,10 @@ input:focus {
 @media only screen and (max-width: 550px) {
   .main-content {
     margin-top: 100px;
+  }
+
+  .nav-link-container-mobile {
+    width: 50%;
   }
 
   .mobile-navbar-main {

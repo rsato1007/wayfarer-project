@@ -26,9 +26,19 @@
     </div>
 
     <!-- Mobile Navbar -->
-    <div class="mobile-navbar-main">
-      <img src="{% static 'images/hamburger-menu.png' %}" alt="">
+    <div class="mobile-navbar-main" style="display: none;">
+      <img class="hamburger-menu" src="{% static 'images/hamburger-menu.png' %}" alt="">
+      <div class="nav-logo">
+        <div class="nav-logo-historic nav-logo-item z-loc-top">HISTORIC</div>
+        <div class="nav-logo-stops nav-logo-item">
+          <div class="nav-logo-box">
+            <img class="nav-logo-image" src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/splash/seedling.png"  />
+          </div>
+          <span class="stops z-loc-top">STOPS</span>
+        </div>
+      </div>
     </div>
+
     <nav class="navbar-main navbar navbar-expand-md">
     
       <div class="container d-flex justify-content-between">

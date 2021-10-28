@@ -1301,6 +1301,14 @@ input:focus {
   color: var(--white);
 }
 
+.mobile-navbar-main {
+    border: 1px solid black;
+    position: fixed;
+    top: 32px;
+    width: 100%;
+    z-index: 5;
+}
+
 /* RESPONSIVE CSS CODE */
 @media only screen and (max-width: 1250px) {
     /* Comment Section CSS */
@@ -1406,28 +1414,42 @@ input:focus {
     width: 100%;
   }
 
-  /* This is here until I figure out the navbar situation. */
+  .hamburger-menu {
+    margin: 0 0 0 2vw;
+    position: absolute;
+    top: 50%;
+    -ms-transform: translateY(-50%);
+    transform: translateY(-50%);
+  }
 
+  .nav-logo {
+      font-size: 6vw;
+      display: inline-flex;
+      margin-left: 27%;
+  }
 
-    .mobile-header {
-        position: fixed;
-        z-index: 5;
-        top: 11vw;
-        width: 100%;
-        border-style: none none solid none;
-        border-width: 1px;
-        box-shadow: 0 1px 0 0 black;
-        padding-bottom: 0.5rem;
-        padding-left: 2vw;
-    }
+  .nav-logo-item {
+      line-height: 4vw;
+  }
 
-    .mobile-navbar {
-        position: fixed !important;
-        background-color: var(--blue);
-        height: 100vw;
-        width: 200vw;
-        top: 0px;
-    }
+  .nav-logo-stops {
+      padding: 0;
+  }
+
+  .stops {
+      padding-left: 15vw;
+  }
+
+  .nav-logo-box {
+      width: 10vw;
+      height: 10vw;
+      top: 0.6vw;
+      left: 29.9vw;
+  }
+
+  .nav-logo-image {
+      width: 10vw;
+  }
 
   /* COMMENT SECTION STYLING */
   .comment-section-post-form {

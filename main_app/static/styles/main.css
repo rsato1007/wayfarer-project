@@ -1406,79 +1406,109 @@ input:focus {
     }
 }
 
+@media only screen and (max-width: 750px) {
+    .main-content {
+        margin-top: 100px;
+      }
+      /* NAV BAR STYLING */
+
+      .mobile-navbar-main {
+          height: 58px;
+      }
+      .nav-message {
+        position: fixed;
+        z-index: 5;
+        top: 0;
+        left: 0;
+        width: 100%;
+      }
+    
+      .hamburger-menu {
+        margin: 0 0 0 2vw;
+        position: absolute;
+        top: 50%;
+        -ms-transform: translateY(-50%);
+        transform: translateY(-50%);
+        z-index: 6;
+      }
+    
+      .nav-logo {
+          font-size: 6vw;
+          display: inline-flex;
+          margin-left: 33%;
+      }
+    
+      .nav-logo-item {
+          line-height: 4vw;
+      }
+    
+      .nav-logo-stops {
+          padding: 0;
+      }
+    
+      .stops {
+          padding-left: 15vw;
+      }
+    
+      .nav-logo-box {
+          width: 10vw;
+          height: 10vw;
+          top: 0.6vw;
+          left: 35.9vw;
+      }
+    
+      .nav-logo-image {
+          width: 10vw;
+      }
+    
+      .mobile-dropDown-menu {
+          position: fixed;
+          margin-top: 82.5px;
+          top: 0;
+          z-index: 5;
+          background-color: rgba(0, 0, 0, .5);
+          height: 100%;
+          width: 100%;
+      }
+    
+      .nav-link-container-mobile {
+          background: var(--blue);
+          text-align: center;
+          width: 50%;
+          height: 44vw;
+      }
+    
+      .nav-link {
+        font-family: "Montserrat", sans-serif;
+        font-size: 3vw;
+        letter-spacing: 2vw;
+        color: var(--black);
+      }
+}
+
+@media only screen and (max-width: 650px) {
+    .mobile-navbar-main {
+        height: 56px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 93.5px;
+    }
+}
+
+@media only screen and (max-width: 600px) {
+    .mobile-navbar-main {
+        height: 54px;
+    }
+
+    .mobile-dropDown-menu {
+        margin-top: 91.5px;
+    }
+}
+
 @media only screen and (max-width: 550px) {
   .main-content {
     margin-top: 100px;
-  }
-  /* NAV BAR STYLING */
-  .nav-message {
-    position: fixed;
-    z-index: 5;
-    top: 0;
-    left: 0;
-    width: 100%;
-  }
-
-  .hamburger-menu {
-    margin: 0 0 0 2vw;
-    position: absolute;
-    top: 50%;
-    -ms-transform: translateY(-50%);
-    transform: translateY(-50%);
-    z-index: 6;
-  }
-
-  .nav-logo {
-      font-size: 6vw;
-      display: inline-flex;
-      margin-left: 33%;
-  }
-
-  .nav-logo-item {
-      line-height: 4vw;
-  }
-
-  .nav-logo-stops {
-      padding: 0;
-  }
-
-  .stops {
-      padding-left: 15vw;
-  }
-
-  .nav-logo-box {
-      width: 10vw;
-      height: 10vw;
-      top: 0.6vw;
-      left: 35.9vw;
-  }
-
-  .nav-logo-image {
-      width: 10vw;
-  }
-
-  .mobile-dropDown-menu {
-      position: fixed;
-      margin-top: 82.5px;
-      top: 0;
-      z-index: 5;
-      background-color: rgba(0, 0, 0, .5);
-      height: 100%;
-      width: 100%;
-  }
-
-  .nav-link-container-mobile {
-      background: var(--blue);
-      text-align: center;
-      width: 50%;
-      height: 44vw;
-  }
-
-  .nav-link {
-    font-family: "Montserrat", sans-serif;
-    font-size: 3vw;
-    letter-spacing: 2vw;
-    color: var(--black);
   }
 
   /* COMMENT SECTION STYLING */

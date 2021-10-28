@@ -15,9 +15,10 @@ for (let i = 0; i < editForm.length; i++) {
 }
 
 // We'll use this code to eventually design a nav bar for mobile devices.
-if (screen.width <= 550) {
+// PREVIOUSLY 550px
+if (screen.width <= 990) {
     const navbarEl = document.querySelector(".navbar-main").style.display = "none";
-    const mobileNavBarEl = document.querySelector(".mobile-navbar-main").style.display = "block";
+    const mobileNavBarEl = document.querySelector(".mobile-navbar-main").style.display = "inline-block";
 
     // Event that fires when you select the hamburger menu
     let mobileMenuEl = document.querySelector(".hamburger-menu").addEventListener('click', (e) => {

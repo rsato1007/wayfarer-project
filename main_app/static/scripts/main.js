@@ -16,7 +16,7 @@ for (let i = 0; i < editForm.length; i++) {
 
 // We'll use this code to eventually design a nav bar for mobile devices.
 // PREVIOUSLY 550px
-if (screen.width <= 990) {
+if (screen.width <= 900) {
     const navbarEl = document.querySelector(".navbar-main").style.display = "none";
     const mobileNavBarEl = document.querySelector(".mobile-navbar-main").style.display = "inline-block";
 

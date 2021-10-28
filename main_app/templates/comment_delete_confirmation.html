@@ -4,12 +4,12 @@
 <div class="form-body">
   <main class="form-signin">
     <form class="modal-form" method="post">
-      <h1 class="modal-title h3 mb-3 fw-normal">Are you sure you want to delete {{post.title}}?</h1>
+      <h1 class="modal-title h3 mb-3 fw-normal">Are you sure you want to delete comment?</h1>
       {% csrf_token %}
       <!-- confirm artist delete -->
       <input type="submit" class="form-button" value="CONFIRM" />
       <!-- Redirect back to detail on cancel -->
-      <a class="text-decoration-none mt-3" style="color: var(--darkblue);" href="{% url 'city_detail' post.city.pk %}">Cancel</a>
+      <a class="text-decoration-none mt-3" style="color: var(--darkblue);" href="{% url 'post_detail' comment.post.pk %}">Cancel</a>
     </form>
   </main>
 </div>

@@ -18,6 +18,8 @@ urlpatterns = [
     path('post/<int:pk>/delete', views.ProfilePostDelete.as_view(), name="profile_post_delete"),
     # Comment route
     path('post/<int:pk>/comments/new', views.CommentCreate.as_view(), name="comment_create"),
+    path('post/<int:post_pk>/comment/<int:pk>/update', views.CommentUpdate.as_view(), name="comment_update"),
+    path('post/<int:post_pk>/comment/<int:pk>/delete', views.CommentDelete.as_view(), name="comment_delete"),
     # City routes
     path('city/', views.CityList.as_view(), name="city_list"),
     path('city/<int:pk>', views.CityDetail.as_view(), name="city_detail"),

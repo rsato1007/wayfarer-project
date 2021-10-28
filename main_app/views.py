@@ -171,7 +171,7 @@ class ProfilePostUpdate(UpdateView):
 
 class ProfilePostDelete(DeleteView):
     model = Post
-    template_name = "post_delete_confirmation.html"
+    template_name = "profile_post_delete_confirmation.html"
     
     def get_success_url(self):
         return reverse('profile', kwargs={'pk': self.request.user.pk})
@@ -215,3 +215,22 @@ class CommentCreate(View):
         description = request.POST.get("description")
         Comment.objects.create(profile=profile, post=post, description=description)
         return redirect('post_detail', pk=pk)
+
+class CommentUpdate(UpdateView):
+    model = Comment
+    fields = ['description']
+    template_name = "comment_update.html"
+
+    def form_valid(self, form, **kwargs):
+        form.instance.profile = self.request.user.profile
+        return super(CommentUpdate, self).form_valid(form)
+
+    def get_success_url(self, **kwargs):
+        return reverse('post_detail', kwargs={'pk': self.kwargs['post_pk']})
+
+class CommentDelete(DeleteView):
+    model = Comment
+    template_name = "comment_delete_confirmation.html"
+
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'pk': self.kwargs.get('post_pk')})

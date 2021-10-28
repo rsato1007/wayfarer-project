@@ -18,7 +18,17 @@ for (let i = 0; i < editForm.length; i++) {
 if (screen.width <= 550) {
     const navbarEl = document.querySelector(".navbar-main").style.display = "none";
     const mobileNavBarEl = document.querySelector(".mobile-navbar-main").style.display = "block";
-    let mobileMenuEl = document.query
+
+    // Event that fires when you select the hamburger menu
+    let mobileMenuEl = document.querySelector(".hamburger-menu").addEventListener('click', (e) => {
+        if(document.querySelector(".mobile-dropDown-menu").classList.contains("hidden-menu")) {
+            document.querySelector(".mobile-dropDown-menu").classList.remove("hidden-menu");
+            document.querySelector('.mobile-dropDown-menu').style.display = "block";
+        } else {
+            document.querySelector(".mobile-dropDown-menu").classList.add("hidden-menu");
+            document.querySelector('.mobile-dropDown-menu').style.display = "none";
+        }
+    })
 } else {
     console.log("The screen is not so small now.");
 }

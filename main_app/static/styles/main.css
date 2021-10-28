@@ -1425,7 +1425,7 @@ input:focus {
   .nav-logo {
       font-size: 6vw;
       display: inline-flex;
-      margin-left: 27%;
+      margin-left: 33%;
   }
 
   .nav-logo-item {
@@ -1444,7 +1444,7 @@ input:focus {
       width: 10vw;
       height: 10vw;
       top: 0.6vw;
-      left: 29.9vw;
+      left: 35.9vw;
   }
 
   .nav-logo-image {

@@ -536,6 +536,11 @@ SVG Icons
   background-size: cover;
 }
 
+.profile-header-image-container:hover {
+
+  border-color: var(--salmon);
+}
+
 .profile-content-container {
   text-align: center;
   padding: 1.25rem;

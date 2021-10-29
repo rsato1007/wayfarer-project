@@ -63,8 +63,8 @@ SVG Icons
 .nav-message {
   background-color: var(--blue);
   font-family: "Montserrat", sans-serif;
-  font-size: clamp(5px, 1vw, 1vw);
-  letter-spacing: clamp(3px, 1vw, 10vw);
+  font-size: clamp(8px, .5vw, .75vw);
+  letter-spacing: clamp(1px, .75vw, 5vw);
   color: var(--black);
   height: 32px;
   display: flex;

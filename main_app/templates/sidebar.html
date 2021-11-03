@@ -96,7 +96,7 @@
         <!-- List of Cities -->
 
         {% for city in cities %}
-        <a href="{% url 'city_detail' city.pk %}">
+        <a href="{% url 'city_detail' city.slug %}">
         <div>
             <span>{{city.name}}</span>
         </div>

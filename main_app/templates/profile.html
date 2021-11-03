@@ -70,7 +70,7 @@
 
         <!-- This is code I am testing before I push up -->
         <div class="individual-user-post">
-            <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
+            <a href="{% url 'post_detail' post.slug %}" style="text-decoration: none;">
                 {% if post.image %}
                     <img class="individual-user-post-image" src="{{post.image.url}}" alt="">
                 {% else %}
@@ -80,9 +80,9 @@
             <div class="individual-user-post-description">
                 <!-- This code is for the drop down menu on the three dots. -->
                 <div class="individual-post-options">
-                    <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+                    <a href="{% url 'profile_post_update' post.slug %}" class="individual-post-options-menu-link">Edit Post</a>
                     <br>
-                    <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+                    <a href="{% url 'profile_post_delete' post.slug %}" class="individual-post-options-menu-link">Delete Post</a>
                     <br>
                     <p class="individual-post-options-menu-link cancel">Cancel</p>
                 </div>
@@ -92,7 +92,7 @@
                     <div class="individual-user-post-header">
                 {% endif%}
                 <!-- This is the code that includes the post title, city name, and user who post it -->
-                <a href="{% url 'post_detail' post.pk %}" style="text-decoration: none;">
+                <a href="{% url 'post_detail' post.slug %}" style="text-decoration: none;">
                     <span class="individual-user-post-title">{{post.title}}</span> 
                 </a>
                     <br>
@@ -101,7 +101,7 @@
         
                 </div>
                 <br>
-                <p class="individual-user-post-text">{{post.description|truncatechars_html:1000}} <a style="color: var(--darkblue);" href="{% url 'post_detail' post.pk %}">. . . See More</a></p>
+                <p class="individual-user-post-text">{{post.description|truncatechars_html:1000}} <a style="color: var(--darkblue);" href="{% url 'post_detail' post.slug %}">. . . See More</a></p>
                 <div class="individual-user-post-bottom">
                     <span class="individual-user-post-username">
         

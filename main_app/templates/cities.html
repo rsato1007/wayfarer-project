@@ -7,8 +7,8 @@
       
       <span><b>{{post.title}}</b></span>
       <span>{{post.description}}</span>
-  <a class="" href="{% url 'post_update' post.pk %}">Edit Post</a>
- <a class="" href="{% url 'post_delete' post.pk %}">Delete Post</a> 
+  <a class="" href="{% url 'post_update' post.slug %}">Edit Post</a>
+ <a class="" href="{% url 'post_delete' post.slug %}">Delete Post</a> 
     </div>
 		{% empty %}
     <article class="message">

@@ -9,7 +9,7 @@
       <!-- confirm artist delete -->
       <input type="submit" class="form-button" value="CONFIRM" />
       <!-- Redirect back to detail on cancel -->
-      <a class="text-decoration-none mt-3" style="color: var(--darkblue);" href="{% url 'post_detail' comment.post.pk %}">Cancel</a>
+      <a class="text-decoration-none mt-3" style="color: var(--darkblue);" href="{% url 'post_detail' comment.post.slug %}">Cancel</a>
     </form>
   </main>
 </div>

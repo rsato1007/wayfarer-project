@@ -1,4 +1,5 @@
 from django.shortcuts import render, redirect, reverse
+from django.template.defaultfilters import title
 from django.views.generic.base import TemplateView
 from django.views.generic.edit import CreateView, UpdateView, DeleteView
 from django.views.generic import DetailView
@@ -107,6 +108,20 @@ class ProfilePictureUpdate(UpdateView):
 class PostDetail(DetailView):
     model = Post
     template_name = "post_details.html"
+    
+    # def get_context_data(self, slug, **kwargs):
+    #     context = super().get_context_data(**kwargs)
+    #     title = self.request.GET.get("title")
+
+    #     if title != None:
+    #         context["posts"] = Post.objects.filter(name__icontains=title)
+    #         context["post_details"] = Post.objects.get(slug=slug)
+    #     else:
+    #         context["posts"] = Post.objects.all()
+    #         context["post_details"] = Post.objects.get(slug=slug)
+    #     return context
+
+    
 
 class CityList(TemplateView):
     template_name = "city_list.html"
@@ -124,16 +139,16 @@ class CityList(TemplateView):
 class CityDetail(TemplateView):
     template_name = "city_details.html"
 
-    def get_context_data(self, pk, **kwargs):
+    def get_context_data(self, slug, **kwargs):
         context = super().get_context_data(**kwargs)
         name = self.request.GET.get("name")
 
         if name != None:
             context["cities"] = City.objects.filter(name__icontains=name)
-            context["city_details"] = City.objects.get(pk=pk)
+            context["city_details"] = City.objects.get(slug=slug)
         else:
             context["cities"] = City.objects.all()
-            context["city_details"] = City.objects.get(pk=pk)
+            context["city_details"] = City.objects.get(slug=slug)
         return context
 
 # class City(TemplateView):
@@ -155,7 +170,7 @@ class ProfilePostCreate(CreateView):
         return super(ProfilePostCreate, self).form_valid(form)
 
     def get_success_url(self):
-        return reverse('profile', kwargs={'pk': self.kwargs.get('pk')})
+        return reverse('profile', kwargs={'slug': self.kwargs.get('pk')})
 
 class ProfilePostUpdate(UpdateView):
     model = Post
@@ -184,11 +199,12 @@ class Post_Create(CreateView):
 
     def form_valid(self, form, **kwargs):
         form.instance.profile = self.request.user.profile
-        form.instance.city = City.objects.get(pk=self.kwargs.get('pk'))
+        form.instance.city = City.objects.get(slug=self.kwargs['slug'])
         return super(Post_Create, self).form_valid(form)
+    
+    def get_absolute_url(self):
+      return reverse('city_detail', kwargs={'slug': self.slug})
 
-    def get_success_url(self):
-        return reverse('city_detail', kwargs={'pk': self.kwargs.get('pk')})
 
 class Post_Update(UpdateView):
     
@@ -197,7 +213,7 @@ class Post_Update(UpdateView):
     template_name = "post_update.html"
     
     def get_success_url(self):
-        return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})
+        return reverse('city_detail', kwargs={'slug': self.kwargs.get('city_pk')})
 
     
 class Post_Delete(DeleteView):
@@ -205,16 +221,16 @@ class Post_Delete(DeleteView):
     template_name = "post_delete_confirmation.html"
     
     def get_success_url(self):
-        return reverse('city_detail', kwargs={'pk': self.kwargs.get('city_pk')})
+        return reverse('city_detail', kwargs={'slug': self.kwargs.get('city_pk')})
 
 class CommentCreate(View):
 
-    def post(self, request, pk):
+    def post(self, request, slug):
         profile = self.request.user.profile
-        post = Post.objects.get(pk=pk)
+        post = Post.objects.get(slug=slug)
         description = request.POST.get("description")
         Comment.objects.create(profile=profile, post=post, description=description)
-        return redirect('post_detail', pk=pk)
+        return redirect('post_detail', slug=slug)
 
 class CommentUpdate(UpdateView):
     model = Comment
@@ -225,12 +241,12 @@ class CommentUpdate(UpdateView):
         form.instance.profile = self.request.user.profile
         return super(CommentUpdate, self).form_valid(form)
 
-    def get_success_url(self, **kwargs):
-        return reverse('post_detail', kwargs={'pk': self.kwargs['post_pk']})
+    def get_success_url(self):
+        return reverse('post_detail', kwargs={'slug': self.kwargs.get('post_pk')})
 
 class CommentDelete(DeleteView):
     model = Comment
     template_name = "comment_delete_confirmation.html"
 
     def get_success_url(self):
-        return reverse('post_detail', kwargs={'pk': self.kwargs.get('post_pk')})
+        return reverse('post_detail', kwargs={'slug': self.kwargs.get('post_pk')})

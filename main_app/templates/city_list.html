@@ -34,16 +34,16 @@
 
         {% for city in cities %}
 
-            <a class="sidebar-nav-link" href="{% url 'city_detail' city.pk %}" aria-current="page">
+            <a class="sidebar-nav-link" href="{% url 'city_detail' city.slug %}" aria-current="page">
                 <div class="sidebar-nav-item">
                 
                   <div class="image-placeholder">
-                    {% if city_details.image.url != 'null' %}
+                    {% if city_details.image.url != 'null' and city_details.image %}
                     <img src="{{ city.image.url }}" style="width: 100%; height:100%; object-fit: cover;" />
                     {% else %}
                     <img src="https://wayfarer-pythonic-lava.s3.us-west-1.amazonaws.com/city/default-city.jpg" style="width: 100%; height:100%; object-fit: cover;" />
                     {% endif %}
-                  </div>
+                  </div> 
                     <div class="sidebar-city-name">{{city.name}}</div>
                 
                 </div>

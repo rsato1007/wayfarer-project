@@ -5,9 +5,9 @@
     <div class="individual-user-post-description">
         <!-- This code is for the drop down menu on the three dots. -->
         <div class="individual-post-options">
-            <a href="{% url 'profile_post_update' post.pk %}" class="individual-post-options-menu-link">Edit Post</a>
+            <a href="{% url 'profile_post_update' post.slug %}" class="individual-post-options-menu-link">Edit Post</a>
             <br>
-            <a href="{% url 'profile_post_delete' post.pk %}" class="individual-post-options-menu-link">Delete Post</a>
+            <a href="{% url 'profile_post_delete' post.slug %}" class="individual-post-options-menu-link">Delete Post</a>
             <br>
             <p class="individual-post-options-menu-link cancel">Cancel</p>
         </div>
@@ -52,7 +52,7 @@
     <h3 class="comment-section-title">{{post.comment.all|length}} Comments for: {{post.title}}</h3>
     <div class="comment-section-list">
         {% if user.is_authenticated %}
-        <form class="comment-section-post-form" action="{% url 'comment_create' post.pk %}" method="post">
+        <form class="comment-section-post-form" action="{% url 'comment_create' post.slug %}" method="post">
             {% csrf_token %}
             {% if user.profile.image %}
             <img class="comment-section-post-form-image" src="{{user.profile.image.url}}" alt="">
@@ -76,8 +76,8 @@
                 <p class="comment-list-info-user-name">{{comment.profile.user.username}}</p>
                 <p class="comment-list-info-post-time">{{comment.created_at|timesince}} ago</p>
                 <p class="comment-list-info-text">{{comment.description}}</p>
-                <a href="{% url 'comment_update' post.pk comment.pk %}">Edit</a>
-                <a href="{% url 'comment_delete' post.pk comment.pk %}">Delete</a>
+                <a href="{% url 'comment_update' post.slug comment.slug %}">Edit</a>
+                <a href="{% url 'comment_delete' post.slug comment.slug %}">Delete</a>
                 <hr class="comment-list-info-line">
             </div>
         </div>
